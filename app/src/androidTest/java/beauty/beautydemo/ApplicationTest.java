@@ -1,4 +1,4 @@
-package com.beautyteam.beautyapp;
+package beauty.beautydemo;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
