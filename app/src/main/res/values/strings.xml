@@ -8,5 +8,7 @@
     <string name="action_settings_eyebrows">睫毛</string>
     <string name="action_settings_eyeshadow">眼影</string>
     <string name="action_settings_lipgloss">唇膏</string>
-
+    <string name="tab1">tab1</string>
+    <string name="tab2">tab2</string>
+    <string name="tab3">tab3</string>
 </resources>
