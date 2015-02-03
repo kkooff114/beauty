@@ -21,36 +21,19 @@
                 <FrameLayout
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Test"
-                        android:id="@+id/textView2"
-                        android:layout_gravity="left|top" />
-                </FrameLayout>
+                    android:layout_height="match_parent"></FrameLayout>
 
                 <FrameLayout
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceLarge"
-                        android:text="Test2"
-                        android:id="@+id/textView3"
-                        android:layout_gravity="left|top" />
-                </FrameLayout>
+                    android:layout_height="match_parent"></FrameLayout>
 
                 <FrameLayout
                     android:id="@+id/tab3"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
-            </FrameLayout>
+                    android:layout_height="match_parent"></FrameLayout>
 
+            </FrameLayout>
             <TabWidget
                 android:id="@android:id/tabs"
                 android:layout_width="match_parent"

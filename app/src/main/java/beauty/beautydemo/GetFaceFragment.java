@@ -9,17 +9,18 @@ import android.view.ViewGroup;
 /**
  * Created by chenqiming on 2/3/15.
  */
-public class GetProductFragment extends Fragment {
+public class GetFaceFragment extends Fragment {
+
     private View root;
     private LayoutInflater inflater;
 
-    public GetProductFragment()
+    public GetFaceFragment()
     {}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         this.inflater = inflater;
-        root = inflater.inflate(R.layout.fragment_get_product, null);
+        root = inflater.inflate(R.layout.fragment_get_face, null);
         return root;
     }
 }

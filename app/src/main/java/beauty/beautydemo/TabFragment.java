@@ -35,6 +35,7 @@ public class TabFragment extends Fragment implements TabHost.OnTabChangeListener
         root = inflater.inflate(R.layout.fragment_main, null);
         tabHost = (TabHost) root.findViewById(android.R.id.tabhost);
         setupTabs();
+        updateTab("tab1", R.id.tab1);
         return root;
     }
 
@@ -77,19 +78,13 @@ public class TabFragment extends Fragment implements TabHost.OnTabChangeListener
     private void updateTab(String tabId, int placeholder) {
         FragmentManager fm = getFragmentManager();
         if (fm.findFragmentByTag(tabId) == null && "tab1".equals(tabId)) {
-            fm.beginTransaction()
-                    .replace(placeholder, new GetColorFragment(), tabId)
-                    .commit();
+            fm.beginTransaction().add(placeholder, new GetColorFragment()).commit();
         }
         if (fm.findFragmentByTag(tabId) == null && "tab2".equals(tabId)) {
-            fm.beginTransaction()
-                    .replace(placeholder, new GetColorFragment(), tabId)
-                    .commit();
+            fm.beginTransaction().add(placeholder, new GetFaceFragment()).commit();
         }
         if (fm.findFragmentByTag(tabId) == null && "tab3".equals(tabId)) {
-            fm.beginTransaction()
-                    .replace(placeholder, new GetColorFragment(), tabId)
-                    .commit();
+            fm.beginTransaction().add(placeholder, new GetProductFragment()).commit();
         }
     }
 
