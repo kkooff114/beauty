@@ -1,5 +1,7 @@
 package beauty.beautydemo.products;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.TreeMap;
@@ -16,6 +18,14 @@ final public class DAO
     private static List<Product> allProduct = new ArrayList<Product>();
 
     private static TreeMap<Color, Product> colorMap = new TreeMap<Color, Product>();
+
+    static {
+        try {
+            init();
+        } catch (Exception e) {
+            Log.d("Beauty", "Inited once already");
+        }
+    }
 
     private static void addProduct(Product product)
     {
