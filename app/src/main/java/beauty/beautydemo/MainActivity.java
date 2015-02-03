@@ -1,28 +1,23 @@
 package beauty.beautydemo;
 
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.ViewGroup;
-import android.os.Build;
 
 
 public class MainActivity extends ActionBarActivity {
 
+    Menu menu;
+    int actionSettingId;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null)
             getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
+                .add(R.id.container, new TabFragment())
+                .commit();
     }
 
 
@@ -30,6 +25,8 @@ public class MainActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        actionSettingId = R.id.action_settings_foundation;
+        this.menu = menu;
         return true;
     }
 
@@ -45,22 +42,37 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
 
+        if (id == R.id.action_settings_foundation)
+        {
+            menu.findItem(R.id.action_settings).setTitle(R.string.action_settings_foundation);
+            actionSettingId = R.id.action_settings_foundation;
+            return true;
+        }
+        if (id == R.id.action_settings_blush)
+        {
+            menu.findItem(R.id.action_settings).setTitle(R.string.action_settings_blush);
+            actionSettingId = R.id.action_settings_blush;
+            return true;
+        }
+        if (id == R.id.action_settings_lipgloss)
+        {
+            menu.findItem(R.id.action_settings).setTitle(R.string.action_settings_lipgloss);
+            actionSettingId = R.id.action_settings_lipgloss;
+            return true;
+        }
+        if (id == R.id.action_settings_eyebrows)
+        {
+            menu.findItem(R.id.action_settings).setTitle(R.string.action_settings_eyebrows);
+            actionSettingId = R.id.action_settings_eyebrows;
+            return true;
+        }
+        if (id == R.id.action_settings_eyeshadow)
+        {
+            menu.findItem(R.id.action_settings).setTitle(R.string.action_settings_eyeshadow);
+            actionSettingId = R.id.action_settings_eyeshadow;
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * A placeholder fragment containing a simple view.
-     */
-    public static class PlaceholderFragment extends Fragment {
-
-        public PlaceholderFragment() {
-        }
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
-        }
     }
 }

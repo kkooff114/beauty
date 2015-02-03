@@ -3,7 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
     <item android:id="@+id/action_settings"
-        android:title="@string/action_settings"
+        android:title="@string/action_settings_foundation"
         android:orderInCategory="100"
-        app:showAsAction="never" />
+        app:showAsAction="withText|ifRoom">
+        <menu android:layout_width="match_parent"
+            android:id="@+id/action_settings_sub"
+            app:showAsAction="ifRoom">
+            <item android:id="@+id/action_settings_foundation"
+                android:title="@string/action_settings_foundation"
+                app:showAsAction="withText|ifRoom">
+            </item>
+            <item android:id="@+id/action_settings_blush"
+                android:title="@string/action_settings_blush"
+                app:showAsAction="withText|ifRoom">
+            </item>
+            <item android:id="@+id/action_settings_lipgloss"
+                android:title="@string/action_settings_lipgloss"
+                app:showAsAction="withText|ifRoom">
+            </item>
+            <item android:id="@+id/action_settings_eyebrows"
+                android:title="@string/action_settings_eyebrows"
+                app:showAsAction="withText|ifRoom">
+            </item>
+            <item android:id="@+id/action_settings_eyeshadow"
+                android:title="@string/action_settings_eyeshadow"
+                app:showAsAction="withText|ifRoom">
+            </item>
+        </menu>
+    </item>
 </menu>
