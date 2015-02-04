@@ -10,14 +10,15 @@ public class MainActivity extends ActionBarActivity {
 
     Menu menu;
     int actionSettingId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null)
             getSupportFragmentManager().beginTransaction()
-                .add(R.id.container, new TabFragment())
-                .commit();
+                    .add(R.id.container, new TabFragment())
+                    .commit();
     }
 
 
@@ -42,32 +43,27 @@ public class MainActivity extends ActionBarActivity {
             return true;
         }
 
-        if (id == R.id.action_settings_foundation)
-        {
+        if (id == R.id.action_settings_foundation) {
             menu.findItem(R.id.action_settings).setTitle(R.string.action_settings_foundation);
             actionSettingId = R.id.action_settings_foundation;
             return true;
         }
-        if (id == R.id.action_settings_blush)
-        {
+        if (id == R.id.action_settings_blush) {
             menu.findItem(R.id.action_settings).setTitle(R.string.action_settings_blush);
             actionSettingId = R.id.action_settings_blush;
             return true;
         }
-        if (id == R.id.action_settings_lipgloss)
-        {
+        if (id == R.id.action_settings_lipgloss) {
             menu.findItem(R.id.action_settings).setTitle(R.string.action_settings_lipgloss);
             actionSettingId = R.id.action_settings_lipgloss;
             return true;
         }
-        if (id == R.id.action_settings_eyebrows)
-        {
+        if (id == R.id.action_settings_eyebrows) {
             menu.findItem(R.id.action_settings).setTitle(R.string.action_settings_eyebrows);
             actionSettingId = R.id.action_settings_eyebrows;
             return true;
         }
-        if (id == R.id.action_settings_eyeshadow)
-        {
+        if (id == R.id.action_settings_eyeshadow) {
             menu.findItem(R.id.action_settings).setTitle(R.string.action_settings_eyeshadow);
             actionSettingId = R.id.action_settings_eyeshadow;
             return true;

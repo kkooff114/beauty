@@ -13,8 +13,8 @@ public class GetProductFragment extends Fragment {
     private View root;
     private LayoutInflater inflater;
 
-    public GetProductFragment()
-    {}
+    public GetProductFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

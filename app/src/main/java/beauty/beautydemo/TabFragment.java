@@ -1,4 +1,5 @@
 package beauty.beautydemo;
+
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -9,18 +10,16 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TabHost;
-import android.widget.TextView;
-import android.view.LayoutInflater;
-
 
 
 /**
  * Created by chenqiming on 2/2/15.
  */
+
 /**
  * A placeholder fragment containing a simple view.
  */
-public class TabFragment extends Fragment implements TabHost.OnTabChangeListener{
+public class TabFragment extends Fragment implements TabHost.OnTabChangeListener {
     private View root;
     private TabHost tabHost;
     private int currentTab;
@@ -62,7 +61,7 @@ public class TabFragment extends Fragment implements TabHost.OnTabChangeListener
     public void onTabChanged(String tabId) {
         if ("tab1".equals(tabId)) {
             updateTab(tabId, R.id.tab1);
-            currentTab = 1;
+			currentTab = 1;
         }
         if ("tab2".equals(tabId)) {
             updateTab(tabId, R.id.tab2);
@@ -77,20 +76,19 @@ public class TabFragment extends Fragment implements TabHost.OnTabChangeListener
 
     private void updateTab(String tabId, int placeholder) {
         FragmentManager fm = getFragmentManager();
-        if (fm.findFragmentByTag(tabId) == null && "tab1".equals(tabId)) {
+		if (fm.findFragmentById(R.id.tab1) == null && "tab1".equals(tabId)) {
             fm.beginTransaction().add(placeholder, new GetColorFragment()).commit();
         }
-        if (fm.findFragmentByTag(tabId) == null && "tab2".equals(tabId)) {
+        if (fm.findFragmentById(R.id.tab2) == null && "tab2".equals(tabId)) {
             fm.beginTransaction().add(placeholder, new GetFaceFragment()).commit();
         }
-        if (fm.findFragmentByTag(tabId) == null && "tab3".equals(tabId)) {
+        if (fm.findFragmentById(R.id.tab3) == null && "tab3".equals(tabId)) {
             fm.beginTransaction().add(placeholder, new GetProductFragment()).commit();
         }
     }
 
     public static void setTabColor(TabHost tabhost) {
-        for (int i = 0; i < tabhost.getTabWidget().getChildCount(); i++)
-        {
+        for (int i = 0; i < tabhost.getTabWidget().getChildCount(); i++) {
             tabhost.getTabWidget().getChildAt(i).setBackgroundColor(Color.parseColor("#555555")); //unselected
         }
         tabhost.getTabWidget().getChildAt(tabhost.getCurrentTab()).setBackgroundColor(Color.parseColor("#AAAAAA")); // selected

@@ -11,34 +11,72 @@ import java.util.TreeMap;
  */
 final public class DAO
 {
-    private static boolean inited = false;
+	private static boolean inited = false;
 
-    private static List<Color> allColors = new ArrayList<Color>();
+	private static List<Color> allColors = new ArrayList<Color>();
 
-    private static List<Product> allProduct = new ArrayList<Product>();
+	private static List<Product> allProducts = new ArrayList<Product>();
 
-    private static TreeMap<Color, Product> colorMap = new TreeMap<Color, Product>();
+	private static List<Product> allFoundations = new ArrayList<Product>();
+	private static List<Product> allBlushes = new ArrayList<Product>();
+	private static List<Product> allLipglosses = new ArrayList<Product>();
+	private static List<Product> allEyebrows = new ArrayList<Product>();
+	private static List<Product> allEyeshadows = new ArrayList<Product>();
 
-    static {
-        try {
-            init();
-        } catch (Exception e) {
-            Log.d("Beauty", "Inited once already");
-        }
-    }
+	private static TreeMap<Color, Product> colorFoundationsMap = new TreeMap<Color, Product>();
+	private static TreeMap<Color, Product> colorBlushesMap = new TreeMap<Color, Product>();
+	private static TreeMap<Color, Product> colorLipglossesMap = new TreeMap<Color, Product>();
+	private static TreeMap<Color, Product> colorEyebrowsMap = new TreeMap<Color, Product>();
+	private static TreeMap<Color, Product> colorEyeshadowsMap = new TreeMap<Color, Product>();
 
-    private static void addProduct(Product product)
-    {
-        allColors.add(product.getColor());
-        allProduct.add(product);
-        colorMap.put(product.getColor(), product);
-    }
+	static
+	{
+		try
+		{
+			init();
+		} catch (Exception e)
+		{
+			Log.d("Beauty", "Inited once already");
+		}
+	}
 
-    public static void init() throws Exception
-    {
-        if (inited) throw new Exception("inited already");
-        inited = false;
+	private static void addProduct(Product product)
+	{
+		allColors.add(product.getColor());
+		allProducts.add(product);
+		if (product instanceof Foundation)
+		{
+			allFoundations.add((Foundation) product);
+			colorFoundationsMap.put(product.getColor(), product);
+		}
+		if (product instanceof Blush)
+		{
+			allBlushes.add((Blush) product);
+			colorBlushesMap.put(product.getColor(), product);
+		}
+		if (product instanceof Lipgloss)
+		{
+			allLipglosses.add((Lipgloss) product);
+			colorLipglossesMap.put(product.getColor(), product);
+		}
+		if (product instanceof Eyebrows)
+		{
+			allEyebrows.add((Eyebrows) product);
+			colorEyebrowsMap.put(product.getColor(), product);
+		}
+		if (product instanceof Eyeshadow)
+		{
+			allEyeshadows.add((Eyeshadow) product);
+			colorEyeshadowsMap.put(product.getColor(), product);
+		}
+	}
 
-        addProduct(new Lipgloss(new Color(12,12,12), "chanel", "Chanel 1", "a kind of gloss", 1000));
-    }
+	private static void init() throws Exception
+	{
+		if (inited) throw new Exception("inited already");
+		inited = false;
+
+		addProduct(new Lipgloss(new Color(12, 12, 12), "chanel", "Chanel 1", "a kind of gloss", 1000));
+	}
+
 }

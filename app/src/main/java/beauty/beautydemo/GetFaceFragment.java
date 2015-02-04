@@ -14,8 +14,8 @@ public class GetFaceFragment extends Fragment {
     private View root;
     private LayoutInflater inflater;
 
-    public GetFaceFragment()
-    {}
+    public GetFaceFragment() {
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

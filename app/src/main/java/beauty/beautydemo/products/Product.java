@@ -10,8 +10,7 @@ public abstract class Product {
     private String discription;
     private int price;
 
-    public Product(Color c, String brand, String name, String discription, int price)
-    {
+    public Product(Color c, String brand, String name, String discription, int price) {
         this.color = c;
         this.name = name;
         this.brand = brand;

@@ -17,28 +17,23 @@ public class Color {
         this.B = b;
     }
 
-    static int getDifference(Color c1, Color c2)
-    {
-        return Math.abs(c1.getR()-c2.getR()) + Math.abs(c1.getG()-c2.getG()) + Math.abs(c1.getB()-c2.getB());
+    static int getDifference(Color c1, Color c2) {
+        return Math.abs(c1.getR() - c2.getR()) + Math.abs(c1.getG() - c2.getG()) + Math.abs(c1.getB() - c2.getB());
     }
 
-    public int getR()
-    {
+    public int getR() {
         return R;
     }
 
-    public int getG()
-    {
+    public int getG() {
         return G;
     }
 
-    public int getB()
-    {
+    public int getB() {
         return B;
     }
 
-    public int getRGB()
-    {
-        return android.graphics.Color.rgb(R,G,B);
+    public int getRGB() {
+        return android.graphics.Color.rgb(R, G, B);
     }
 }
