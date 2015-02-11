@@ -20,7 +20,7 @@ LOCAL_SRC_FILES:= com_isvsa_jni_ImageUtilEngine.c
 LOCAL_C_INCLUDES := $(JNI_H_INCLUDE) 
 LOCAL_SHARED_LIBRARIES := libutils 
 LOCAL_PRELINK_MODULE := false 
-LOCAL_MODULE := libJNIRGB
+LOCAL_MODULE := JNIRGB
 LOCAL_LDLIBS    :=  -llog -ljnigraphics
 
 include $(BUILD_SHARED_LIBRARY)

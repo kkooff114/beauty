@@ -179,7 +179,7 @@ void initTable()
 	}
 }
 
-jintArray Java_com_isvsa_jni_ImageUtilEngine_decodeYUV420SP(JNIEnv * env,
+jintArray Java_beauty_beautydemo_jni_ImageUtilEngine_decodeYUV420SP(JNIEnv * env,
 		jobject thiz, jbyteArray buf, jint width, jint height) {
 	jbyte * yuv420sp = (*env)->GetByteArrayElements(env, buf, 0);
 

@@ -7,9 +7,10 @@ android {
     defaultConfig {
         applicationId "beauty.beautydemo"
         minSdkVersion 15
-        targetSdkVersion 21
+        targetSdkVersion 19
         versionCode 1
         versionName "1.0"
+
     }
     buildTypes {
         release {
@@ -17,9 +18,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+//    sourceSets { main { jni.srcDirs = ['src/main/jni', 'src/main/jniLibs/'] } }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: 'src/main/libs/armeabi', include: '*/so')
     compile 'com.android.support:appcompat-v7:19.0.0'
+
 }

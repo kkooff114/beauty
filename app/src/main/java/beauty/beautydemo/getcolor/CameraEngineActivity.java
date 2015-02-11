@@ -1,6 +1,7 @@
 package beauty.beautydemo.getcolor;
 
-import com.isvsa.jni.ImageUtilEngine;
+import beauty.beautydemo.R;
+import beauty.beautydemo.jni.ImageUtilEngine;
 
 import android.app.Activity;
 import android.graphics.Color;

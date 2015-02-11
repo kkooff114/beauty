@@ -12,7 +12,7 @@ extern "C" {
  * Method:    decodeYUV420SP
  * Signature: ([BII)[I
  */
-JNIEXPORT jintArray JNICALL Java_com_isvsa_jni_ImageUtilEngine_decodeYUV420SP
+JNIEXPORT jintArray JNICALL Java_beauty_beautydemo_jni_ImageUtilEngine_decodeYUV420SP
   (JNIEnv *, jobject, jbyteArray, jint, jint);
 
 #ifdef __cplusplus
