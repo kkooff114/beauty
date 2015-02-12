@@ -25,7 +25,7 @@ public class CameraEngineActivity extends Activity {
 		mSelfView = (CameraView) findViewById(R.id.self_view);
 		colorText = (TextView)findViewById(R.id.color);
 		mSelfView.setOnColorStatusChange(new OnColorStatusChange() {
-			
+
 			@Override
 			public void onColorChange(int color) {
 				// TODO Auto-generated method stub
