@@ -31,7 +31,7 @@
             android:layout_height="match_parent"
             android:gravity="center" >
 
-            <beauty.beautydemo.getcolor.CameraView
+            <beauty.beautydemo.test.getcolor.CameraView
                 android:id="@+id/self_view"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

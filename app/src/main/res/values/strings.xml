@@ -3,6 +3,7 @@
 
     <string name="app_name">BeautyDemo</string>
     <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
     <string name="action_settings_foundation">基底</string>
     <string name="action_settings_blush">脸颊</string>
     <string name="action_settings_eyebrows">睫毛</string>
@@ -11,4 +12,32 @@
     <string name="tab1">tab1</string>
     <string name="tab2">tab2</string>
     <string name="tab3">tab3</string>
+
+    <string name="tab_color">色调</string>
+    <string name="tab_idea">灵感</string>
+    <string name="tab_testlib">测试库</string>
+    <string name="tab_property">档案</string>
+
+    <string name="lib_provide">实验室提供</string>
+    <string name="lipstick">口红系列</string>
+    <string name="makeup">粉底系列</string>
+
+    <string name="dislike_dlg_lable_speech">读文章</string>
+    <string name="favorite_btn_delete">删除</string>
+    <string name="favorite_btn_edit">编辑</string>
+    <string name="favorite_btn_cancel">取消</string>
+    <string name="label_cancel_dislike">撤消</string>
+
+    <string name="ss_pattern_update">发现%1$d条更新</string>
+    <string name="retry_large_image"><u>加载失败，点击重试</u></string>
+
+    <string name="drawer_btn_rss">频道管理</string>
+    <string name="city_category_list_header">点击选择其他城市</string>
+    <string name="city_category_list_hint">选择城市，立即查看本地新闻</string>
+    <string name="city_category_list_notify_no_city">请先选择您关注的城市</string>
+
+    <string name="subscribe_my_category">我的频道</string>
+    <string name="subscribe_more_category">更多频道</string>
+    <string name="subscribe_manager_category_info">单击增删频道</string>
+    <string name="subscribe_manager_category_info_2">单击增删频道，长按拖拽排序</string>
 </resources>
