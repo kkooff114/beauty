@@ -4,16 +4,18 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:background="@color/bg_gray"
+        android:background="@color/bg_fragment"
         android:orientation="vertical">
 
         <FrameLayout
             android:id="@android:id/tabcontent"
             android:layout_width="fill_parent"
-            android:layout_height="0.0dip"
+            android:layout_height="fill_parent"
+            android:background="@color/bg_fragment"
+            android:layout_marginBottom="@dimen/tab_menu_height"
             android:layout_weight="1.0" />
 
         <TabWidget
@@ -27,11 +29,12 @@
         <RadioGroup
             android:id="@+id/main_tab_group"
             android:layout_width="fill_parent"
-            android:layout_height="55dp"
+            android:layout_height="@dimen/tab_menu_height"
             android:layout_gravity="bottom"
             android:background="@color/white"
             android:gravity="center_vertical"
             android:paddingTop="5dp"
+            android:layout_alignParentBottom="true"
             android:orientation="horizontal">
 
 
@@ -70,6 +73,6 @@
         </RadioGroup>
 
 
-    </LinearLayout>
+    </RelativeLayout>
 
 </TabHost>

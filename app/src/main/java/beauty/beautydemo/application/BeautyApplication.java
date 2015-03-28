@@ -23,10 +23,13 @@ public class BeautyApplication extends Application{
     private static BeautyApplication mAppApplication;
     private SQLHelper sqlHelper;
 
+    private static Context mContext;
+
     @Override
     public void onCreate() {
         // TODO Auto-generated method stub
         super.onCreate();
+        mContext = getApplicationContext();
         initImageLoader(getApplicationContext());
         mAppApplication = this;
     }
@@ -77,5 +80,10 @@ public class BeautyApplication extends Application{
                 .build();
         // Initialize ImageLoader with configuration.
         ImageLoader.getInstance().init(config);//全局初始化此配置
+    }
+
+
+    public static Context getmContext() {
+        return mContext;
     }
 }

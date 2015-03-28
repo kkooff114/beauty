@@ -32,6 +32,7 @@
     <dimen name="tab_space_bottom_line">36.0sp</dimen>
     <dimen name="tab_space_unselected_top">6.0sp</dimen>
     <dimen name="title_bar_height">44.0dip</dimen>
+    <dimen name="tab_menu_height">55.0dip</dimen>
     <dimen name="tab_bar_height">48.0dip</dimen>
     <dimen name="indicator_right_padding">10.0dip</dimen>
     <dimen name="indicator_corner_radius">12.0dip</dimen>
@@ -117,4 +118,8 @@
     <dimen name="alt_mark_size">15.0dip</dimen>
     <dimen name="detail_ad_banner_img_size">50.0dip</dimen>
     <dimen name="detail_ad_banner_img_corner">2.0dip</dimen>
+    <dimen name="card_title_height">66dip</dimen>
+    <dimen name="card_title_close">30dip</dimen>
+    <dimen name="card_body_margin_bottom">70dip</dimen>
+    <dimen name="card_corner">15dip</dimen>
 </resources>

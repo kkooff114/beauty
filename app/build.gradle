@@ -29,4 +29,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:19.0.0'
     compile files('src/main/libs/universal-image-loader-1.9.2-SNAPSHOT-with-sources.jar')
     compile files('src/main/libs/jsoup-1.7.2.jar')
+    compile 'com.nineoldandroids:library:2.4.0'
+    compile files('src/main/libs/android-support-v7-cardview.jar')
 }

@@ -10,6 +10,8 @@
     <color name="black">#000000</color>
     <color name="bg_gray">#929292</color>
 
+    <color name="yellow">#ffffff00</color>
+
 
     <color name="text_lipstick">#ff454545</color>
 
@@ -120,5 +122,12 @@
     <color name="list_city_category_hint_text">#ff999999</color>
 
     <color name="bg_fragment">#f6f6f6</color>
+
+    <color name="bg_card_green">#82e394</color>
+    <color name="bg_card_orange">#e4a280</color>
+    <color name="bg_card_yellow">#e6d267</color>
+    <color name="bg_card_red">#e58380</color>
+    <color name="bg_card_group">#7a706f</color>
+
 
 </resources>
