@@ -38,7 +38,7 @@ import beauty.beautydemo.tools.CustovershootInterpolator;
 public abstract class CardView extends LinearLayout implements View.OnClickListener {
 
     private static final String TAG = "CardView";
-    private static final int duration2 = 1 * 1000;
+    private static final int duration2 = (int) 1.5 * 1000;
     private static final int duration1 = 1 * 1000;
     private static final CustovershootInterpolator overshootInterpolator = new CustovershootInterpolator(4f);
     private static final CustBounceInterpolator bounceInterpolator = new CustBounceInterpolator();
@@ -177,35 +177,96 @@ public abstract class CardView extends LinearLayout implements View.OnClickListe
     @Override
     public boolean dispatchTouchEvent(final MotionEvent event) {
 
-        if (cardStatus == CARD_STATUS_OPEN) {
+        if (cardStatus == CARD_STATUS_OPEN || cardStatus == CARD_STATUS_CLOSE) {
             return super.dispatchTouchEvent(event);
+        } else {
+
+            switch (event.getAction()) {
+
+                case MotionEvent.ACTION_DOWN:
+                    Log.i(TAG, "action_down " + event.getY());
+
+                    break;
+
+                case MotionEvent.ACTION_MOVE:
+                    Log.i(TAG, "action_move");
+
+                    break;
+
+                case MotionEvent.ACTION_UP:
+                    Log.i(TAG, "action_up");
+
+                    break;
+            }
+
+            return super.dispatchTouchEvent(event);
+        }
+    }
+
+    @Override
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+
+        if (cardStatus == CARD_STATUS_OPEN || cardStatus == CARD_STATUS_CLOSE) {
+            return super.onInterceptTouchEvent(ev);
+        }
+
+        switch (ev.getAction()) {
+
+            case MotionEvent.ACTION_DOWN:
+                Log.i(TAG, "intercept_move");
+                break;
+
+            case MotionEvent.ACTION_MOVE:
+                Log.i(TAG, "intercept_move");
+
+                break;
+
+            case MotionEvent.ACTION_UP:
+                Log.i(TAG, "intercept_up");
+
+                break;
+
+        }
+
+        return true;
+    }
+
+
+    float y = 0;
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+
+        if (cardStatus == CARD_STATUS_OPEN || cardStatus == CARD_STATUS_CLOSE) {
+            return super.onInterceptTouchEvent(event);
         }
 
         switch (event.getAction()) {
 
             case MotionEvent.ACTION_DOWN:
-                Log.i(TAG, "action_down");
-
-                //卡片移动
-                cardAction();
-
-                // 将自定义的content界面设置到卡片中
-                LinearLayout cardBody = (LinearLayout) this.findViewById(R.id.card_body);
-                inflater = LayoutInflater.from(mContext);
-                mContentView = inflater.inflate(setContentViewLayoutId(), null);
-                LayoutParams llp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-                cardBody.addView(mContentView, llp);
+                y = event.getY();
                 break;
 
             case MotionEvent.ACTION_MOVE:
-                Log.i(TAG, "action_move");
+                Log.i(TAG, "touchEvent_move");
 
                 break;
 
             case MotionEvent.ACTION_UP:
-                Log.i(TAG, "action_up");
-
+                Log.i(TAG, "touchEvent_up " + event.getY());
+                if (y - event.getY() > getResources().getDimension(R.dimen.card_handle_move_length)) {
+//                    //卡片移动
+                    cardAction();
+//
+//                    // 将自定义的content界面设置到卡片中
+                    LinearLayout cardBody = (LinearLayout) this.findViewById(R.id.card_body);
+                    inflater = LayoutInflater.from(mContext);
+                    mContentView = inflater.inflate(setContentViewLayoutId(), null);
+                    LayoutParams llp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+                    cardBody.addView(mContentView, llp);
+                }
                 break;
+
         }
 
         return true;

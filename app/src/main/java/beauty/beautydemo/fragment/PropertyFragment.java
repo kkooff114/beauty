@@ -24,9 +24,9 @@ import beauty.beautydemo.entity.MoveViewParms;
  * Created by LJW on 15/3/17.
  */
 public class PropertyFragment extends Fragment implements View.OnClickListener, CardView.onCardMoveListener {
-    private TextView title;
-    private TextView back;
-    private RelativeLayout title_bar;
+//    private TextView title;
+//    private TextView back;
+//    private RelativeLayout title_bar;
     private static final String TEXTLIB = "我的档案";
 
     private CardGroup card_wrap;
@@ -58,13 +58,13 @@ public class PropertyFragment extends Fragment implements View.OnClickListener, 
 
     private void initView() {
 
-        title_bar = (RelativeLayout) getActivity().findViewById(R.id.title_bar);
+//        title_bar = (RelativeLayout) getActivity().findViewById(R.id.title_bar);
         main_tab_group = (RadioGroup) getActivity().findViewById(R.id.main_tab_group);
 
-        title = (TextView) getActivity().findViewById(R.id.title);
-        title.setText(TEXTLIB);
-        back = (TextView) getActivity().findViewById(R.id.back);
-        back.setVisibility(View.GONE);
+//        title = (TextView) getActivity().findViewById(R.id.title);
+//        title.setText(TEXTLIB);
+//        back = (TextView) getActivity().findViewById(R.id.back);
+//        back.setVisibility(View.GONE);
 
         card_wrap = (CardGroup) getActivity().findViewById(R.id.card_wrap);
         mySkinCard = new PropertyMySkin(getActivity(),card_wrap, CardView.CARD_COLOR_RED);
@@ -87,16 +87,16 @@ public class PropertyFragment extends Fragment implements View.OnClickListener, 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.title_bar:
+//            case R.id.title_bar:
+//
+//                AnimatorSet set = new AnimatorSet();
+//                set.playTogether(
+//                        ObjectAnimator.ofFloat(title_bar, "translationY", -300),
+//                        ObjectAnimator.ofFloat(main_tab_group, "translationY", 300)
+//                );
+//                set.setDuration(1000).start();
 
-                AnimatorSet set = new AnimatorSet();
-                set.playTogether(
-                        ObjectAnimator.ofFloat(title_bar, "translationY", -300),
-                        ObjectAnimator.ofFloat(main_tab_group, "translationY", 300)
-                );
-                set.setDuration(1000).start();
-
-                break;
+//                break;
         }
     }
 
@@ -104,10 +104,10 @@ public class PropertyFragment extends Fragment implements View.OnClickListener, 
     public List<MoveViewParms> onMove() {
         ArrayList<MoveViewParms> parmses = new ArrayList<MoveViewParms>();
 
-        MoveViewParms titleMVP = new MoveViewParms();
-        titleMVP.view = title_bar;
-        titleMVP.px = -getActivity().getResources().getDimension(R.dimen.title_bar_height);
-        parmses.add(titleMVP);
+//        MoveViewParms titleMVP = new MoveViewParms();
+//        titleMVP.view = title_bar;
+//        titleMVP.px = -getActivity().getResources().getDimension(R.dimen.title_bar_height);
+//        parmses.add(titleMVP);
 
 
         MoveViewParms tabMVP = new MoveViewParms();

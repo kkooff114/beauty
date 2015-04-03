@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg_fragment">
+    android:layout_height="match_parent">
 
 
+    <ImageView
+        android:id="@+id/iv_tx"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/property_tx" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+        android:textSize="22sp"
+        android:textColor="@color/white"
+        android:text="kkooff114"
+        android:layout_below="@+id/iv_tx"/>
 
 
     <beauty.beautydemo.custview.CardGroup
         android:id="@+id/card_wrap"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/bg_card_group"
+
         android:orientation="vertical">
 
     </beauty.beautydemo.custview.CardGroup>
 
-    <include
-        android:id="@id/title_bar"
-        layout="@layout/title_bar" />
 
-</FrameLayout>
+    <!--<include-->
+    <!--android:id="@id/title_bar"-->
+    <!--layout="@layout/title_bar" />-->
+
+</RelativeLayout>

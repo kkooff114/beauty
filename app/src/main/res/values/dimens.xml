@@ -122,4 +122,5 @@
     <dimen name="card_title_close">30dip</dimen>
     <dimen name="card_body_margin_bottom">70dip</dimen>
     <dimen name="card_corner">15dip</dimen>
+    <dimen name="card_handle_move_length">10dip</dimen>
 </resources>
