@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.daimajia.swipe.SwipeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/swipe"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_marginTop="5dp"
+    app:clickToClose="true">
+
+    <LinearLayout
+        android:id="@+id/btn_wrapper"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:padding="5dp"
+        android:tag="Bottom4">
+
+        <ImageView
+            android:id="@+id/magnifier"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="#f7e79c"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:src="@drawable/listpage_more_vs_normal" />
+
+        <ImageView
+            android:id="@+id/star"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:background="#4cd964"
+            android:paddingLeft="25dp"
+            android:paddingRight="25dp"
+            android:src="@drawable/listpage_more_like_normal" />
+    </LinearLayout>
+
+    <android.support.v7.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@color/cards"
+        card_view:cardCornerRadius="4dp">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_fragment"
+            android:orientation="horizontal"
+            android:padding="5dp">
+
+            <ImageView
+                android:id="@+id/iv_a"
+                android:layout_width="100dp"
+                android:layout_height="100dp" />
+
+            <RelativeLayout
+                android:id="@+id/tl_left"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/iv_a"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_product_name_cn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="圣罗兰莹亮纯魅口红"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/tv_product_name_en"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_product_name_cn"
+                    android:text="ROUGE VOLUPTE SHINE"
+                    android:textColor="@color/text_lipstick"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/iv_b1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/tv_product_name_en" />
+
+                <ImageView
+                    android:id="@+id/iv_lip"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/iconfont_kiss"
+                    android:layout_marginRight="5dp"
+                    android:layout_toLeftOf="@+id/tv_lip"/>
+                <TextView
+                    android:id="@+id/tv_lip"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="8dp"
+                    android:text="12%"/>
+
+                <ImageView
+                    android:id="@+id/iv_user"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@drawable/ic_local_florist_orange_a700_24dp"
+                    android:layout_toLeftOf="@+id/tv_user"
+                    android:layout_below="@+id/iv_lip"/>
+                <TextView
+                    android:id="@+id/tv_user"
+                    android:layout_width="30dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="7dp"
+                    android:layout_below="@+id/iv_lip"
+                    android:text="12%"/>
+
+                <TextView
+                    android:id="@+id/tv_product_model"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginLeft="5dp"
+                    android:layout_toRightOf="@+id/iv_b1"
+                    android:text="shine16"
+                    android:textColor="@color/text_lipstick"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <!-- 一句话评论 -->
+            <TextView
+                android:id="@+id/tv_one_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/iv_a"
+                android:layout_marginTop="5dp"
+                android:text="这是一句话评论"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+</com.daimajia.swipe.SwipeLayout>

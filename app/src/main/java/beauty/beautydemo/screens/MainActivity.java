@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.FrameLayout;
@@ -19,6 +20,7 @@ import beauty.beautydemo.dataprovider.DataProvider;
 import beauty.beautydemo.fragment.ColorFragment;
 import beauty.beautydemo.fragment.IdeaFragment;
 import beauty.beautydemo.fragment.PropertyFragment;
+import beauty.beautydemo.fragment.PropertyMaterialFragment;
 import beauty.beautydemo.fragment.TestLibFragment;
 import beauty.beautydemo.tools.ScreenTools;
 
@@ -86,10 +88,10 @@ public class MainActivity extends FragmentActivity {
 
                     case R.id.main_tab_property:
 
-                        params.setMargins(0, 0, 0, 0);
+                        params.setMargins(0, 0, 0, (int) getResources().getDimension(R.dimen.tab_menu_height));
                         tabcontent.setLayoutParams(params);
 
-                        switchContent(new PropertyFragment());
+                        switchContent(PropertyMaterialFragment.getInstance("个人档案"));
                         break;
                 }
             }
@@ -108,5 +110,21 @@ public class MainActivity extends FragmentActivity {
 
         getSupportFragmentManager().beginTransaction().replace(android.R.id.tabcontent, fragment).commit();
 
+    }
+
+    public float centerX=0,centerY=0;
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+
+
+        switch (ev.getAction()) {
+            case MotionEvent.ACTION_UP:
+                centerX = ev.getX();
+                centerY = ev.getY();
+                break;
+
+        }
+
+        return super.dispatchTouchEvent(ev);
     }
 }

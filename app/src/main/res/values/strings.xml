@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <plurals name="likes_count">
+        <item quantity="one">%d like</item>
+        <item quantity="other">%d likes</item>
+    </plurals>
+
+
     <string name="app_name">BeautyDemo</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -13,10 +19,22 @@
     <string name="tab2">tab2</string>
     <string name="tab3">tab3</string>
 
+    <string name="tab_selection_discover">发现</string>
+    <string name="tab_selection_note">彩妆笔记</string>
+
+    <string name="tab_home">主页</string>
     <string name="tab_color">色调</string>
     <string name="tab_idea">灵感</string>
     <string name="tab_testlib">测试库</string>
+    <string name="tab_peoper_nearby">附近的Reder</string>
+    <string name="tab_person">个人</string>
+    <string name="tab_moments">朋友圈</string>
+    <string name="tab_makeuplib">妆库</string>
     <string name="tab_property">档案</string>
+    <string name="tab_note">笔记</string>
+
+    <string name="tab_theme">更换主题</string>
+    <string name="tab_setting">设置</string>
 
     <string name="lib_provide">实验室提供</string>
     <string name="lipstick">口红系列</string>
@@ -40,4 +58,37 @@
     <string name="subscribe_more_category">更多频道</string>
     <string name="subscribe_manager_category_info">单击增删频道</string>
     <string name="subscribe_manager_category_info_2">单击增删频道，长按拖拽排序</string>
+
+    <string name="question1">你现在时尚功底有多厚?</string>
+    <string name="question2">你在什么场合希望好好地化妆打扮？</string>
+    <string name="question3">当你伸出手臂看你手腕处静脉</string>
+    <string name="question4">穿黄色或者橘色的衣服拍张照片（请一定真的这样做），你看起来气色如何？ </string>
+    <string name="question5">如果你不涂防晒霜就出门，你的皮肤会怎样？</string>
+    <string name="question6">下面哪个时尚风格是你最喜欢的？</string>
+    <string name="question7">请排序对你最重要的化妆品种类</string>
+    <string name="question8">你现在最需要有人帮你！</string>
+
+    <string name="yes">确认</string>
+    <string name="cancel">取消</string>
+
+    <string name="rate">评分</string>
+    <string name="total_rate">综合评分</string>
+    <string name="wrap">外包装</string>
+    <string name="runze">滋润度</string>
+    <string name="baohe">颜色饱和度</string>
+    <string name="yanzhan">延展度</string>
+    <string name="chijiu">颜色持久度</string>
+
+    <string name="lip_try">嘴唇试色</string>
+    <string name="color_board">色板</string>
+
+    <string name="comment_rate_all">评价这个系列产品</string>
+    <string name="comment_color">颜色/质地</string>
+    <string name="comment_rate_single">评价这个单品的感性印象</string>
+    <string name="comment_place">场合/推荐</string>
+    <string name="people_look">人查看</string>
+    <string name="no_data">没有数据</string>
+
+
+
 </resources>

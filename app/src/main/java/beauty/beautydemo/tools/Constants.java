@@ -5,11 +5,16 @@ package beauty.beautydemo.tools;
  */
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+import beauty.beautydemo.R;
 import beauty.beautydemo.bean.CityEntity;
+import beauty.beautydemo.bean.Comment;
+import beauty.beautydemo.bean.LibListItem;
 import beauty.beautydemo.bean.NewsEntity;
+import beauty.beautydemo.bean.ShopProduct;
 
 
 public class Constants {
@@ -140,5 +145,218 @@ public class Constants {
 
     /* 频道中区域 如杭州 对应的栏目ID */
     public final static int CHANNEL_CITY = 3;
+
+
+    public static ArrayList<LibListItem> getTestLibList() {
+
+        ArrayList<LibListItem> list = new ArrayList<>();
+
+        LibListItem item1 = new LibListItem();
+        item1.setProductId("1");
+        item1.setProductNameCN("圣罗兰莹亮纯魅口红");
+        item1.setProductNameEN("ROUGE VOLUPTE SHINE");
+        item1.setProductModel("shine16");
+        item1.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        item1.setRate(8.3f);
+        item1.setProductImage(String.valueOf(R.drawable.product1_a));
+        item1.setTryImage(String.valueOf(R.drawable.product1_b1));
+        list.add(item1);
+
+        LibListItem item2 = new LibListItem();
+        item2.setProductId("2");
+        item2.setProductNameCN("迪奥诱惑水感唇釉");
+        item2.setProductNameEN("DIOR ADDICT FLUID STICK");
+        item2.setProductModel("dior338");
+        item2.setRate(6.5f);
+        item2.setProductImage(String.valueOf(R.drawable.product2_a));
+        item2.setTryImage(String.valueOf(R.drawable.product2_b1));
+        item2.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        list.add(item2);
+
+        LibListItem item3 = new LibListItem();
+        item3.setProductId("3");
+        item3.setProductNameCN("圣罗兰莹亮纯魅口红");
+        item3.setProductNameEN("ROUGE VOLUPTE PERLE");
+        item3.setProductModel("perle110");
+        item3.setRate(8.8f);
+        item3.setProductImage(String.valueOf(R.drawable.product3_a));
+        item3.setTryImage(String.valueOf(R.drawable.product3_b1));
+        item3.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        list.add(item3);
+
+        LibListItem item4 = new LibListItem();
+        item4.setProductId("4");
+        item4.setProductNameCN("圣罗兰纯色唇釉");
+        item4.setProductNameEN("VERNIS A LEVRES");
+        item4.setProductModel("YSL唇釉8");
+        item4.setRate(8.8f);
+        item4.setProductImage(String.valueOf(R.drawable.product4_a));
+        item4.setTryImage(String.valueOf(R.drawable.product4_b1));
+        item4.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        list.add(item4);
+
+        LibListItem item5 = new LibListItem();
+        item5.setProductId("5");
+        item5.setProductNameCN("圣罗兰莹亮纯魅口红");
+        item5.setProductNameEN("ROUGE VOLUPTE SHINE");
+        item5.setProductModel("YSL圆管30");
+        item5.setRate(8.3f);
+        item5.setProductImage(String.valueOf(R.drawable.product5_a));
+        item5.setTryImage(String.valueOf(R.drawable.product5_b1));
+        item5.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        list.add(item5);
+
+        LibListItem item6 = new LibListItem();
+        item6.setProductId("6");
+        item6.setProductNameCN("圣罗兰莹亮纯魅口红");
+        item6.setProductNameEN("ROUGE VOLUPTE SHINE");
+        item6.setProductModel("shine14");
+        item6.setRate(8.3f);
+        item6.setProductImage(String.valueOf(R.drawable.product6_a));
+        item6.setTryImage(String.valueOf(R.drawable.product6_b1));
+        item6.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        list.add(item6);
+
+        LibListItem item7 = new LibListItem();
+        item7.setProductId("7");
+        item7.setProductNameCN("圣罗兰莹亮纯魅口红");
+        item7.setProductNameEN("ROUGE VOLUPTE SHINE");
+        item7.setProductModel("shine14");
+        item7.setRate(8.3f);
+        item7.setProductImage(String.valueOf(R.drawable.product6_a));
+        item7.setTryImage(String.valueOf(R.drawable.product6_b1));
+        item7.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        list.add(item7);
+
+        LibListItem item8 = new LibListItem();
+        item8.setProductId("8");
+        item8.setProductNameCN("圣罗兰莹亮纯魅口红");
+        item8.setProductNameEN("ROUGE VOLUPTE SHINE");
+        item8.setProductModel("shine14");
+        item8.setRate(8.3f);
+        item8.setProductImage(String.valueOf(R.drawable.product6_a));
+        item8.setTryImage(String.valueOf(R.drawable.product6_b1));
+        item8.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        list.add(item8);
+
+        LibListItem item9 = new LibListItem();
+        item9.setProductId("9");
+        item9.setProductNameCN("圣罗兰莹亮纯魅口红");
+        item9.setProductNameEN("ROUGE VOLUPTE SHINE");
+        item9.setProductModel("shine14");
+        item9.setRate(8.3f);
+        item9.setProductImage(String.valueOf(R.drawable.product6_a));
+        item9.setTryImage(String.valueOf(R.drawable.product6_b1));
+        item9.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        list.add(item9);
+
+        LibListItem item10 = new LibListItem();
+        item10.setProductId("10");
+        item10.setProductNameCN("圣罗兰莹亮纯魅口红");
+        item10.setProductNameEN("ROUGE VOLUPTE SHINE");
+        item10.setProductModel("shine14");
+        item10.setRate(8.3f);
+        item10.setProductImage(String.valueOf(R.drawable.product6_a));
+        item10.setTryImage(String.valueOf(R.drawable.product6_b1));
+        item10.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        list.add(item10);
+
+        LibListItem item11 = new LibListItem();
+        item11.setProductId("11");
+        item11.setProductNameCN("圣罗兰莹亮纯魅口红");
+        item11.setProductNameEN("ROUGE VOLUPTE SHINE");
+        item11.setProductModel("shine14");
+        item11.setRate(8.3f);
+        item11.setProductImage(String.valueOf(R.drawable.product6_a));
+        item11.setTryImage(String.valueOf(R.drawable.product6_b1));
+        item11.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        list.add(item11);
+
+        LibListItem item12 = new LibListItem();
+        item12.setProductId("12");
+        item12.setProductNameCN("圣罗兰莹亮纯魅口红");
+        item12.setProductNameEN("ROUGE VOLUPTE SHINE");
+        item12.setProductModel("shine14");
+        item12.setRate(8.3f);
+        item12.setProductImage(String.valueOf(R.drawable.product6_a));
+        item12.setTryImage(String.valueOf(R.drawable.product6_b1));
+        item12.setOneRate("点评:阿玛尼的唇彩就是一个完美！颜色纯正一次全覆盖！感动的要流泪！");
+        list.add(item12);
+
+
+        return list;
+    }
+
+    public static ArrayList<String> getLipTryImageList() {
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add(String.valueOf(R.drawable.product4_b1));
+        list.add(String.valueOf(R.drawable.product4_b2));
+        list.add(String.valueOf(R.drawable.product5_b1));
+        list.add(String.valueOf(R.drawable.product3_b1));
+
+        return list;
+    }
+
+    public static ArrayList<String> getLibColorBoard() {
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add(String.valueOf(R.drawable.product4_c));
+
+        return list;
+    }
+
+    public static ArrayList<Comment> getLibComment() {
+        ArrayList<Comment> list = new ArrayList<>();
+
+
+        for (int i = 0; i < 10; i++) {
+            Comment c = new Comment();
+            c.setId(String.valueOf(i));
+            c.setIcon(String.valueOf(R.drawable.property_tx));
+            c.setUserName("kkooff" + i * 2);
+            c.setContent("这是评论 " + i + " ...");
+            c.setTime("1分钟前");
+
+            list.add(c);
+        }
+
+        return list;
+
+    }
+
+    public static ArrayList<ShopProduct> getShopList() {
+        ArrayList<ShopProduct> list = new ArrayList<>();
+
+        for (int i = 0; i < 6; i++) {
+            ShopProduct shop = new ShopProduct();
+            shop.setIcon(String.valueOf(R.drawable.product4_a));
+            shop.setName("圣罗兰莹亮纯魅口红 ROUGE VOLUPTE SHINE");
+            shop.setPrice(String.valueOf(i * 100 + i * 3));
+            shop.setLookNum(String.valueOf(i * 10 + i * 2));
+
+            list.add(shop);
+        }
+
+        return list;
+    };
+
+
+    /**
+     * 获得品牌筛选第一次group
+     * @return
+     */
+    public static ArrayList<String> getBrandGroup(){
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add("迪奥");
+        list.add("阿玛尼");
+        list.add("香奈儿");
+        list.add("魅可");
+        list.add("娇兰");
+        list.add("圣罗兰");
+
+        return list;
+    }
 }
 

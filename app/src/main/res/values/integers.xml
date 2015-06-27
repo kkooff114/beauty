@@ -2,4 +2,8 @@
 <resources>
     <integer name="abc_max_action_buttons">2</integer>
     <integer name="config_slideAnimTime">300</integer>
+
+    <integer name="rcv_animationDurationHide">420</integer>
+    <integer name="rcv_animationDurationReveal">420</integer>
+    <integer name="av_animationDuration">340</integer>
 </resources>

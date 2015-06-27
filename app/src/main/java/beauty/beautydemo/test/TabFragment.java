@@ -52,7 +52,8 @@ public class TabFragment extends Fragment implements TabHost.OnTabChangeListener
     private TabHost.TabSpec newTab(String tag, int labelId, int tabContentId) {
         Log.i("Beauty", "tabid " + 0);
         View indicator = inflater.inflate(R.layout.tab, (ViewGroup) root.findViewById(android.R.id.tabs), false);
-        ((ImageView) indicator.findViewById(R.id.tab)).setImageResource(labelId);
+        //TODO 删除tab,为了不报错
+        //((ImageView) indicator.findViewById(R.id.tab)).setImageResource(labelId);
         TabHost.TabSpec tabSpec = tabHost.newTabSpec(tag);
         tabSpec.setIndicator(indicator);
         tabSpec.setContent(tabContentId);

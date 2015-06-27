@@ -1,18 +1,11 @@
 package beauty.beautydemo.fragment;
 
 import android.content.Context;
-import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 
 import beauty.beautydemo.R;
-import beauty.beautydemo.custview.CardGroup;
-import beauty.beautydemo.custview.CardView;
+import beauty.beautydemo.custview.cardview.CardGroup;
+import beauty.beautydemo.custview.cardview.CardView;
 
 /**
  * Created by LJW on 15/3/20.
@@ -25,8 +18,8 @@ public class PropertyMyColor extends CardView {
 
     }
 
-    public PropertyMyColor(Context context,CardGroup group, int color){
-        super(context,group,color);
+    public PropertyMyColor(Context context,CardGroup group, int color,String title){
+        super(context,group,color,title);
 
     }
 

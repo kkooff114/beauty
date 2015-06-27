@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_shop_card"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/iv_lib_shop"
+        android:layout_width="match_parent"
+        android:layout_height="130dp" />
+
+    <TextView
+        android:id="@+id/tv_lib_shop_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="儿童玩具"
+        android:textColor="@color/lib_text"
+        android:textSize="12sp" />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/bg_xuxian" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$ "
+            android:textColor="@color/theme_color"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_lib_shop_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="18.80"
+            android:textColor="@color/theme_color"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/tv_lib_shop_look_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="22"
+            android:textColor="@color/lib_gray"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/people_look"
+            android:textColor="@color/lib_gray"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

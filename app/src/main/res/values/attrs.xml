@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="beautyproject">
+        <attr name="parallax_factor" format="float" />
+	    <attr name="alpha_factor" format="float" />
+        <attr name="inner_parallax_factor" format="float" />
+        <attr name="parallax_views_num" format="integer" />
+        <attr name="circular_parallax" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ActionView">
+        <attr name="av_color" format="color"/>
+        <attr name="av_action" format="enum">
+            <enum name="drawer" value="0"/>
+            <enum name="back" value="1"/>
+            <enum name="close" value="2"/>
+            <enum name="plus" value="3"/>
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="MaterialTabHost">
+
+        <!-- Custom attributes -->
+        <attr name="hasIcons" format="boolean" />
+        <attr name="materialTabsPrimaryColor" format="color" />
+        <attr name="accentColor" format="color" />
+        <attr name="iconColor" format="color" />
+        <attr name="textColor" format="color"  />
+
+    </declare-styleable>
+
+</resources>

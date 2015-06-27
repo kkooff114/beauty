@@ -2,4 +2,12 @@
 <resources>
     <item type="id" name="card_body"></item>
     <item type="id" name="card_head_close"></item>
+    <item type="id" name="card_head_menu"></item>
+
+    <item name="id_stickynavlayout_topview" type="id"/>
+    <item name="id_stickynavlayout_viewpager" type="id"/>
+    <item name="id_stickynavlayout_indicator" type="id"/>
+    <item name="id_stickynavlayout_innerscrollview" type="id"/>
+
+
 </resources>

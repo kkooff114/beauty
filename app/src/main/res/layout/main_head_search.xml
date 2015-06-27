@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/detail_title_bar_style_search"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/back"
+        style="@style/detail_back_view"
+        android:onClick="doBack" />
+
+    <EditText
+        android:id="@+id/title"
+        style="@style/bg_search"
+        android:textSize="17sp"
+        android:layout_width="fill_parent"
+        android:layout_height="35dp"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="60dp"
+        android:singleLine="true"
+        android:paddingLeft="15dp"
+        android:paddingRight="5dp"
+        android:hint="搜索..."
+        />
+
+    <ImageView
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:background="@drawable/ic_keyboard_control_grey"
+        android:layout_marginRight="10dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"/>
+
+
+</RelativeLayout>

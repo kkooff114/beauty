@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RadioGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_tab_group"
+    android:layout_width="fill_parent"
+    android:layout_height="@dimen/tab_menu_height"
+    android:layout_alignParentBottom="true"
+    android:layout_gravity="bottom"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:paddingTop="5dp">
+
+
+    <RadioButton
+        android:id="@+id/main_tab_color"
+        style="@style/MMTabButton"
+        android:layout_weight="1.0"
+        android:checked="true"
+        android:drawableTop="@drawable/bg_checkbox_menus_color"
+        android:text="@string/tab_color" />
+
+
+    <RadioButton
+        android:id="@+id/main_tab_idea"
+        style="@style/MMTabButton"
+        android:layout_weight="1.0"
+        android:drawableTop="@drawable/bg_checkbox_menus_idea"
+        android:text="@string/tab_idea" />
+
+
+    <RadioButton
+        android:id="@+id/main_tab_testlib"
+        style="@style/MMTabButton"
+        android:layout_weight="1.0"
+        android:drawableTop="@drawable/bg_checkbox_menus_testlib"
+        android:text="@string/tab_testlib" />
+
+
+    <RadioButton
+        android:id="@+id/main_tab_property"
+        style="@style/MMTabButton"
+        android:layout_weight="1.0"
+        android:drawableTop="@drawable/bg_checkbox_menus_property"
+        android:text="@string/tab_property" />
+
+</RadioGroup>
+

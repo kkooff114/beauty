@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat">
@@ -6,15 +6,51 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light"></style>
+
+    <style name="myMaterial" parent="AppBaseTheme">
+
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <item name="android:windowTranslucentStatus" tools:targetApi="21">true</item>
+
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <!-- Toolbar Theme / Apply white arrow -->
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="actionBarTheme">@style/AppTheme.ActionBarTheme</item>
+
+        <!-- Material Theme -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/accent_color</item>
+
+        <item name="android:navigationBarColor" tools:targetApi="21">@color/navigationBarColor
+        </item>
+        <item name="android:windowDrawsSystemBarBackgrounds" tools:targetApi="21">true</item>
+
+    </style>
+
+    <style name="AppTheme.ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- White arrow -->
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/drawerArrowColor</item>
+    </style>
+
     <style name="MMTabButton">
         <item name="android:textSize">12sp</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:background">@color/white</item>
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">40dp</item>
+        <item name="android:layout_height">40dp</item>
         <item name="android:button">@null</item>
         <item name="android:textColor">@drawable/bg_checkbox_menus_text_color</item>
-        <item name="android:layout_weight">1.0</item>
     </style>
 
 
@@ -50,6 +86,7 @@
         <item name="android:textSize">12.0sp</item>
         <item name="android:textColor">@color/default_text_night</item>
     </style>
+
     <style name="item_title">
         <item name="android:textSize">17.0sp</item>
         <item name="android:textColor">@color/item_title</item>
@@ -115,8 +152,20 @@
         <item name="android:background">@drawable/detail_bg_titlebar</item>
     </style>
 
+    <style name="detail_title_bar_style_search" parent="@style/title_bar_style">
+        <item name="android:background">@color/bg_fragment</item>
+    </style>
+
     <style name="title_bar_style">
         <item name="android:background">@drawable/bg_titlebar</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">@dimen/title_bar_height</item>
+        <item name="android:paddingLeft">@dimen/material_screen_padding_left</item>
+        <item name="android:paddingRight">@dimen/material_screen_padding_right</item>
+    </style>
+
+    <style name="title_bar_search_style">
+        <item name="android:background">@color/bg_fragment</item>
         <item name="android:layout_width">fill_parent</item>
         <item name="android:layout_height">@dimen/title_bar_height</item>
     </style>
@@ -143,6 +192,11 @@
 
     <style name="deail_title_text_style" parent="@style/title_text_style">
         <item name="android:textColor">@color/detail_title_text_color</item>
+    </style>
+
+    <style name="bg_search" parent="@style/title_text_style">
+        <item name="android:textColor">@color/detail_title_text_color</item>
+        <item name="android:background">@drawable/bg_search</item>
     </style>
 
     <style name="back_view" parent="@style/title_bar_button">
@@ -259,5 +313,122 @@
         <item name="android:gravity">center</item>
     </style>
 
+
+    <style name="PopupWindowAnimation">
+        <item name="android:windowEnterAnimation">@anim/popshow_anim</item>
+        <item name="android:windowExitAnimation">@anim/pophidden_anim</item>
+    </style>
+
+    <style name="lib_content_rate_linelayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="lib_content_rate_textview_1">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/lib_gray</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="lib_content_rate_textview_2">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="lib_content_rate_textview_3">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+
+    <style name="lib_comment_head_1">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/lib_gray</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="lib_comment_head_2">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="cardViews">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:background">@color/cards</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="cardCornerRadius">4dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+
+    </style>
+
+    <style name="rate_content">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ll_profile_follow">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="tv_profile_follow_num">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="tv_profile_follow_desc">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="AppTheme.TransparentActivity" parent="myMaterial">
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="ContextMenuButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/btn_context_menu</item>
+        <item name="android:gravity">left|center_vertical</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 
 </resources>

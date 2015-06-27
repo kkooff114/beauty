@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_fragment"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_question_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/question1"
+        android:textColor="@color/text_lipstick"
+        android:textSize="22sp" />
+
+    <LinearLayout
+        android:id="@+id/ll_question"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
+
+        <beauty.beautydemo.custview.gallery.QuestionGallery
+            android:id="@+id/customgallery"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></beauty.beautydemo.custview.gallery.QuestionGallery>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_question_over"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/bg_card_green"
+        android:textSize="15sp"
+        android:text="跳过>>"/>
+
+</LinearLayout>

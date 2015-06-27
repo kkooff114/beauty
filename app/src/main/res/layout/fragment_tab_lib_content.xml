@@ -1,0 +1,220 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/material_view_pager_placeholder" />
+
+        <android.support.v7.widget.CardView style="@style/cardViews">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/lip_try"
+                    android:textSize="14sp" />
+
+                <beauty.beautydemo.custview.sticknav.GridViewForScrollView
+                    android:id="@+id/gv_lib_try"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp"
+                    android:horizontalSpacing="1dp"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:verticalSpacing="1dp">
+
+                </beauty.beautydemo.custview.sticknav.GridViewForScrollView>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/cardViews">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/color_board"
+                    android:textSize="14sp" />
+
+                <beauty.beautydemo.custview.sticknav.GridViewForScrollView
+                    android:id="@+id/gv_lib_color_board"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp"
+                    android:horizontalSpacing="1dp"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:verticalSpacing="1dp">
+
+                </beauty.beautydemo.custview.sticknav.GridViewForScrollView>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView style="@style/cardViews">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_lip"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/tv_lip"
+                        android:src="@drawable/iconfont_kiss" />
+
+                    <TextView
+                        android:id="@+id/tv_lip"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="8dp"
+                        android:text="12%"
+                        android:textSize="12sp" />
+
+                    <ImageView
+                        android:id="@+id/iv_user"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_below="@+id/iv_lip"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/tv_user"
+                        android:src="@drawable/ic_local_florist_orange_a700_24dp" />
+
+                    <TextView
+                        android:id="@+id/tv_user"
+                        android:layout_width="30dp"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_below="@+id/iv_lip"
+                        android:layout_marginTop="7dp"
+                        android:text="12%"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/comment_rate_single"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_one_rate_single"
+                    style="@style/rate_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/comment_rate_all"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_one_rate_all"
+                    style="@style/rate_content" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/cardViews">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/rate"
+                    android:textSize="14sp" />
+
+                <com.github.mikephil.charting.charts.BarChart
+                    android:id="@+id/chart1"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+        <android.support.v7.widget.CardView
+            style="@style/cardViews"
+            android:layout_marginBottom="10dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/comment_color"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_comment_color"
+                    style="@style/rate_content" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/comment_place"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_comment_place"
+                    style="@style/rate_content" />
+
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

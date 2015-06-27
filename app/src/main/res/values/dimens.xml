@@ -31,8 +31,8 @@
     <dimen name="tab_space_plus1">3.0dip</dimen>
     <dimen name="tab_space_bottom_line">36.0sp</dimen>
     <dimen name="tab_space_unselected_top">6.0sp</dimen>
-    <dimen name="title_bar_height">44.0dip</dimen>
-    <dimen name="tab_menu_height">55.0dip</dimen>
+    <dimen name="title_bar_height">56dip</dimen>
+    <dimen name="tab_menu_height">48.0dip</dimen>
     <dimen name="tab_bar_height">48.0dip</dimen>
     <dimen name="indicator_right_padding">10.0dip</dimen>
     <dimen name="indicator_corner_radius">12.0dip</dimen>
@@ -122,5 +122,22 @@
     <dimen name="card_title_close">30dip</dimen>
     <dimen name="card_body_margin_bottom">70dip</dimen>
     <dimen name="card_corner">15dip</dimen>
-    <dimen name="card_handle_move_length">10dip</dimen>
+    <dimen name="card_handle_move_length">5dip</dimen>
+
+    <dimen name="icon_margin">16dp</dimen>
+
+    <dimen name="tabhostHeight">48dp</dimen>
+    <dimen name="tabSelectorHeight">2dp</dimen>
+    <dimen name="materialTextTab">14sp</dimen>
+    <dimen name="btn_fab_size">56dp</dimen>
+    <dimen name="default_elevation">8dp</dimen>
+    <dimen name="publish_photo_thumbnail_size">96dp</dimen>
+    <dimen name="comment_avatar_size">56dp</dimen>
+
+    <!-- material style start-->
+    <dimen name="material_screen_padding_left">16dp</dimen>
+    <dimen name="material_screen_padding_right">16dp</dimen>
+
+    <!-- material style end-->
+
 </resources>

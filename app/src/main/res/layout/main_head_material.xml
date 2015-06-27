@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/title_bar"
+    style="@style/title_bar_style" >
+
+    <ImageView
+        android:id="@+id/btn_head_menu"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:src="@drawable/ic_person_pin_white_18dp"/>
+
+    <ImageView
+        android:id="@+id/btn_head_email"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_toLeftOf="@+id/tv_head_email_num"
+        android:src="@drawable/ic_email_white_18dp"/>
+    <TextView
+        android:id="@+id/tv_head_email_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:text="12"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:textColor="@color/md_grey_400"/>
+
+
+
+</RelativeLayout>

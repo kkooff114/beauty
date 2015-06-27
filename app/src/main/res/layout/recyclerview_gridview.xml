@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    style="@style/cardViews">
+
+    <beauty.beautydemo.custview.sticknav.GridViewForScrollView
+
+        android:id="@+id/gv_lib_shop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_lib_gray"
+        android:horizontalSpacing="10dp"
+        android:numColumns="2"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:verticalSpacing="10dp">
+
+    </beauty.beautydemo.custview.sticknav.GridViewForScrollView>
+</android.support.v7.widget.CardView>

@@ -33,25 +33,25 @@ public class ChannelManage {
     static {
         defaultUserChannels = new ArrayList<ChannelItem>();
         defaultOtherChannels = new ArrayList<ChannelItem>();
-        defaultUserChannels.add(new ChannelItem(1, "推荐", 1, 1));
-        defaultUserChannels.add(new ChannelItem(2, "热点", 2, 1));
-        defaultUserChannels.add(new ChannelItem(3, "上海", 3, 1));
-        defaultUserChannels.add(new ChannelItem(4, "时尚", 4, 1));
-        defaultUserChannels.add(new ChannelItem(5, "场合", 5, 1));
-        defaultUserChannels.add(new ChannelItem(6, "韩范", 6, 1));
-        defaultUserChannels.add(new ChannelItem(7, "欧美", 7, 1));
-        defaultOtherChannels.add(new ChannelItem(8, "达人", 1, 0));
-        defaultOtherChannels.add(new ChannelItem(9, "汽车", 2, 0));
-        defaultOtherChannels.add(new ChannelItem(10, "房产", 3, 0));
-        defaultOtherChannels.add(new ChannelItem(11, "社会", 4, 0));
-        defaultOtherChannels.add(new ChannelItem(12, "情感", 5, 0));
-        defaultOtherChannels.add(new ChannelItem(13, "女人", 6, 0));
-        defaultOtherChannels.add(new ChannelItem(14, "旅游", 7, 0));
-        defaultOtherChannels.add(new ChannelItem(15, "健康", 8, 0));
-        defaultOtherChannels.add(new ChannelItem(16, "美女", 9, 0));
-        defaultOtherChannels.add(new ChannelItem(17, "游戏", 10, 0));
-        defaultOtherChannels.add(new ChannelItem(18, "数码", 11, 0));
-        defaultUserChannels.add(new ChannelItem(19, "娱乐", 12, 0));
+        defaultUserChannels.add(new ChannelItem(1, "场合妆", 1, 1));
+        defaultUserChannels.add(new ChannelItem(2, "风格妆", 2, 1));
+        defaultUserChannels.add(new ChannelItem(3, "基础", 3, 1));
+        defaultUserChannels.add(new ChannelItem(4, "基础系列", 4, 1));
+//        defaultUserChannels.add(new ChannelItem(5, "场合", 5, 1));
+//        defaultUserChannels.add(new ChannelItem(6, "韩范", 6, 1));
+//        defaultUserChannels.add(new ChannelItem(7, "欧美", 7, 1));
+//        defaultOtherChannels.add(new ChannelItem(8, "达人", 1, 0));
+//        defaultOtherChannels.add(new ChannelItem(9, "汽车", 2, 0));
+//        defaultOtherChannels.add(new ChannelItem(10, "房产", 3, 0));
+//        defaultOtherChannels.add(new ChannelItem(11, "社会", 4, 0));
+//        defaultOtherChannels.add(new ChannelItem(12, "情感", 5, 0));
+//        defaultOtherChannels.add(new ChannelItem(13, "女人", 6, 0));
+//        defaultOtherChannels.add(new ChannelItem(14, "旅游", 7, 0));
+//        defaultOtherChannels.add(new ChannelItem(15, "健康", 8, 0));
+//        defaultOtherChannels.add(new ChannelItem(16, "美女", 9, 0));
+//        defaultOtherChannels.add(new ChannelItem(17, "游戏", 10, 0));
+//        defaultOtherChannels.add(new ChannelItem(18, "数码", 11, 0));
+//        defaultUserChannels.add(new ChannelItem(19, "娱乐", 12, 0));
     }
 
     private ChannelManage(SQLHelper paramDBHelper) throws SQLException {

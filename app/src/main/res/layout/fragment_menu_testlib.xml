@@ -1,90 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/bg_fragment"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
+
+    <beauty.beautydemo.custview.reveal.RevealBackgroundView
+        android:id="@+id/vRevealBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.5"
-        android:background="@color/theme_color"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="176dp"
-            android:layout_height="48dp"
-            android:background="@drawable/detail_loading"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_test_lib_head"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1.5"
+            android:background="@color/theme_color"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="176dp"
+                android:layout_height="48dp"
+                android:background="@drawable/detail_loading" />
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:background="@color/white"
-
-        android:orientation="horizontal">
-        <TextView
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:textColor="@color/text_lipstick"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="30dp"
-            android:textSize="20sp"
-            android:layout_gravity="center_vertical"
-            android:text="@string/lipstick"/>
-        <ImageView
-            android:layout_width="200dp"
+        <LinearLayout
+            android:id="@+id/ll_lipstick"
+            android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:background="@drawable/testlib_lipstick"/>
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:text="@string/lipstick"
+                android:textColor="@color/text_lipstick"
+                android:textSize="20sp" />
+
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="160dp"
+                android:background="@drawable/testlib_lipstick" />
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:background="@color/theme_color">
-        <ImageView
-            android:layout_width="200dp"
+        <LinearLayout
+            android:id="@+id/ll_makeup"
+            android:layout_width="match_parent"
             android:layout_height="160dp"
-            android:background="@drawable/testlib_makeup"/>
+            android:background="@color/theme_color">
 
-        <TextView
-            android:layout_width="0dp"
+            <ImageView
+                android:layout_width="200dp"
+                android:layout_height="160dp"
+                android:background="@drawable/testlib_makeup" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_weight="1"
+                android:gravity="end"
+                android:text="@string/makeup"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <!--<ImageView-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="@color/theme_color_light" />-->
+
+        <LinearLayout
+            android:id="@+id/ll_testlib_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:textColor="@color/white"
-            android:gravity="end"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="30dp"
-            android:textSize="20sp"
-            android:layout_gravity="center_vertical"
-            android:text="@string/makeup"/>
+            android:background="@color/theme_color"
+            android:gravity="center">
 
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/detail_loading" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="29dp"
+                android:text="@string/lib_provide"
+                android:textColor="@color/bg_fragment"
+                android:textSize="12sp" />
         </LinearLayout>
+    </LinearLayout>
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/theme_color_light"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="@color/theme_color"
-        android:gravity="center">
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:background="@drawable/detail_loading"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textColor="@color/bg_fragment"
-            android:textSize="12sp"
-            android:layout_marginTop="29dp"
-            android:text="@string/lib_provide"/>
-        </LinearLayout>
-
-</LinearLayout>
+</RelativeLayout>

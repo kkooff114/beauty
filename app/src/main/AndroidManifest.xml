@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="beauty.beautydemo" >
+    xmlns:toos="http://schemas.android.com/tools"
+    package="beauty.beautydemo">
 
-    <uses-feature android:name="android.hardware.camera"
+    <uses-feature
+        android:name="android.hardware.camera"
         android:required="true" />
+
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,19 +16,23 @@
     <!-- 往SDCard写入数据权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <!-- 震动权限 -->
-    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
 
 
     <application
         android:name=".application.BeautyApplication"
-        android:hardwareAccelerated="true"
         android:allowBackup="true"
+        android:hardwareAccelerated="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/myMaterial"
+        toos:replace="android:theme">
         <activity
-            android:name=".screens.MainActivity"
-            android:label="@string/app_name" >
+            android:name=".screens.materialmenu.SimpleHeaderDrawerActivity"
+            android:theme="@style/MaterialDrawerTheme.Light.DarkToolbar.TranslucentStatus"
+            android:label="@string/app_name"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,14 +41,55 @@
         </activity>
 
 
-        <activity android:name=".screens.ChannelActivity" >
-        </activity>
-        <activity android:name=".screens.DetailsActivity" >
-        </activity>
-        <activity android:name=".screens.CityListActivity" >
-        </activity>
-        <activity android:name=".screens.ImageShowActivity" >
-        </activity>
+        <activity
+            android:name=".screens.MainActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".screens.ChannelActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".screens.DetailsActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".screens.CityListActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".screens.ImageShowActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".screens.TestLibListActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden"></activity>
+        <activity
+            android:name=".screens.TestLibProductDetailActivity"
+            android:hardwareAccelerated="false"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateHidden"></activity>
+        <activity
+            android:name=".screens.TestLibProductDetailMaterialActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".screens.TestLibProductDetailMaterialTab2Activity"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".screens.PropertyMaterialActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TransparentActivity"></activity>
+
+        <activity
+            android:name=".screens.TakePhotoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.TransparentActivity" />
+        <activity
+            android:name=".screens.PublishActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".screens.CommentsActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden" />
     </application>
 
 </manifest>

@@ -1,0 +1,33 @@
+<beauty.beautydemo.custview.sticknav.StickyNavLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@id/id_stickynavlayout_topview"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="#4400ff00">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/product1_a" />
+    </RelativeLayout>
+
+
+    <beauty.beautydemo.custview.sticknav.SimpleViewPagerIndicator
+        android:id="@id/id_stickynavlayout_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#ffffffff"></beauty.beautydemo.custview.sticknav.SimpleViewPagerIndicator>
+
+    <android.support.v4.view.ViewPager
+        android:id="@id/id_stickynavlayout_viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#44ff0000"></android.support.v4.view.ViewPager>
+
+
+</beauty.beautydemo.custview.sticknav.StickyNavLayout>

@@ -1,0 +1,11 @@
+<!--menu_main.xml-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".PublishActivity">
+    <item
+        android:id="@+id/action_publish"
+        android:icon="@drawable/ic_done_white_24dp"
+        android:title="Done"
+        app:showAsAction="always" />
+</menu>

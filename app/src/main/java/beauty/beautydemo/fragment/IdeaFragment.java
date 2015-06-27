@@ -122,7 +122,7 @@ public class IdeaFragment extends Fragment {
         int count =  userChannelList.size();
         mColumnHorizontalScrollView.setParam(getActivity(), mScreenWidth, mRadioGroup_content, shade_left, shade_right, ll_more_columns, rl_column);
         for(int i = 0; i< count; i++){
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(mItemWidth , LinearLayout.LayoutParams.WRAP_CONTENT);
+            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT , LinearLayout.LayoutParams.WRAP_CONTENT);
             params.leftMargin = 5;
             params.rightMargin = 5;
 //			TextView localTextView = (TextView) mInflater.inflate(R.layout.column_radio_item, null);
@@ -205,6 +205,7 @@ public class IdeaFragment extends Fragment {
     }
     /**
      *  ViewPager切换监听方法
+     *
      * */
     public ViewPager.OnPageChangeListener pageListener= new ViewPager.OnPageChangeListener(){
 

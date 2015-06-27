@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <beauty.beautydemo.custview.reveal.RevealBackgroundView
+        android:id="@+id/vRevealBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<include-->
+        <!--android:id="@+id/head"-->
+        <!--layout="@layout/main_head_material" />-->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rv_property_tabhost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/rv_property_head"
+            android:background="@drawable/bg_shadow_tab"
+            android:paddingBottom="2dp">
+
+            <it.neokree.materialtabs.MaterialTabHost
+                android:id="@+id/tabHost_profile"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+
+                app:accentColor="@color/accent"
+                app:hasIcons="true"
+                app:primaryColor="@color/md_red_200" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rv_property_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/theme_color"
+            android:paddingBottom="10dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/question0602"
+                app:border_color="@color/white"
+                app:border_width="2dp">
+
+            </de.hdodenhof.circleimageview.CircleImageView>
+
+            <TextView
+                android:id="@+id/tv_profile_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/profile_image"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="4dp"
+                android:text="John Smith"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:id="@+id/ll_head_status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_profile_name"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_head_photo"
+                    style="@style/ll_profile_follow">
+
+                    <TextView
+                        style="@style/tv_profile_follow_num"
+                        android:text="1305" />
+
+                    <TextView
+                        style="@style/tv_profile_follow_desc"
+                        android:text="照片" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_head_followers"
+                    style="@style/ll_profile_follow">
+
+                    <TextView
+                        style="@style/tv_profile_follow_num"
+                        android:text="395" />
+
+                    <TextView
+                        style="@style/tv_profile_follow_desc"
+                        android:text="粉丝" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_head_following"
+                    style="@style/ll_profile_follow">
+
+                    <TextView
+                        style="@style/tv_profile_follow_num"
+                        android:text="485" />
+
+                    <TextView
+                        style="@style/tv_profile_follow_desc"
+                        android:text="关注" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/rv_property_tabhost"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/bg_fragment"
+            android:visibility="invisible"/>
+
+    </RelativeLayout>
+
+
+    <com.getbase.floatingactionbutton.FloatingActionsMenu
+        android:id="@+id/multiple_actions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        fab:fab_addButtonColorNormal="@color/md_red_300"
+        fab:fab_addButtonColorPressed="@color/md_red_400">
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/md_red_50"
+            fab:fab_colorPressed="@color/md_red_100"
+            fab:fab_icon="@drawable/ic_edit_red_300_18dp"
+            fab:fab_size="mini" />
+
+        <com.getbase.floatingactionbutton.FloatingActionButton
+            android:id="@+id/action_photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            fab:fab_colorNormal="@color/md_red_50"
+            fab:fab_colorPressed="@color/md_red_100"
+            fab:fab_icon="@drawable/ic_photo_camera_red_300_18dp"
+            fab:fab_size="mini" />
+
+    </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+</RelativeLayout>

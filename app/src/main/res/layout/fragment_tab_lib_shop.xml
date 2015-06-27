@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<com.github.ksoichiro.android.observablescrollview.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:id="@+id/scrollView_shop"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:paddingLeft="10dp"-->
+    <!--android:paddingRight="10dp"-->
+    <!--android:scrollbars="none">-->
+
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:orientation="vertical">-->
+
+        <!--<include layout="@layout/material_view_pager_placeholder" />-->
+
+        <!--<beauty.beautydemo.custview.sticknav.GridViewForScrollView-->
+            <!--android:id="@+id/gv_lib_shop"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:background="@color/bg_lib_gray"-->
+            <!--android:horizontalSpacing="10dp"-->
+            <!--android:numColumns="2"-->
+            <!--android:paddingBottom="10dp"-->
+            <!--android:paddingTop="10dp"-->
+            <!--android:verticalSpacing="10dp">-->
+
+        <!--</beauty.beautydemo.custview.sticknav.GridViewForScrollView>-->
+
+    <!--</LinearLayout>-->
+<!--</com.github.ksoichiro.android.observablescrollview.ObservableScrollView>-->
+<android.support.v7.widget.RecyclerView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rv_shop"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+</android.support.v7.widget.RecyclerView>

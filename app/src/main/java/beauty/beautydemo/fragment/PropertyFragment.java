@@ -6,18 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import com.nineoldandroids.animation.AnimatorSet;
-import com.nineoldandroids.animation.ObjectAnimator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import beauty.beautydemo.R;
-import beauty.beautydemo.custview.CardGroup;
-import beauty.beautydemo.custview.CardView;
+import beauty.beautydemo.custview.cardview.CardGroup;
+import beauty.beautydemo.custview.cardview.CardView;
 import beauty.beautydemo.entity.MoveViewParms;
 
 /**
@@ -30,10 +25,10 @@ public class PropertyFragment extends Fragment implements View.OnClickListener, 
     private static final String TEXTLIB = "我的档案";
 
     private CardGroup card_wrap;
-    private PropertyMySkin mySkinCard;
+    private PropertyAskFor myAskFor;
     private PropertyMyColor myColorCard;
-    private PropertyMySkin mySkinCard2;
-    private PropertyMyColor myColorCard2;
+    private PropertyMySkin mySkinCard;
+    private PropertyMyProperty myProperty;
 
     private RadioGroup main_tab_group;
 
@@ -67,19 +62,21 @@ public class PropertyFragment extends Fragment implements View.OnClickListener, 
 //        back.setVisibility(View.GONE);
 
         card_wrap = (CardGroup) getActivity().findViewById(R.id.card_wrap);
-        mySkinCard = new PropertyMySkin(getActivity(),card_wrap, CardView.CARD_COLOR_RED);
-        mySkinCard.setListener(this);
-        myColorCard = new PropertyMyColor(getActivity(),card_wrap, CardView.CARD_COLOR_YELLOW);
+        myAskFor = new PropertyAskFor(getActivity(),card_wrap, CardView.CARD_COLOR_GREEN,"提个要求");
+        myAskFor.setListener(this);
+        myColorCard = new PropertyMyColor(getActivity(),card_wrap, CardView.CARD_COLOR_ORANGE,"我的颜色");
         myColorCard.setListener(this);
-        mySkinCard2 = new PropertyMySkin(getActivity(),card_wrap, CardView.CARD_COLOR_ORANGE);
-        mySkinCard2.setListener(this);
-        myColorCard2 = new PropertyMyColor(getActivity(),card_wrap, CardView.CARD_COLOR_GREEN);
-        myColorCard2.setListener(this);
+        mySkinCard = new PropertyMySkin(getActivity(),card_wrap, CardView.CARD_COLOR_YELLOW,"我的肤质");
+        mySkinCard.setListener(this);
+        myProperty = new PropertyMyProperty(getActivity(),card_wrap, CardView.CARD_COLOR_RED,"美妆档案");
+        myProperty.setListener(this);
 
+
+        card_wrap.addCard(myProperty);
         card_wrap.addCard(mySkinCard);
         card_wrap.addCard(myColorCard);
-        card_wrap.addCard(mySkinCard2);
-        card_wrap.addCard(myColorCard2);
+        card_wrap.addCard(myAskFor);
+
         card_wrap.displayCards();
 
     }
