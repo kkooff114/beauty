@@ -1,5 +1,6 @@
 package beauty.beautydemo.fragment;
 
+import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,7 +9,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.view.animation.OvershootInterpolator;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -23,6 +23,7 @@ import beauty.beautydemo.R;
 import beauty.beautydemo.adapter.ViewPagerAdapter;
 import beauty.beautydemo.base.BeautyBaseFragment;
 import beauty.beautydemo.custview.reveal.RevealBackgroundView;
+import beauty.beautydemo.screens.NoteMainActivity;
 import beauty.beautydemo.screens.TakePhotoActivity;
 import beauty.beautydemo.screens.materialmenu.SimpleHeaderDrawerActivity;
 import de.hdodenhof.circleimageview.CircleImageView;
@@ -49,6 +50,8 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
     private RelativeLayout mPropertyHead, mPropertyTabhost;//头模块, tabhost模块
     private FloatingActionsMenu mFloatingActionMenu; //圆圈菜单
     private FloatingActionButton action_photo; // 拍照
+
+    FloatingActionButton action_text;
 
     private long profileHeaderAnimationStartTime = 0;
 
@@ -82,6 +85,8 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
         mPager = (ViewPager) view.findViewById(R.id.pager);
         action_photo = (FloatingActionButton) view.findViewById(R.id.action_photo);
         action_photo.setOnClickListener(this);
+        action_text = (FloatingActionButton) view.findViewById(R.id.action_text);
+        action_text.setOnClickListener(this);
 
         vRevealBackground = (RevealBackgroundView) view.findViewById(R.id.vRevealBackground);
         setupRevealBackground(savedInstanceState);
@@ -211,12 +216,22 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.action_photo: //拍照
 
-                ((SimpleHeaderDrawerActivity)getActivity()).startActivityRelLocation(v, getActivity(), TakePhotoActivity.class);
+                ((SimpleHeaderDrawerActivity) getActivity()).startActivityRelLocation(v, getActivity(), TakePhotoActivity.class);
 
                 break;
+
+            case R.id.action_text:
+                takeNote(v);
+                break;
         }
+    }
+
+
+    public void takeNote(View v) {
+        Intent intent = new Intent(getActivity(), NoteMainActivity.class);
+        startActivity(intent);
     }
 }

@@ -9,6 +9,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import beauty.beautydemo.R;
+import beauty.beautydemo.tools.PreferenceUtils;
+import beauty.beautydemo.tools.ThemeUtils;
+import butterknife.ButterKnife;
 
 /**
  * Created by LJW on 15/4/8.
@@ -20,13 +23,30 @@ public class BeautyBaseActivity extends AppCompatActivity {
 
     public static final String MENUID = "menuid";
 
+    public static final int REQUEST_CODE_SELECT_TAGS = 0;// 选择tags
+    public static final int REQUEST_CODE_EDIT_PHOTO = 1;// 编辑照片
+
+    public static final String FLAG_SELECT_TAGS = "select_tags";// 选择tags
 
 
+    protected PreferenceUtils preferenceUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        preferenceUtils = PreferenceUtils.getInstance(this);
+        initTheme();
 
         super.onCreate(savedInstanceState);
+    }
+
+    private void initTheme() {
+        ThemeUtils.Theme theme = getCurrentTheme();
+        ThemeUtils.changTheme(this, theme);
+    }
+
+    protected ThemeUtils.Theme getCurrentTheme() {
+        int value = preferenceUtils.getIntParam(getString(R.string.change_theme_key), 0);
+        return ThemeUtils.Theme.mapValueToTheme(value);
     }
 
     @Override

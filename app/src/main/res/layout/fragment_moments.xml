@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,12 +13,31 @@
         android:layout_height="match_parent" />
 
 
+    <it.neokree.materialtabs.MaterialTabHost
+        android:id="@+id/tabHost_profile"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:accentColor="@color/accent"
+        app:hasIcons="false"
+        app:primaryColor="@color/md_red_200" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_below="@+id/tabHost_profile"
+        android:layout_weight="1"
+        android:background="@color/bg_fragment"
+        android:visibility="invisible" />
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rcFeed"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar"
-        android:scrollbars="none" />
+        android:scrollbars="none"
+        android:visibility="gone" />
 
     <com.getbase.floatingactionbutton.FloatingActionsMenu
         android:id="@+id/multiple_actions"

@@ -14,15 +14,22 @@ import android.view.ViewTreeObserver;
 import android.view.animation.OvershootInterpolator;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 import beauty.beautydemo.R;
 import beauty.beautydemo.base.BeautyBaseActivity;
 import beauty.beautydemo.screens.materialmenu.SimpleHeaderDrawerActivity;
 import beauty.beautydemo.tools.BaseTools;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
+import butterknife.OnClick;
 
 
 /**
@@ -31,6 +38,11 @@ import beauty.beautydemo.tools.BaseTools;
 public class PublishActivity extends BeautyBaseActivity implements View.OnClickListener {
     public static final String ARG_TAKEN_PHOTO_URI = "arg_taken_photo_uri";
 
+    @InjectView(R.id.rl_tag)
+    RelativeLayout mRlTag;// 选择标签
+
+    @InjectView(R.id.tv_tags_show)
+    TextView mTagShow; // 显示所选择的tag
 
     ToggleButton tbFollowers;
 
@@ -54,6 +66,7 @@ public class PublishActivity extends BeautyBaseActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_publish);
+        ButterKnife.inject(this);
 
         initView();
 
@@ -186,6 +199,34 @@ public class PublishActivity extends BeautyBaseActivity implements View.OnClickL
         switch (v.getId()) {
 
 
+        }
+    }
+
+    @OnClick(R.id.rl_tag)
+    void selectTags(View v) {
+        Intent intent = new Intent(PublishActivity.this, SelectTagsActivity.class);
+        startActivityForResult(intent, REQUEST_CODE_SELECT_TAGS);
+        overridePendingTransition(R.anim.slide_in_from_right, R.anim.slide_out_to_left);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        switch (requestCode) {
+            case REQUEST_CODE_SELECT_TAGS: //选择
+                ArrayList<String> selectTag;
+                if (data != null && data.getStringArrayListExtra(FLAG_SELECT_TAGS) != null) {
+                    selectTag = data.getStringArrayListExtra(FLAG_SELECT_TAGS);
+                    if (selectTag != null && selectTag.size() > 0) {
+                        StringBuilder sb = new StringBuilder();
+                        for (String s : selectTag) {
+                            sb.append(s).append("、");
+                        }
+                        sb.deleteCharAt(sb.length() - 1);
+                        mTagShow.setText(sb.toString());
+                    }
+                }
         }
     }
 }

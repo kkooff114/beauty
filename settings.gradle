@@ -1,1 +1,1 @@
-include ':app', ':MaterialDrawerlibrary'
+include ':app', ':MaterialDrawerlibrary', ':stackview'

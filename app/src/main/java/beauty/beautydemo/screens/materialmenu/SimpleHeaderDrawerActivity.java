@@ -7,14 +7,17 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.CompoundButton;
 import android.widget.FrameLayout;
+import android.widget.GridView;
 import android.widget.ImageView;
 
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
@@ -33,17 +36,27 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialdrawer.model.interfaces.OnCheckedChangeListener;
 
+import java.util.Arrays;
 import java.util.List;
 
 import beauty.beautydemo.R;
+import beauty.beautydemo.adapter.ColorsListAdapter;
 import beauty.beautydemo.base.BeautyBaseActivity;
 import beauty.beautydemo.base.BeautyBaseFragment;
 import beauty.beautydemo.fragment.HomeFragment;
+import beauty.beautydemo.fragment.IdeaFragment;
 import beauty.beautydemo.fragment.MomentsFragment;
+import beauty.beautydemo.fragment.NoteMainFragment;
 import beauty.beautydemo.fragment.PropertyMaterialFragment;
+import beauty.beautydemo.fragment.SubscribeListFragment;
 import beauty.beautydemo.fragment.TestLibFragment;
+import beauty.beautydemo.screens.CameraActivity;
 import beauty.beautydemo.screens.PropertyMaterialActivity;
+import beauty.beautydemo.screens.SettingActivity;
+import beauty.beautydemo.screens.SubscribeAddActivity;
 import beauty.beautydemo.tools.ScreenTools;
+import beauty.beautydemo.tools.ThemeUtils;
+import butterknife.OnClick;
 
 
 public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
@@ -56,7 +69,7 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
     private String mPreContentTag = "";
     private FrameLayout mframeContainer;
 
-    private MenuItem inboxMenuItem;
+    private MenuItem inboxMenuItem, addMenuItem;
 
     //save our header or result
     private AccountHeader headerResult = null;
@@ -65,7 +78,7 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
     private boolean pendingIntroAnimation;
     private Toolbar toolbar;
     private View mToolShadow;
-    private ImageView ivLogo;
+//    private ImageView ivLogo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,9 +99,10 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
         // Handle Toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolShadow = (View) findViewById(R.id.tool_shadow);
+        toolbar.setTitle("主页");
         setSupportActionBar(toolbar);
-
-        ivLogo = (ImageView) findViewById(R.id.ivLogo);
+        toolbar.setOnMenuItemClickListener(onMenuItemClickListener);
+//        ivLogo = (ImageView) findViewById(R.id.ivLogo);
 
         // Create a few sample profile
         // NOTE you have to define the loader logic too. See the CustomApplication for more details
@@ -291,26 +305,57 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
 
     private void updateContent(int index, View view) {
 
+        if (addMenuItem != null) {
+            addMenuItem.setVisible(false);
+        }
+
         switch (index) {
             case 1:
+                toolbar.setTitle("主页");
                 switchContent(HomeFragment.newInstance("主页"), view, "1");
                 break;
 
+            case 2:
+                Intent intent2 = new Intent(SimpleHeaderDrawerActivity.this, CameraActivity.class);
+                startActivity(intent2);
+                break;
+
+            case 3:
+                toolbar.setTitle("灵感");
+                addMenuItem.setVisible(true);
+                switchContent(SubscribeListFragment.newInstance("灵感"), view, "3");
+                break;
+
             case 4:
+                toolbar.setTitle("测试库");
                 switchContent(TestLibFragment.newInstance("测试库"), view, "4");
                 break;
 
             case 5:
+                toolbar.setTitle("个人");
                 switchContent(PropertyMaterialFragment.getInstance("个人"), view, "5");
                 break;
 
             case 6:
-
+                toolbar.setTitle("关注");
                 MomentsFragment mf = MomentsFragment.getInstance("朋友圈");
                 if (ACTION_SHOW_LOADING_ITEM.equals(getIntent().getAction())) {
                     mf.isPublic = true;
                 }
                 switchContent(mf, view, "6");
+                break;
+
+            case 8:
+                toolbar.setTitle("笔记");
+                switchContent(NoteMainFragment.newInstance("笔记"), view, "8");
+                break;
+
+            case 11:
+                showThemeChooseDialog();
+                break;
+            case 12:
+                Intent intent12 = new Intent(SimpleHeaderDrawerActivity.this, SettingActivity.class);
+                startActivity(intent12);
                 break;
         }
 
@@ -355,6 +400,8 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         inboxMenuItem = menu.findItem(R.id.action_inbox);
         inboxMenuItem.setActionView(R.layout.menu_item_view);
+        addMenuItem = menu.findItem(R.id.action_add);
+        addMenuItem.setVisible(false);
 
         if (pendingIntroAnimation) {
             pendingIntroAnimation = false;
@@ -363,6 +410,21 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
         return true;
     }
 
+    private Toolbar.OnMenuItemClickListener onMenuItemClickListener = new Toolbar.OnMenuItemClickListener() {
+        @Override
+        public boolean onMenuItemClick(MenuItem item) {
+            switch (item.getItemId()) {
+                case R.id.action_add:
+                    Intent intent = new Intent(SimpleHeaderDrawerActivity.this, SubscribeAddActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(R.anim.slide_in_bottom,R.anim.nothing);
+                    break;
+            }
+
+            return false;
+        }
+    };
+
     private void startIntroAnimation() {
 
 //        btnCreate.setTranslationY(2 * getResources().getDimensionPixelOffset(R.dimen.btn_fab_size));
@@ -370,7 +432,7 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
         int actionbarSize = ScreenTools.dpToPx(56);
         toolbar.setTranslationY(-actionbarSize);
         mToolShadow.setTranslationY(-actionbarSize);
-        ivLogo.setTranslationY(-actionbarSize);
+//        ivLogo.setTranslationY(-actionbarSize);
         inboxMenuItem.getActionView().setTranslationY(-actionbarSize);
 
         toolbar.animate()
@@ -382,14 +444,14 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
                 .setDuration(ANIM_DURATION_TOOLBAR)
                 .setStartDelay(300);
 
-        ivLogo.animate()
-                .translationY(0)
-                .setDuration(ANIM_DURATION_TOOLBAR)
-                .setStartDelay(400);
+//        ivLogo.animate()
+//                .translationY(0)
+//                .setDuration(ANIM_DURATION_TOOLBAR)
+//                .setStartDelay(400);
         inboxMenuItem.getActionView().animate()
                 .translationY(0)
                 .setDuration(ANIM_DURATION_TOOLBAR)
-                .setStartDelay(500)
+                .setStartDelay(400)
                 .setListener(new AnimatorListenerAdapter() {
                     @Override
                     public void onAnimationEnd(Animator animation) {
@@ -450,5 +512,58 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
 //            }
 //        }
     }
+
+
+    /**
+     * 更换主题
+     */
+    private void showThemeChooseDialog() {
+        AlertDialog.Builder builder = generateDialogBuilder();
+        builder.setTitle(R.string.change_theme);
+        Integer[] res = new Integer[]{R.drawable.red_round, R.drawable.brown_round, R.drawable.blue_round,
+                R.drawable.blue_grey_round, R.drawable.yellow_round, R.drawable.deep_purple_round,
+                R.drawable.pink_round, R.drawable.green_round};
+        List<Integer> list = Arrays.asList(res);
+        ColorsListAdapter adapter = new ColorsListAdapter(SimpleHeaderDrawerActivity.this, list);
+        adapter.setCheckItem(getCurrentTheme().getIntValue());
+        GridView gridView = (GridView) LayoutInflater.from(SimpleHeaderDrawerActivity.this).inflate(R.layout.colors_panel_layout, null);
+        gridView.setStretchMode(GridView.STRETCH_COLUMN_WIDTH);
+        gridView.setCacheColorHint(0);
+        gridView.setAdapter(adapter);
+        builder.setView(gridView);
+        final AlertDialog dialog = builder.show();
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                dialog.dismiss();
+                int value = getCurrentTheme().getIntValue();
+                if (value != position) {
+                    preferenceUtils.saveParam(getString(R.string.change_theme_key), position);
+                    toolbar.setBackgroundColor(getResources().getColor(ThemeUtils.getThemeColor(position)));
+                }
+            }
+        });
+    }
+
+    protected AlertDialog.Builder generateDialogBuilder() {
+        ThemeUtils.Theme theme = getCurrentTheme();
+        AlertDialog.Builder builder;
+        switch (theme) {
+            case BROWN:
+                builder = new AlertDialog.Builder(SimpleHeaderDrawerActivity.this, R.style.BrownDialogTheme);
+                break;
+            case BLUE:
+                builder = new AlertDialog.Builder(SimpleHeaderDrawerActivity.this, R.style.BlueDialogTheme);
+                break;
+            case BLUE_GREY:
+                builder = new AlertDialog.Builder(SimpleHeaderDrawerActivity.this, R.style.BlueGreyDialogTheme);
+                break;
+            default:
+                builder = new AlertDialog.Builder(SimpleHeaderDrawerActivity.this, R.style.RedDialogTheme);
+                break;
+        }
+        return builder;
+    }
+
 
 }

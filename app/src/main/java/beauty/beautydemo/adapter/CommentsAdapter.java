@@ -14,13 +14,14 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 
 import beauty.beautydemo.R;
+import beauty.beautydemo.base.BeautyBaseRecyclerAdapter;
 import beauty.beautydemo.custview.intamaterial.RoundedTransformation;
 
 
 /**
  * Created by froger_mcs on 11.11.14.
  */
-public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class CommentsAdapter extends BeautyBaseRecyclerAdapter<RecyclerView.ViewHolder> {
 
     private Context context;
     private int itemsCount = 0;
@@ -42,7 +43,7 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder viewHolder, int position) {
+    public void onBindViewHolderExtend(RecyclerView.ViewHolder viewHolder, int position) {
         runEnterAnimation(viewHolder.itemView, position);
         CommentViewHolder holder = (CommentViewHolder) viewHolder;
         switch (position % 3) {
@@ -100,14 +101,6 @@ public class CommentsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     public void addItem() {
         itemsCount++;
         notifyItemInserted(itemsCount - 1);
-    }
-
-    public void setAnimationsLocked(boolean animationsLocked) {
-        this.animationsLocked = animationsLocked;
-    }
-
-    public void setDelayEnterAnimation(boolean delayEnterAnimation) {
-        this.delayEnterAnimation = delayEnterAnimation;
     }
 
     public static class CommentViewHolder extends RecyclerView.ViewHolder {

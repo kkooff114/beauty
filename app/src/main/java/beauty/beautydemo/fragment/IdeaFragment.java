@@ -19,16 +19,21 @@ import java.util.ArrayList;
 import beauty.beautydemo.R;
 import beauty.beautydemo.adapter.NewsFragmentPagerAdapter;
 import beauty.beautydemo.application.BeautyApplication;
+import beauty.beautydemo.base.BeautyBaseFragment;
 import beauty.beautydemo.bean.ChannelItem;
 import beauty.beautydemo.bean.ChannelManage;
 import beauty.beautydemo.custview.ColumnHorizontalScrollView;
+import beauty.beautydemo.custview.reveal.RevealBackgroundView;
 import beauty.beautydemo.screens.ChannelActivity;
 import beauty.beautydemo.tools.BaseTools;
 
 /**
  * Created by LJW on 15/3/17.
  */
-public class IdeaFragment extends Fragment {
+public class IdeaFragment extends BeautyBaseFragment {
+
+    public static final String TITLE = "t";
+    private String mTitle = "";
 
     /** 自定义HorizontalScrollView */
     private ColumnHorizontalScrollView mColumnHorizontalScrollView;
@@ -59,7 +64,21 @@ public class IdeaFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_menu_idea, container, false);
+        View view = inflater.inflate(R.layout.fragment_menu_idea, container, false);
+        vRevealBackground = (RevealBackgroundView) view.findViewById(R.id.vRevealBackground);
+        setupRevealBackground(savedInstanceState);
+
+        return view;
+    }
+
+
+    public static IdeaFragment newInstance(String title) {
+
+        IdeaFragment instance = new IdeaFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString(TITLE, title);
+        instance.setArguments(bundle);
+        return instance;
     }
 
     @Override

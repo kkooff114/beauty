@@ -45,7 +45,7 @@ public class TestLibProductDetailMaterialTab2Activity extends FragmentActivity i
         tabHost = (MaterialTabHost) this.findViewById(R.id.tabHost);
 
         fragmentList.add(TabLibContentFragment.newInstance(titleTexts[0]));
-        fragmentList.add(TabLibCommentFragment.newInstance(titleTexts[1]));
+        fragmentList.add(TabLibContentFragment.newInstance(titleTexts[1]));
         fragmentList.add(TabLibShopFragment.newInstance(titleTexts[2]));
     }
 

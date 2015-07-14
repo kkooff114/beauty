@@ -6,8 +6,13 @@
         <item quantity="other">%d likes</item>
     </plurals>
 
+    <plurals name="dislikes_count">
+        <item quantity="one">%d dislike</item>
+        <item quantity="other">%d dislikes</item>
+    </plurals>
 
-    <string name="app_name">BeautyDemo</string>
+
+    <string name="app_name">Red</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="action_settings_foundation">基底</string>
@@ -88,6 +93,89 @@
     <string name="comment_place">场合/推荐</string>
     <string name="people_look">人查看</string>
     <string name="no_data">没有数据</string>
+
+    <string name="setting">设置</string>
+    <string name="about">关于</string>
+    <string name="exit">退出</string>
+    <string name="search">搜索</string>
+    <string name="more">更多</string>
+    <string name="general_settings">常规</string>
+    <string name="other">其他</string>
+    <string name="advice_feedback">意见反馈</string>
+    <string name="give_favor">给应用点赞</string>
+    <string name="share_to_friends">分享给朋友们</string>
+    <string name="show_note_history_log">显示笔记全部操作记录</string>
+    <string name="sync">同步</string>
+    <string name="show_note_history_log_summary">开启显示笔记全部操作记录，将显示笔记所有的操作记录，否则只显示最新的操作记录</string>
+    <array name="drawer_content">
+        <item>口红笔记</item>
+        <item>彩妆笔记</item>
+        <item>其他笔记</item>
+        <item>回收站</item>
+    </array>
+    <string name="note_log_text" formatted="false">%s\u0020:\u0020%s</string>
+    <string name="edit">编辑</string>
+    <string name="move_to_trash">移至回收站</string>
+    <string name="delete_forever">永久删除</string>
+    <string name="right_hand_mode">右手操作模式</string>
+    <string name="right_hand_mode_summary">开启右手操作模式，侧边栏将从右边划开，默认从左边划开</string>
+    <string name="sure">确定</string>
+    <string name="delete_forever_message">是否要永久地删除了该条笔记</string>
+    <string name="done">完成</string>
+    <string name="label">标签</string>
+    <string name="note_content">笔记内容</string>
+    <string name="new_note">新的笔记</string>
+    <string name="search_note">搜索笔记</string>
+    <string name="search_tag">搜索标签</string>
+    <string name="edit_note">编辑笔记</string>
+    <string name="view_note">查看笔记</string>
+    <string name="show_note_history_log_key">show_note_history_log_key</string>
+    <string name="right_hand_mode_key">right_hand_mode_key</string>
+    <string name="move_success">成功移除</string>
+    <string name="recover">恢复</string>
+    <string name="create">创建</string>
+    <string name="advice_feedback_key">advice_feedback_key</string>
+    <string name="no_email_app_tip">请先安装邮件应用并设置账户,或直接发送邮件至 kkooff114@gmail.com</string>
+    <string name="choose_account">请选择账号</string>
+    <string name="sync_account">同步账号</string>
+    <string name="sync_account_key">sync_account_key</string>
+    <string name="no_account_tip">请在手机设置中添加一个有效的邮箱账号</string>
+    <string name="multi_account_tip">您的有效邮箱账号多于一个，请在设置中选择</string>
+    <string name="multi_account_choose_tip">您的有效邮箱账号多于一个，请点击选择</string>
+    <string name="syncing">正在后台同步中</string>
+    <string name="sync_success">同步成功</string>
+    <string name="sync_fail">同步失败，建议在网络好的时候进行同步</string>
+    <string name="pay_for_me_title">觉得不错，随意打赏</string>
+    <string name="jianshu_blog">简书博客</string>
+    <string name="project_home">项目主页</string>
+    <string name="pay_for_me_tip">如果觉得极简笔记对您有用，请随意打赏。</string>
+    <string name="pay_for_me">随意打赏</string>
+    <string name="pay_for_me_key">pay_for_me_key</string>
+    <string name="recycle_bin">回收站</string>
+    <string name="move_to">移回</string>
+    <string name="give_favor_key">give_favor_key</string>
+    <string name="card_note_item_layout">卡片式笔记</string>
+    <string name="card_note_item_layout_key">card_note_item_layout_key</string>
+    <string name="not_save_note_leave_tip">笔记已经发生变化，是否保存后再离开</string>
+    <string name="change_theme">更换主题</string>
+    <string name="change_theme_key">change_theme_key</string>
+    <string name="today" formatted="false">今天\u0020%s</string>
+    <string name="before_day" formatted="false">%d\u0020天前</string>
+    <string name="before_month" formatted="false">%d\u0020个月前</string>
+    <string name="before_year" formatted="false">%d\u0020年前</string>
+    <string name="share_text" formatted="false">极简笔记简洁好用，推荐你也来用用 %s\u0020%s</string>
+    <string name="download_url" >下载地址</string>
+    <string name="share">分享到</string>
+    <string name="not_install_app">请先安装相应客户端</string>
+    <array name="share_dialog_text">
+        <item>微信好友</item>
+        <item>微信朋友圈</item>
+        <item>微信收藏</item>
+        <item>新浪微博</item>
+        <item>更多</item>
+    </array>
+
+    <string name="tag">标签</string>
 
 
 

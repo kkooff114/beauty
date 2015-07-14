@@ -5,6 +5,8 @@ package beauty.beautydemo.tools;
  */
 
 
+import android.widget.Switch;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,12 +17,16 @@ import beauty.beautydemo.bean.Comment;
 import beauty.beautydemo.bean.LibListItem;
 import beauty.beautydemo.bean.NewsEntity;
 import beauty.beautydemo.bean.ShopProduct;
+import beauty.beautydemo.entity.SubcribeContentListItem;
+import beauty.beautydemo.entity.SubscribeListItem;
+import beauty.beautydemo.entity.Tag;
 
 
 public class Constants {
+
     /*
-     * 获取新闻列表
-     */
+         * 获取新闻列表
+         */
     public static ArrayList<NewsEntity> getNewsList() {
         ArrayList<NewsEntity> newsList = new ArrayList<NewsEntity>();
         for (int i = 0; i < 10; i++) {
@@ -339,14 +345,17 @@ public class Constants {
         }
 
         return list;
-    };
+    }
+
+    ;
 
 
     /**
      * 获得品牌筛选第一次group
+     *
      * @return
      */
-    public static ArrayList<String> getBrandGroup(){
+    public static ArrayList<String> getBrandGroup() {
         ArrayList<String> list = new ArrayList<>();
 
         list.add("迪奥");
@@ -357,6 +366,387 @@ public class Constants {
         list.add("圣罗兰");
 
         return list;
+    }
+
+    /**
+     * 获得公众号列表
+     */
+    public static ArrayList<SubscribeListItem> getSubList() {
+
+        ArrayList<SubscribeListItem> list = new ArrayList<>();
+
+        SubscribeListItem item = new SubscribeListItem();
+        item.icon = "drawable://" + R.drawable.ic_sub_hz;
+        item.name = "韩妆";
+        item.message = "福利 | 肌肤胜雪的秘密";
+        item.time = "11:32";
+        list.add(item);
+
+        SubscribeListItem item2 = new SubscribeListItem();
+        item2.icon = "drawable://" + R.drawable.ic_sub_hm;
+        item2.name = "画眉";
+        item2.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+        item2.time = "11:21";
+        list.add(item2);
+
+        SubscribeListItem item3 = new SubscribeListItem();
+        item3.icon = "drawable://" + R.drawable.ic_sub_sbz;
+        item3.name = "上班妆";
+        item3.message = "福利 | 肌肤胜雪的秘密";
+        item3.time = "11:32";
+        list.add(item3);
+
+        SubscribeListItem item4 = new SubscribeListItem();
+        item4.icon = "drawable://" + R.drawable.ic_sub_yx;
+        item4.name = "眼线";
+        item4.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+        item4.time = "11:21";
+        list.add(item4);
+
+        SubscribeListItem item5 = new SubscribeListItem();
+        item5.icon = "drawable://" + R.drawable.ic_sub_bbww;
+        item5.name = "芭比娃娃妆";
+        item5.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+        item5.time = "11:21";
+        list.add(item5);
+
+//        SubscribeListItem item6 = new SubscribeListItem();
+//        item6.icon = "drawable://" + R.drawable.ic_sub_sg;
+//        item6.name = "水果妆";
+//        item6.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+//        item6.time  = "11:21";
+//        list.add(item6);
+//
+//        SubscribeListItem item7 = new SubscribeListItem();
+//        item7.icon = "drawable://" + R.drawable.ic_sub_tmz;
+//        item7.name = "透明妆";
+//        item7.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+//        item7.time  = "11:21";
+//        list.add(item7);
+//
+//        SubscribeListItem item8 = new SubscribeListItem();
+//        item8.icon = "drawable://" + R.drawable.ic_sub_wyz;
+//        item8.name = "晚宴妆";
+//        item8.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+//        item8.time  = "11:21";
+//        list.add(item8);
+//
+//        SubscribeListItem item9 = new SubscribeListItem();
+//        item9.icon = "drawable://" + R.drawable.ic_sub_wtz;
+//        item9.name = "舞台妆";
+//        item9.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+//        item9.time  = "11:21";
+//        list.add(item9);
+//
+//        SubscribeListItem item10 = new SubscribeListItem();
+//        item10.icon = "drawable://" + R.drawable.ic_sub_yxz;
+//        item10.name = "烟熏妆";
+//        item10.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+//        item10.time  = "11:21";
+//        list.add(item10);
+
+        return list;
+    }
+
+    /**
+     * 获得公众号内容列表
+     */
+    public static ArrayList<SubcribeContentListItem> getSubContentList(String type) {
+        ArrayList<SubcribeContentListItem> list = new ArrayList<SubcribeContentListItem>();
+
+        switch (type) {
+            case "韩妆":
+                SubcribeContentListItem item = new SubcribeContentListItem();
+                item.title = "【周末美美出行】粗眉+红唇，韩系裸妆教程！";
+                item.img = "drawable://" + R.drawable.sub_hz_01;
+                item.content = "在韩剧里大家都见识到韩系裸妆的精致，如何才能画好裸妆成为目前的关键。下面就跟着小都一起来学习如何打造完美韩系裸妆吧！";
+                item.publicTime = "2015-07-08";
+                item.url = "http://mp.weixin.qq.com/s?__biz=MjM5MjA1MDQwMQ==&mid=203711879&idx=4&sn=650d9289c46195a8ca8ec03c9d7efe03#rd";
+                list.add(item);
+
+                SubcribeContentListItem item2 = new SubcribeContentListItem();
+                item2.title = "1000秒气场妆容打造法，酷感女王妆容造型";
+                item2.img = "drawable://" + R.drawable.sub_hz_02;
+                item2.content = "韩国妆容教程，1000秒气场妆容打造法，酷感女王妆容造型, 这次选择是 espoir 的气垫BB";
+                item2.publicTime = "2015-07-08";
+                item2.url = "http://blog.sina.com.cn/s/blog_1332c03870102vee5.html";
+                list.add(item2);
+
+                break;
+
+            case "画眉":
+                SubcribeContentListItem item3 = new SubcribeContentListItem();
+                item3.title = "画眉技巧很重要，教你粗眉的N种画法！";
+                item3.img = "drawable://" + R.drawable.sub_hm_01;
+                item3.content = "眉毛是妆容中的点睛之笔，美丽的一天从画眉开始！如何才能画出适合自己的美美的眉毛呢？";
+                item3.publicTime = "2015-07-08";
+                item3.url = "http://web.toutiao.com/a3908354822/?tt_from=sina&app=news_article&iid=2534712030";
+                list.add(item3);
+
+                break;
+
+            case "上班妆":
+                SubcribeContentListItem item4 = new SubcribeContentListItem();
+                item4.title = "简略上班妆快速化";
+                item4.img = "drawable://" + R.drawable.sub_sbz_01;
+                item4.content = "女人学化装除了让自个变得漂亮外，还有平时上班所需，化装是种礼节，但却是相对耗时，检测化装技巧的。下面，我们来学习简略上班妆容的画法，疾速化装技巧帮你省时省力。";
+                item4.publicTime = "2015-07-08";
+                item4.url = "http://weibo.com/p/2304188d6ac3bd0102vcft";
+                list.add(item4);
+
+                SubcribeContentListItem item5 = new SubcribeContentListItem();
+                item5.title = "淡雅上班妆";
+                item5.img = "drawable://" + R.drawable.sub_sbz_02;
+                item5.content = "来源：特定网";
+                item5.publicTime = "2015-07-08";
+                item5.url = "http://sb.tedingwang.cn/t/d/h.html";
+                list.add(item5);
+
+                break;
+
+            case "眼线":
+                SubcribeContentListItem item6 = new SubcribeContentListItem();
+                item6.title = "如何画眼线？";
+                item6.img = "drawable://" + R.drawable.sub_yx_01;
+                item6.content = "每个女孩都希望自己可以美美的，眼睛大大的，樱桃小嘴，水嫩肌肤。现在这个年代，没有丑女人只有懒女人。来源：@ 毛戈平形象设计艺术学校";
+                item6.publicTime = "2015-07-08";
+                item6.url = "http://weibo.com/p/2304183df4ba410102vho2";
+                list.add(item6);
+
+                SubcribeContentListItem item7 = new SubcribeContentListItem();
+                item7.title = "小眼也能迷倒众生！偷师超模画眼线";
+                item7.img = "drawable://" + R.drawable.sub_yx_02;
+                item7.content = "导读：活跃在时装周的中国美人，无论刘雯、孙菲菲还是新面孔雎晓雯、秦舒她们都有个共同的特点是有一双小小单眼皮眼睛。来源：@新疆美女馆";
+                item7.publicTime = "2015-07-08";
+                item7.url = "http://weibo.com/p/1001603814096913966605";
+                list.add(item7);
+
+                break;
+
+            case "芭比娃娃妆":
+                SubcribeContentListItem item8 = new SubcribeContentListItem();
+                item8.title = "芭比娃娃妆的画法步骤图解";
+                item8.img = "drawable://" + R.drawable.sub_bbww_01;
+                item8.content = "选择一款适合自己肤色的饰底乳，像这位MM就选择了一款绿色的妆底乳点上面上，然后将妆底乳均匀涂抹开来，让肤色自然透亮。";
+                item8.publicTime = "2015-07-08";
+                item8.url = "http://zhuangban.onlylady.com/2013/0523/2931590.shtml";
+                list.add(item8);
+
+                break;
+        }
+
+        return list;
+    }
+
+
+    /**
+     * 获得所有公众号列表
+     */
+    public static ArrayList<SubscribeListItem> getSubListAll() {
+
+        ArrayList<SubscribeListItem> list = new ArrayList<>();
+
+        SubscribeListItem item = new SubscribeListItem();
+        item.icon = "drawable://" + R.drawable.ic_sub_hz;
+        item.name = "韩妆";
+        item.message = "福利 | 肌肤胜雪的秘密";
+        item.time = "11:32";
+        item.isSubcribe = true;
+        list.add(item);
+
+        SubscribeListItem item2 = new SubscribeListItem();
+        item2.icon = "drawable://" + R.drawable.ic_sub_hm;
+        item2.name = "画眉";
+        item2.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+        item2.time = "11:21";
+        item2.isSubcribe = true;
+        list.add(item2);
+
+        SubscribeListItem item3 = new SubscribeListItem();
+        item3.icon = "drawable://" + R.drawable.ic_sub_sbz;
+        item3.name = "上班妆";
+        item3.message = "福利 | 肌肤胜雪的秘密";
+        item3.time = "11:32";
+        item3.isSubcribe = true;
+        list.add(item3);
+
+        SubscribeListItem item4 = new SubscribeListItem();
+        item4.icon = "drawable://" + R.drawable.ic_sub_yx;
+        item4.name = "眼线";
+        item4.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+        item4.time = "11:21";
+        item4.isSubcribe = true;
+        list.add(item4);
+
+        SubscribeListItem item5 = new SubscribeListItem();
+        item5.icon = "drawable://" + R.drawable.ic_sub_bbww;
+        item5.name = "芭比娃娃妆";
+        item5.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+        item5.time = "11:21";
+        item5.isSubcribe = true;
+        list.add(item5);
+
+        SubscribeListItem item6 = new SubscribeListItem();
+        item6.icon = "drawable://" + R.drawable.ic_sub_sg;
+        item6.name = "水果妆";
+        item6.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+        item6.time = "11:21";
+        item6.isSubcribe = false;
+        list.add(item6);
+
+        SubscribeListItem item7 = new SubscribeListItem();
+        item7.icon = "drawable://" + R.drawable.ic_sub_tmz;
+        item7.name = "透明妆";
+        item7.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+        item7.time = "11:21";
+        item7.isSubcribe = false;
+        list.add(item7);
+
+        SubscribeListItem item8 = new SubscribeListItem();
+        item8.icon = "drawable://" + R.drawable.ic_sub_wyz;
+        item8.name = "晚宴妆";
+        item8.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+        item8.time = "11:21";
+        item8.isSubcribe = false;
+        list.add(item8);
+
+        SubscribeListItem item9 = new SubscribeListItem();
+        item9.icon = "drawable://" + R.drawable.ic_sub_wtz;
+        item9.name = "舞台妆";
+        item9.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+        item9.time = "11:21";
+        item9.isSubcribe = false;
+        list.add(item9);
+
+        SubscribeListItem item10 = new SubscribeListItem();
+        item10.icon = "drawable://" + R.drawable.ic_sub_yxz;
+        item10.name = "烟熏妆";
+        item10.message = "欢迎加入半斤塘,开启一段美妆,美型,美梦之旅";
+        item10.time = "11:21";
+        item10.isSubcribe = false;
+        list.add(item10);
+
+        return list;
+    }
+
+
+    /**
+     * 获得tag列表
+     *
+     * @return
+     */
+    public static ArrayList<Tag> getTagList() {
+        ArrayList<Tag> tagList = new ArrayList<Tag>();
+
+        Tag tag1 = new Tag();
+        tag1.icon = "drawable://" + R.drawable.ic_sub_hz;
+        tag1.name = "通勤";
+        tag1.desc = "tag描述";
+        tagList.add(tag1);
+
+        Tag tag2 = new Tag();
+        tag2.icon = "drawable://" + R.drawable.ic_sub_sbz;
+        tag2.name = "校园";
+        tag2.desc = "tag描述";
+        tagList.add(tag2);
+
+        Tag tag3 = new Tag();
+        tag3.icon = "drawable://" + R.drawable.ic_sub_hm;
+        tag3.name = "派对";
+        tag3.desc = "tag描述";
+        tagList.add(tag3);
+
+        Tag tag4 = new Tag();
+        tag4.icon = "drawable://" + R.drawable.ic_sub_bbww;
+        tag4.name = "约会";
+        tag4.desc = "tag描述";
+        tagList.add(tag4);
+
+        Tag tag5 = new Tag();
+        tag5.icon = "drawable://" + R.drawable.ic_sub_yx;
+        tag5.name = "艺术感";
+        tag5.desc = "tag描述";
+        tagList.add(tag5);
+
+        Tag tag6 = new Tag();
+        tag6.icon = "drawable://" + R.drawable.ic_sub_hz;
+        tag6.name = "前卫";
+        tag6.desc = "tag描述";
+        tagList.add(tag6);
+
+        Tag tag7 = new Tag();
+        tag7.icon = "drawable://" + R.drawable.ic_sub_sg;
+        tag7.name = "气场";
+        tag7.desc = "tag描述";
+        tagList.add(tag7);
+
+        Tag tag8 = new Tag();
+        tag8.icon = "drawable://" + R.drawable.ic_sub_tmz;
+        tag8.name = "日韩式";
+        tag8.desc = "tag描述";
+        tagList.add(tag8);
+
+        Tag tag9 = new Tag();
+        tag9.icon = "drawable://" + R.drawable.ic_sub_wtz;
+        tag9.name = "美国甜心";
+        tag9.desc = "tag描述";
+        tagList.add(tag9);
+
+        Tag tag10 = new Tag();
+        tag10.icon = "drawable://" + R.drawable.ic_sub_wyz;
+        tag10.name = "法国气质";
+        tag10.desc = "tag描述";
+        tagList.add(tag10);
+
+        Tag tag11 = new Tag();
+        tag11.icon = "drawable://" + R.drawable.ic_sub_yxz;
+        tag11.name = "轮廓加强";
+        tag11.desc = "tag描述";
+        tagList.add(tag11);
+
+        Tag tag12 = new Tag();
+        tag12.icon = "drawable://" + R.drawable.ic_sub_hz;
+        tag12.name = "睫毛";
+        tag12.desc = "tag描述";
+        tagList.add(tag12);
+
+        Tag tag13 = new Tag();
+        tag13.icon = "drawable://" + R.drawable.ic_sub_hm;
+        tag13.name = "眉毛";
+        tag13.desc = "tag描述";
+        tagList.add(tag13);
+
+        Tag tag14 = new Tag();
+        tag14.icon = "drawable://" + R.drawable.ic_sub_sg;
+        tag14.name = "完美底妆";
+        tag14.desc = "tag描述";
+        tagList.add(tag14);
+
+        Tag tag15 = new Tag();
+        tag15.icon = "drawable://" + R.drawable.ic_sub_tmz;
+        tag15.name = "当季巴黎";
+        tag15.desc = "tag描述";
+        tagList.add(tag15);
+
+        Tag tag16 = new Tag();
+        tag16.icon = "drawable://" + R.drawable.ic_sub_wtz;
+        tag16.name = "上电视";
+        tag16.desc = "tag描述";
+        tagList.add(tag16);
+
+        Tag tag17 = new Tag();
+        tag17.icon = "drawable://" + R.drawable.ic_sub_hz;
+        tag17.name = "女王";
+        tag17.desc = "tag描述";
+        tagList.add(tag17);
+
+        Tag tag18 = new Tag();
+        tag18.icon = "drawable://" + R.drawable.ic_sub_bbww;
+        tag18.name = "治愈系";
+        tag18.desc = "tag描述";
+        tagList.add(tag18);
+
+        return tagList;
     }
 }
 

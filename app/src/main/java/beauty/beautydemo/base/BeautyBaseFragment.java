@@ -17,6 +17,7 @@ import android.view.animation.OvershootInterpolator;
 import beauty.beautydemo.R;
 import beauty.beautydemo.custview.reveal.RevealBackgroundView;
 import beauty.beautydemo.screens.materialmenu.SimpleHeaderDrawerActivity;
+import butterknife.ButterKnife;
 
 /**
  * Created by LJW on 15/6/26.
@@ -34,6 +35,13 @@ public class BeautyBaseFragment extends Fragment implements RevealBackgroundView
     public boolean lockedAnimations = false;
 
     public RevealBackgroundView vRevealBackground;
+
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        ButterKnife.inject(getActivity());
+    }
 
     public void setupRevealBackground(Bundle savedInstanceState) {
         vRevealBackground.setFillPaintColor(getActivity().getResources().getColor(R.color.bg_fragment));

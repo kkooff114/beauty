@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent"
+            android:fadingEdge="none"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            android:scrollingCache="false">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:orientation="vertical">
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/label_edit_text"
+                    style="@style/EditTextTheme"
+                    android:textSize="@dimen/abc_text_size_large_material"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelAlwaysShown="true"
+                    app:met_floatingLabelText="@string/label"
+                    app:met_floatingLabelTextColor="?attr/colorPrimary"
+                    app:met_primaryColor="?attr/colorPrimary" />
+
+                <com.rengwuxian.materialedittext.MaterialEditText
+                    android:id="@+id/content_edit_text"
+                    style="@style/EditTextTheme"
+                    android:lineSpacingExtra="4dp"
+                    app:met_floatingLabel="highlight"
+                    app:met_floatingLabelAlwaysShown="true"
+                    app:met_floatingLabelText="@string/note_content"
+                    app:met_floatingLabelTextColor="?attr/colorPrimary"
+                    app:met_hideUnderline="true"
+                    app:met_primaryColor="?attr/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/opr_time_line_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="6dp"
+                    android:gravity="end"
+                    android:lineSpacingExtra="4dp"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/abc_text_size_small_material"
+                    tool:text="015-5-25:14:01" />
+            </LinearLayout>
+        </ScrollView>
+
+        <include layout="@layout/toolbar_shadow_layout" />
+    </FrameLayout>
+
+</LinearLayout>
