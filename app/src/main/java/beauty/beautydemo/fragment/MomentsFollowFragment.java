@@ -10,12 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.getbase.floatingactionbutton.FloatingActionButton;
-import com.getbase.floatingactionbutton.FloatingActionsMenu;
-
 import beauty.beautydemo.R;
 import beauty.beautydemo.adapter.FeedAdapter;
 import beauty.beautydemo.base.BeautyBaseFragment;
+import beauty.beautydemo.custview.FabShowLisner;
 import beauty.beautydemo.custview.intamaterial.FeedContextMenu;
 import beauty.beautydemo.custview.intamaterial.FeedContextMenuManager;
 import beauty.beautydemo.custview.reveal.RevealBackgroundView;
@@ -37,15 +35,19 @@ public class MomentsFollowFragment extends BeautyBaseFragment implements View.On
     private String mTitle = "";
     private boolean pendingIntroAnimation;
 
+
+    private FabShowLisner lisner;//list上下滑动监听
+
     @InjectView(R.id.rcFeed)
     RecyclerView rcFeed;
 
 
     private FeedAdapter feedAdapter;
 
-    public static MomentsFollowFragment getInstance(String title) {
+    public static MomentsFollowFragment getInstance(String title, FabShowLisner lisner) {
 
         MomentsFollowFragment instance = new MomentsFollowFragment();
+        instance.setLisner(lisner);
         Bundle bundle = new Bundle();
         bundle.putString(TITLE, title);
         instance.setArguments(bundle);
@@ -67,23 +69,22 @@ public class MomentsFollowFragment extends BeautyBaseFragment implements View.On
         View view = inflater.inflate(R.layout.fragment_moments_follow, container, false);
         ButterKnife.inject(this, view);
 
-        vRevealBackground = (RevealBackgroundView) view.findViewById(R.id.vRevealBackground);
-        setupRevealBackground(savedInstanceState);
+//        vRevealBackground = (RevealBackgroundView) view.findViewById(R.id.vRevealBackground);
+//        setupRevealBackground(savedInstanceState);
 
-        rcFeed = (RecyclerView) view.findViewById(R.id.rcFeed);
         setupFeed();
         if (savedInstanceState == null) {
             pendingIntroAnimation = true;
+            feedAdapter.updateItems(true);
         } else {
             feedAdapter.updateItems(false);
         }
-
 
         return view;
     }
 
 
-    private void setupFeed() {
+    public void setupFeed() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity()) {
             @Override
             protected int getExtraLayoutSpace(RecyclerView.State state) {
@@ -99,8 +100,29 @@ public class MomentsFollowFragment extends BeautyBaseFragment implements View.On
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
                 FeedContextMenuManager.getInstance().onScrolled(recyclerView, dx, dy);
+
+                if (lisner != null) {
+                    FeedContextMenuManager.getInstance().onScrolled(recyclerView, dx, dy);
+
+                    if (dy < 0) {
+                        //下滑
+                        lisner.down();
+                    } else {
+                        //上滑
+                        lisner.up();
+                    }
+                }
             }
         });
+
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                lisner.down();
+            }
+        }, 1000);
+
     }
 
 
@@ -108,7 +130,7 @@ public class MomentsFollowFragment extends BeautyBaseFragment implements View.On
     public void onStateChange(int state) {
         if (RevealBackgroundView.STATE_FINISHED == state) {
 
-            animateUserProfileHeader();
+//            animateUserProfileHeader();
 
 //            if (isPublic) {
 //                showFeedLoadingItemDelayed();
@@ -122,7 +144,7 @@ public class MomentsFollowFragment extends BeautyBaseFragment implements View.On
         super.onStateChange(state);
     }
 
-    private void animateUserProfileHeader() {
+    public void animateUserProfileHeader() {
 //        mFloatingActionMenu.animate().translationY(0).setDuration(300).setInterpolator(OVERSHOOT);
         feedAdapter.updateItems(true);
     }
@@ -203,5 +225,9 @@ public class MomentsFollowFragment extends BeautyBaseFragment implements View.On
 
     public void takePhoto(View v) {
         ((SimpleHeaderDrawerActivity) getActivity()).startActivityRelLocation(v, getActivity(), TakePhotoActivity.class);
+    }
+
+    public void setLisner(FabShowLisner lisner) {
+        this.lisner = lisner;
     }
 }

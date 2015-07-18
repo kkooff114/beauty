@@ -7,13 +7,15 @@
 
     <include layout="@layout/main_head_back"></include>
 
-    <beauty.beautydemo.custview.materialTab.MaterialTabHost
+    <it.neokree.materialtabs.MaterialTabHost
         android:id="@+id/tabHost"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_below="@+id/toolbar"
-        app:accentColor="#ffc400"
-        app:materialTabsPrimaryColor="@color/theme_color" />
+        app:accentColor="@color/accent"
+        app:hasIcons="false"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:primaryColor="@color/theme_color"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"

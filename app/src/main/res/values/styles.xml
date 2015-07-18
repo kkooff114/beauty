@@ -9,7 +9,7 @@
     <style name="AppBaseTheme" parent="@style/Theme.AppCompat.Light"></style>
 
     <style name="myMaterial" parent="AppBaseTheme">
-
+        <item name="android:listDivider">@drawable/bg_login</item>
         <item name="android:textColorPrimary">@android:color/white</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <item name="android:windowTranslucentStatus" tools:targetApi="21">true</item>
@@ -591,6 +591,7 @@
         <item name="android:textColor">@color/md_pink_200</item>
         <item name="android:background">@drawable/bg_tag</item>
     </style>
+
 
 
 </resources>

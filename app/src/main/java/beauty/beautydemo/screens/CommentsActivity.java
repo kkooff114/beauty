@@ -24,6 +24,7 @@ import beauty.beautydemo.tools.ScreenTools;
 
 
 /**
+ * 回复界面
  * Created by froger_mcs on 11.11.14.
  */
 public class CommentsActivity extends BeautyBaseActivity implements SendCommentButton.OnSendClickListener {

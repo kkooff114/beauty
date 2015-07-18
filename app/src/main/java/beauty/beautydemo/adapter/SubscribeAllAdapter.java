@@ -58,7 +58,7 @@ public class SubscribeAllAdapter extends BeautyBaseRecyclerAdapter<SubscribeAllA
         imageLoader.displayImage(mData.get(position).icon, holder.mIcon, options);
         holder.mUsername.setText(mData.get(position).name);
         if (mData.get(position).isSubcribe) {
-            holder.mAction.setImageResource(R.drawable.ic_check_box_grey_500_18dp);
+            holder.mAction.setImageResource(R.drawable.ic_done_grey_500_18dp);
         } else {
             holder.mAction.setImageResource(R.drawable.ic_add_grey_500_18dp);
         }

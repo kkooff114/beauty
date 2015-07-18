@@ -1,5 +1,6 @@
 package beauty.beautydemo.fragment;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -18,11 +19,17 @@ import beauty.beautydemo.R;
 import beauty.beautydemo.adapter.FeedAdapter;
 import beauty.beautydemo.adapter.ViewPagerAdapter;
 import beauty.beautydemo.base.BeautyBaseFragment;
+import beauty.beautydemo.custview.FabShowLisner;
 import beauty.beautydemo.custview.intamaterial.FeedContextMenu;
 import beauty.beautydemo.custview.intamaterial.FeedContextMenuManager;
 import beauty.beautydemo.custview.reveal.RevealBackgroundView;
 import beauty.beautydemo.screens.CommentsActivity;
 import beauty.beautydemo.screens.NoteMainActivity;
+import beauty.beautydemo.screens.PhotoAddTagActivity;
+import beauty.beautydemo.screens.PhotoCropActivity;
+import beauty.beautydemo.screens.PhotoEditActivity;
+import beauty.beautydemo.screens.PhotoFixCropActivity;
+import beauty.beautydemo.screens.PublishActivity;
 import beauty.beautydemo.screens.TakePhotoActivity;
 import beauty.beautydemo.screens.materialmenu.SimpleHeaderDrawerActivity;
 import butterknife.ButterKnife;
@@ -30,13 +37,14 @@ import butterknife.InjectView;
 import it.neokree.materialtabs.MaterialTab;
 import it.neokree.materialtabs.MaterialTabHost;
 import it.neokree.materialtabs.MaterialTabListener;
+import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 
 /**
  * Created by LJW on 15/6/27.
  */
 public class MomentsFragment extends BeautyBaseFragment implements View.OnClickListener,
         FeedAdapter.OnFeedItemClickListener,
-        FeedContextMenu.OnFeedContextMenuItemClickListener, MaterialTabListener {
+        FeedContextMenu.OnFeedContextMenuItemClickListener, MaterialTabListener, FabShowLisner {
 
     @InjectView(R.id.tabHost_profile)
     MaterialTabHost mTabHost;
@@ -49,6 +57,10 @@ public class MomentsFragment extends BeautyBaseFragment implements View.OnClickL
 
     private FloatingActionsMenu mFloatingActionMenu; //圆圈菜单
     private FloatingActionButton action_photo, action_text; // 拍照
+
+    private MomentsFollowFragment followFragment;
+    private MomentsFollowFragment recommendFragment;
+    private MyTagFragment myTagFragment;
 
 //    private FeedAdapter feedAdapter;
 
@@ -108,9 +120,14 @@ public class MomentsFragment extends BeautyBaseFragment implements View.OnClickL
     }
 
     private void setupViewPaper() {
-        fragmentList.add(MomentsFollowFragment.getInstance("关注"));
-        fragmentList.add(MomentsFollowFragment.getInstance("推荐"));
-        fragmentList.add(MomentsFollowFragment.getInstance("我的标签"));
+        followFragment = MomentsFollowFragment.getInstance("关注", this);
+        recommendFragment = MomentsFollowFragment.getInstance("推荐", this);
+        myTagFragment = MyTagFragment.newInstance("我的标签", this);
+
+        fragmentList.add(followFragment);
+        fragmentList.add(recommendFragment);
+        fragmentList.add(myTagFragment);
+
         adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), titleTexts, fragmentList);
 
 
@@ -178,7 +195,79 @@ public class MomentsFragment extends BeautyBaseFragment implements View.OnClickL
 
     private void animateUserProfileHeader() {
         mFloatingActionMenu.animate().translationY(0).setDuration(300).setInterpolator(OVERSHOOT);
-//        feedAdapter.updateItems(true);
+        //feedAdapter.updateItems(true);
+        followFragment.animateUserProfileHeader();
+    }
+
+
+    boolean isAnimation = false;
+    boolean isFabShow = true;
+
+    @Override
+    public void up() {
+        fabHide();
+    }
+
+    @Override
+    public void down() {
+        fabShow();
+    }
+
+
+    private void fabShow() {
+        if (isAnimation) {
+            return;
+        }
+        mFloatingActionMenu.animate().translationY(0).setDuration(300).setInterpolator(OVERSHOOT).setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                isAnimation = true;
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                isFabShow = true;
+                isAnimation = false;
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                isAnimation = false;
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        }).start();
+    }
+
+    private void fabHide() {
+        if (isAnimation) {
+            return;
+        }
+        mFloatingActionMenu.animate().translationY(2 * getResources().getDimensionPixelOffset(R.dimen.btn_fab_size)).setDuration(300).setInterpolator(OVERSHOOT).setListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                isAnimation = true;
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                isFabShow = false;
+                isAnimation = false;
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animation) {
+                isAnimation = false;
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animation) {
+
+            }
+        }).start();
     }
 
     @Override
@@ -186,7 +275,7 @@ public class MomentsFragment extends BeautyBaseFragment implements View.OnClickL
         switch (v.getId()) {
             case R.id.action_photo: //拍照
 
-                ((SimpleHeaderDrawerActivity) getActivity()).startActivityRelLocation(v, getActivity(), TakePhotoActivity.class);
+                takePhoto(v);
 
                 break;
 
@@ -256,9 +345,25 @@ public class MomentsFragment extends BeautyBaseFragment implements View.OnClickL
 
 
     public void takePhoto(View v) {
-        ((SimpleHeaderDrawerActivity) getActivity()).startActivityRelLocation(v, getActivity(), TakePhotoActivity.class);
+//        ((SimpleHeaderDrawerActivity) getActivity()).startActivityRelLocation(v, getActivity(), TakePhotoActivity.class);
+        Intent intent = new Intent(getActivity(), MultiImageSelectorActivity.class);
+        // 是否显示拍摄图片
+        intent.putExtra(MultiImageSelectorActivity.EXTRA_SHOW_CAMERA, true);
+        // 最大可选择图片数量
+        intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_COUNT, 1);
+        // 选择模式
+        intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_MODE, MultiImageSelectorActivity.MODE_SINGLE);
+        // 默认选择
+//        if(mSelectPath != null && mSelectPath.size()>0){
+//            intent.putExtra(MultiImageSelectorActivity.EXTRA_DEFAULT_SELECTED_LIST, mSelectPath);
+//        }
+        //选择完启动的activity
+        intent.putExtra(MultiImageSelectorActivity.EXTRA_START_ACTIVITY, PhotoFixCropActivity.class);
+
+        startActivity(intent);
     }
 
+    //material tab
     @Override
     public void onTabSelected(MaterialTab materialTab) {
         mPager.setCurrentItem(materialTab.getPosition());

@@ -1,23 +1,20 @@
 package beauty.beautydemo.screens;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.Window;
 
 import java.util.ArrayList;
 
 import beauty.beautydemo.R;
 import beauty.beautydemo.adapter.ViewPagerAdapter;
-import beauty.beautydemo.custview.materialTab.MaterialTab;
-import beauty.beautydemo.custview.materialTab.MaterialTabHost;
-import beauty.beautydemo.custview.materialTab.MaterialTabListener;
-import beauty.beautydemo.fragment.TabLibCommentFragment;
 import beauty.beautydemo.fragment.TabLibContentFragment;
 import beauty.beautydemo.fragment.TabLibShopFragment;
+import it.neokree.materialtabs.MaterialTab;
+import it.neokree.materialtabs.MaterialTabHost;
+import it.neokree.materialtabs.MaterialTabListener;
 
 /**
  * Created by LJW on 15/6/1.
@@ -34,6 +31,7 @@ public class TestLibProductDetailMaterialTab2Activity extends FragmentActivity i
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_test_lib_product_detail_material_tab);
 
         initView();
@@ -92,4 +90,5 @@ public class TestLibProductDetailMaterialTab2Activity extends FragmentActivity i
     public void onTabUnselected(MaterialTab tab) {
 
     }
+
 }

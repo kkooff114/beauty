@@ -7,6 +7,10 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.AnticipateInterpolator;
+import android.view.animation.DecelerateInterpolator;
+import android.view.animation.Interpolator;
+import android.view.animation.OvershootInterpolator;
 
 import beauty.beautydemo.R;
 import beauty.beautydemo.tools.PreferenceUtils;
@@ -20,6 +24,13 @@ public class BeautyBaseActivity extends AppCompatActivity {
 
     public static final String ARG_REVEAL_START_LOCATION = "reveal_start_location";
     public static final String ACTION_SHOW_LOADING_ITEM = "action_show_loading_item";
+    public static final String CROP_IMAGE_URI = "crop_image_url";//传递裁剪后的照片地址
+    public static final String PUBLISH_IMAGE_PATH = "PUBLISH_IMAGE_PATH";//待发布的照片地址
+    public static final String TOOL_BAR_TITLE = "tool_bar_title";
+
+    public static final Interpolator INTERPOLATOR = new DecelerateInterpolator();
+    public static final Interpolator OVERSHOOT = new OvershootInterpolator(1.f);
+    public static final Interpolator Anticipate = new AnticipateInterpolator();
 
     public static final String MENUID = "menuid";
 

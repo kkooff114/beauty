@@ -51,6 +51,7 @@ import beauty.beautydemo.fragment.PropertyMaterialFragment;
 import beauty.beautydemo.fragment.SubscribeListFragment;
 import beauty.beautydemo.fragment.TestLibFragment;
 import beauty.beautydemo.screens.CameraActivity;
+import beauty.beautydemo.screens.MessageActivity;
 import beauty.beautydemo.screens.PropertyMaterialActivity;
 import beauty.beautydemo.screens.SettingActivity;
 import beauty.beautydemo.screens.SubscribeAddActivity;
@@ -410,6 +411,13 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
         return true;
     }
 
+    @OnClick(R.id.action_messagebox)
+    void messageBox(View v){
+        Intent intentm = new Intent(SimpleHeaderDrawerActivity.this, MessageActivity.class);
+        startActivity(intentm);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.nothing);
+    }
+
     private Toolbar.OnMenuItemClickListener onMenuItemClickListener = new Toolbar.OnMenuItemClickListener() {
         @Override
         public boolean onMenuItemClick(MenuItem item) {
@@ -417,7 +425,7 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
                 case R.id.action_add:
                     Intent intent = new Intent(SimpleHeaderDrawerActivity.this, SubscribeAddActivity.class);
                     startActivity(intent);
-                    overridePendingTransition(R.anim.slide_in_bottom,R.anim.nothing);
+                    overridePendingTransition(R.anim.slide_in_bottom, R.anim.nothing);
                     break;
             }
 

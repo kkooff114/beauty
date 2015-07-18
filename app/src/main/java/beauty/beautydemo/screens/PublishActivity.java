@@ -16,11 +16,13 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import beauty.beautydemo.R;
@@ -30,6 +32,7 @@ import beauty.beautydemo.tools.BaseTools;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
+import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 
 
 /**
@@ -56,6 +59,9 @@ public class PublishActivity extends BeautyBaseActivity implements View.OnClickL
     private Uri photoUri;
     private int photoSize;
 
+    private ArrayList<String> mSelectPath;
+    private String mPhotoPath = "";
+
     public static void openWithPhotoUri(Activity openingActivity, Uri photoUri) {
         Intent intent = new Intent(openingActivity, PublishActivity.class);
         intent.putExtra(ARG_TAKEN_PHOTO_URI, photoUri);
@@ -75,7 +81,11 @@ public class PublishActivity extends BeautyBaseActivity implements View.OnClickL
         photoSize = getResources().getDimensionPixelSize(R.dimen.publish_photo_thumbnail_size);
 
         if (savedInstanceState == null) {
-            photoUri = getIntent().getParcelableExtra(ARG_TAKEN_PHOTO_URI);
+//            mSelectPath = getIntent().getStringArrayListExtra(MultiImageSelectorActivity.EXTRA_RESULT); // 照片list
+            mPhotoPath = getIntent().getStringExtra(PUBLISH_IMAGE_PATH);
+            final File file = new File(mPhotoPath);
+            photoUri = Uri.fromFile(file);
+//            photoUri = getIntent().getParcelableExtra(ARG_TAKEN_PHOTO_URI);
         } else {
             photoUri = savedInstanceState.getParcelable(ARG_TAKEN_PHOTO_URI);
         }
@@ -154,6 +164,10 @@ public class PublishActivity extends BeautyBaseActivity implements View.OnClickL
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         if (item.getItemId() == R.id.action_publish) {
+            if(mTagShow.getText().toString().equals("")){
+                Toast.makeText(PublishActivity.this, "至少选择一个tag", Toast.LENGTH_SHORT).show();
+                return true;
+            }
             bringMainActivityToTop();
             return true;
         } else {

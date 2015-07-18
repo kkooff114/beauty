@@ -5,6 +5,9 @@ package beauty.beautydemo.tools;
  */
 
 
+import android.content.Context;
+import android.graphics.Point;
+import android.graphics.PointF;
 import android.widget.Switch;
 
 import java.lang.reflect.Array;
@@ -17,6 +20,82 @@ import beauty.beautydemo.bean.Comment;
 import beauty.beautydemo.bean.LibListItem;
 import beauty.beautydemo.bean.NewsEntity;
 import beauty.beautydemo.bean.ShopProduct;
+import beauty.beautydemo.custview.imageprocessing.filter.BasicFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.AdaptiveThresholdFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.AmatorkaFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.BrightnessFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.ChromaKeyFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.ColourInvertFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.ColourMatrixFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.ContrastFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.ExposureFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.FalseColourFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.GammaFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.GreyScaleFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.HazeFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.HighlightShadowFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.HueFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.LevelsFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.LookupFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.LuminanceThresholdFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.MissEtikateFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.MonochromeFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.OpacityFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.RGBFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.SaturationFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.SepiaFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.SoftEleganceFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.colour.ToneCurveFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.BulgeDistortionFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.CGAColourSpaceFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.CrosshatchFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.EmbossFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.GlassSphereFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.HalftoneFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.KuwaharaRadius3Filter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.MosaicFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.PinchDistortionFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.PixellateFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.PolarPixellateFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.PolkaDotFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.PosterizeFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.SketchFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.SmoothToonFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.SphereRefractionFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.StretchDistortionFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.SwirlFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.ThresholdSketchFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.ToonFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.effect.VignetteFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.BilateralBlurFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.BoxBlurFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.CannyEdgeDetectionFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.ClosingFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.ClosingRGBFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.ConvolutionFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.CropFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.DilationFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.DilationRGBFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.ErosionFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.ErosionRGBFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.FastBlurFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.FlipFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.GaussianBlurFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.GaussianBlurPositionFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.GaussianSelectiveBlurFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.MedianFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.MotionBlurFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.OpeningFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.OpeningRGBFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.SharpenFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.SingleComponentFastBlurFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.SingleComponentGaussianBlurFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.SobelEdgeDetectionFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.ThresholdEdgeDetectionFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.TiltShiftFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.TransformFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.UnsharpMaskFilter;
+import beauty.beautydemo.custview.imageprocessing.filter.processing.ZoomBlurFilter;
 import beauty.beautydemo.entity.SubcribeContentListItem;
 import beauty.beautydemo.entity.SubscribeListItem;
 import beauty.beautydemo.entity.Tag;
@@ -24,9 +103,11 @@ import beauty.beautydemo.entity.Tag;
 
 public class Constants {
 
+    private static ArrayList<BasicFilter> allFilter;
+
     /*
-         * 获取新闻列表
-         */
+             * 获取新闻列表
+             */
     public static ArrayList<NewsEntity> getNewsList() {
         ArrayList<NewsEntity> newsList = new ArrayList<NewsEntity>();
         for (int i = 0; i < 10; i++) {
@@ -640,113 +721,244 @@ public class Constants {
 
         Tag tag1 = new Tag();
         tag1.icon = "drawable://" + R.drawable.ic_sub_hz;
+        tag1.iconInt = R.drawable.ic_sub_hz;
         tag1.name = "通勤";
         tag1.desc = "tag描述";
         tagList.add(tag1);
 
         Tag tag2 = new Tag();
         tag2.icon = "drawable://" + R.drawable.ic_sub_sbz;
+        tag2.iconInt = R.drawable.ic_sub_hz;
         tag2.name = "校园";
         tag2.desc = "tag描述";
         tagList.add(tag2);
 
         Tag tag3 = new Tag();
         tag3.icon = "drawable://" + R.drawable.ic_sub_hm;
+        tag3.iconInt = R.drawable.ic_sub_hm;
         tag3.name = "派对";
         tag3.desc = "tag描述";
         tagList.add(tag3);
 
         Tag tag4 = new Tag();
         tag4.icon = "drawable://" + R.drawable.ic_sub_bbww;
+        tag4.iconInt = R.drawable.ic_sub_bbww;
         tag4.name = "约会";
         tag4.desc = "tag描述";
         tagList.add(tag4);
 
         Tag tag5 = new Tag();
         tag5.icon = "drawable://" + R.drawable.ic_sub_yx;
+        tag5.iconInt = R.drawable.ic_sub_yx;
         tag5.name = "艺术感";
         tag5.desc = "tag描述";
         tagList.add(tag5);
 
         Tag tag6 = new Tag();
         tag6.icon = "drawable://" + R.drawable.ic_sub_hz;
+        tag6.iconInt = R.drawable.ic_sub_hz;
         tag6.name = "前卫";
         tag6.desc = "tag描述";
         tagList.add(tag6);
 
         Tag tag7 = new Tag();
         tag7.icon = "drawable://" + R.drawable.ic_sub_sg;
+        tag7.iconInt = R.drawable.ic_sub_sg;
         tag7.name = "气场";
         tag7.desc = "tag描述";
         tagList.add(tag7);
 
         Tag tag8 = new Tag();
         tag8.icon = "drawable://" + R.drawable.ic_sub_tmz;
+        tag8.iconInt = R.drawable.ic_sub_tmz;
         tag8.name = "日韩式";
         tag8.desc = "tag描述";
         tagList.add(tag8);
 
         Tag tag9 = new Tag();
         tag9.icon = "drawable://" + R.drawable.ic_sub_wtz;
+        tag9.iconInt = R.drawable.ic_sub_wtz;
         tag9.name = "美国甜心";
         tag9.desc = "tag描述";
         tagList.add(tag9);
 
         Tag tag10 = new Tag();
         tag10.icon = "drawable://" + R.drawable.ic_sub_wyz;
+        tag10.iconInt = R.drawable.ic_sub_wyz;
         tag10.name = "法国气质";
         tag10.desc = "tag描述";
         tagList.add(tag10);
 
         Tag tag11 = new Tag();
         tag11.icon = "drawable://" + R.drawable.ic_sub_yxz;
+        tag11.iconInt = R.drawable.ic_sub_yxz;
         tag11.name = "轮廓加强";
         tag11.desc = "tag描述";
         tagList.add(tag11);
 
         Tag tag12 = new Tag();
         tag12.icon = "drawable://" + R.drawable.ic_sub_hz;
+        tag12.iconInt = R.drawable.ic_sub_hz;
         tag12.name = "睫毛";
         tag12.desc = "tag描述";
         tagList.add(tag12);
 
         Tag tag13 = new Tag();
         tag13.icon = "drawable://" + R.drawable.ic_sub_hm;
+        tag13.iconInt = R.drawable.ic_sub_hm;
         tag13.name = "眉毛";
         tag13.desc = "tag描述";
         tagList.add(tag13);
 
         Tag tag14 = new Tag();
         tag14.icon = "drawable://" + R.drawable.ic_sub_sg;
+        tag14.iconInt = R.drawable.ic_sub_sg;
         tag14.name = "完美底妆";
         tag14.desc = "tag描述";
         tagList.add(tag14);
 
         Tag tag15 = new Tag();
         tag15.icon = "drawable://" + R.drawable.ic_sub_tmz;
+        tag15.iconInt = R.drawable.ic_sub_tmz;
         tag15.name = "当季巴黎";
         tag15.desc = "tag描述";
         tagList.add(tag15);
 
         Tag tag16 = new Tag();
         tag16.icon = "drawable://" + R.drawable.ic_sub_wtz;
+        tag16.iconInt = R.drawable.ic_sub_wtz;
         tag16.name = "上电视";
         tag16.desc = "tag描述";
         tagList.add(tag16);
 
         Tag tag17 = new Tag();
         tag17.icon = "drawable://" + R.drawable.ic_sub_hz;
+        tag17.iconInt = R.drawable.ic_sub_hz;
         tag17.name = "女王";
         tag17.desc = "tag描述";
         tagList.add(tag17);
 
         Tag tag18 = new Tag();
         tag18.icon = "drawable://" + R.drawable.ic_sub_bbww;
+        tag18.iconInt = R.drawable.ic_sub_bbww;
         tag18.name = "治愈系";
         tag18.desc = "tag描述";
         tagList.add(tag18);
 
         return tagList;
+    }
+
+    public static ArrayList<BasicFilter> getAllFilter(Context context) {
+
+        filters = new ArrayList<BasicFilter>();
+
+        addFilter(new FlipFilter(FlipFilter.FLIP_HORIZONTAL));
+        addFilter(new MosaicFilter(context, R.drawable.webcircles, new PointF(0.125f, 0.125f), new PointF(0.025f, 0.025f), 64, true));
+        addFilter(new CGAColourSpaceFilter());
+        addFilter(new KuwaharaRadius3Filter());
+        //addFilter(new KuwaharaFilter(8)); //Will not work on devices that don't support for loop on shader
+        addFilter(new VignetteFilter(new PointF(0.5f, 0.5f), new float[]{0.3f, 0.8f, 0.3f}, 0.3f, 0.75f));
+        addFilter(new GlassSphereFilter(new PointF(0.43f, 0.5f), 0.25f, 0.71f, 0.5f));
+        addFilter(new SphereRefractionFilter(new PointF(0.43f, 0.5f), 0.25f, 0.71f, 0.5f));
+        addFilter(new StretchDistortionFilter(new PointF(0.5f, 0.5f)));
+        addFilter(new PinchDistortionFilter(new PointF(0.43f, 0.5f), 0.25f, 0.5f, 0.5f));
+        addFilter(new BulgeDistortionFilter(new PointF(0.43f, 0.5f), 0.25f, 0.5f, 0.5f));
+        addFilter(new SwirlFilter(new PointF(0.4f, 0.5f), 0.5f, 1f));
+        addFilter(new PosterizeFilter(2f));
+        addFilter(new EmbossFilter(1.5f));
+        addFilter(new SmoothToonFilter(0.25f, 0.5f, 5f));
+        addFilter(new ToonFilter(0.4f, 10f));
+        addFilter(new ThresholdSketchFilter(0.7f));
+        addFilter(new SketchFilter());
+        addFilter(new CrosshatchFilter(0.005f, 0.0025f));
+        addFilter(new HalftoneFilter(0.01f, 1f));
+        addFilter(new PolkaDotFilter(0.9f, 0.03f, 1f));
+        addFilter(new PolarPixellateFilter(new PointF(0.4f, 0.5f), new PointF(0.05f, 0.05f)));
+        addFilter(new PixellateFilter(0.01f, 1f));
+        addFilter(new ZoomBlurFilter(2f, new PointF(0.4f, 0.5f)));
+        addFilter(new MotionBlurFilter(2f, 45f));
+        addFilter(new OpeningFilter(1));
+        addFilter(new OpeningRGBFilter(3));
+        addFilter(new ClosingFilter(2));
+        addFilter(new ClosingRGBFilter(4));
+        addFilter(new ErosionRGBFilter(3));
+        addFilter(new ErosionFilter(1));
+        addFilter(new DilationRGBFilter(2));
+        addFilter(new DilationFilter(4));
+        addFilter(new CannyEdgeDetectionFilter(1.0f, 0.1f, 0.4f));
+        addFilter(new ThresholdEdgeDetectionFilter(0.6f));
+        addFilter(new SobelEdgeDetectionFilter());
+        addFilter(new TiltShiftFilter(4f, 0.4f, 0.6f, 0.2f));
+        addFilter(new BilateralBlurFilter(1f));
+        addFilter(new MedianFilter());
+        addFilter(new GaussianBlurPositionFilter(4f, 1.2f, new PointF(0.4f, 0.5f), 0.5f, 0.1f));
+        addFilter(new GaussianSelectiveBlurFilter(4f, 1.2f, new PointF(0.4f, 0.5f), 0.5f, 0.1f));
+        addFilter(new SingleComponentGaussianBlurFilter(2.3f));
+        addFilter(new SingleComponentFastBlurFilter());
+        addFilter(new FastBlurFilter());
+        addFilter(new UnsharpMaskFilter(2.0f, 0.5f));
+        addFilter(new SharpenFilter(1f));
+        //addFilter(new LanczosResamplingFilter(256, 128));
+        addFilter(new CropFilter(0.25f, 0f, 0.75f, 1f));
+        BasicFilter cFilter1 = new CropFilter(0.25f, 0f, 0.75f, 1f);
+        cFilter1.rotateClockwise90Degrees(1);
+        addFilter(cFilter1);
+        BasicFilter cFilter2 = new CropFilter(0.25f, 0f, 0.75f, 1f);
+        cFilter2.rotateClockwise90Degrees(2);
+        addFilter(cFilter2);
+        BasicFilter cFilter3 = new CropFilter(0.25f, 0f, 0.75f, 1f);
+        cFilter3.rotateClockwise90Degrees(3);
+        addFilter(cFilter3);
+        addFilter(new TransformFilter(new float[]{
+                1f, 0f, 0f, 0f,
+                0f, 1f, 0f, 0f,
+                0f, 0f, 1f, 0f,
+                -0.5f, 0f, 0f, 1f
+        }, false, false));
+        addFilter(new ChromaKeyFilter(new float[]{1.0f, 0.3f, 0.0f}, 0.4f, 0.1f));
+        addFilter(new AdaptiveThresholdFilter());
+        addFilter(new BoxBlurFilter());
+        addFilter(new LuminanceThresholdFilter(0.4f));
+        addFilter(new OpacityFilter(0.5f));
+        addFilter(new SepiaFilter());
+        addFilter(new HazeFilter(0.3f, 0.1f));
+        addFilter(new FalseColourFilter(new float[]{0.0f, 0.0f, 0.5f}, new float[]{1.0f, 0.0f, 0.0f}));
+        addFilter(new MonochromeFilter(new float[]{1.0f, 0.8f, 0.8f}, 1.0f));
+        addFilter(new ColourInvertFilter());
+        addFilter(new SoftEleganceFilter(context));
+        addFilter(new GaussianBlurFilter(2.3f));
+        addFilter(new MissEtikateFilter(context));
+        addFilter(new AmatorkaFilter(context));
+        addFilter(new LookupFilter(context, R.drawable.lookup_soft_elegance_1));
+        addFilter(new HighlightShadowFilter(0f, 1f));
+        Point[] defaultCurve = new Point[]{new Point(128, 128), new Point(64, 0), new Point(192, 255)};
+        addFilter(new ToneCurveFilter(defaultCurve, defaultCurve, defaultCurve, defaultCurve));
+        addFilter(new HueFilter(3.14f / 6f));
+        addFilter(new BrightnessFilter(0.5f));
+        addFilter(new ColourMatrixFilter(new float[]{0.33f, 0f, 0f, 0f,
+                0f, 0.67f, 0f, 0f,
+                0f, 0f, 1.34f, 0f,
+                0.2f, 0.2f, 0.2f, 1.0f}, 0.5f));
+        addFilter(new RGBFilter(0.33f, 0.67f, 1.34f));
+        addFilter(new GreyScaleFilter());
+        addFilter(new ConvolutionFilter(new float[]{
+                1 / 25f, 1 / 25f, 1 / 25f, 1 / 25f, 1 / 25f,
+                1 / 25f, 1 / 25f, 1 / 25f, 1 / 25f, 1 / 25f,
+                1 / 25f, 1 / 25f, 1 / 25f, 1 / 25f, 1 / 25f,
+                1 / 25f, 1 / 25f, 1 / 25f, 1 / 25f, 1 / 25f,
+                1 / 25f, 1 / 25f, 1 / 25f, 1 / 25f, 1 / 25f}, 5, 5));
+        addFilter(new ExposureFilter(0.95f));
+        addFilter(new ContrastFilter(1.5f));
+        addFilter(new SaturationFilter(0.5f));
+        addFilter(new GammaFilter(1.75f));
+        addFilter(new LevelsFilter(0.2f, 0.8f, 1f, 0f, 1f));
+        return filters;
+    }
+
+    private static ArrayList<BasicFilter> filters;
+
+    private static void addFilter(BasicFilter filter) {
+        filters.add(filter);
     }
 }
 
