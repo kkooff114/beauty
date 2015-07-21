@@ -1,0 +1,211 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <include layout="@layout/material_view_pager_placeholder" />
+
+        <android.support.v7.widget.CardView style="@style/cardViews">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/lip_try"
+                    android:textSize="14sp" />
+
+                <beauty.beautydemo.custview.sticknav.GridViewForScrollView
+                    android:id="@+id/gv_lib_try"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp"
+                    android:horizontalSpacing="1dp"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:verticalSpacing="1dp">
+
+                </beauty.beautydemo.custview.sticknav.GridViewForScrollView>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView style="@style/cardViews">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/color_board"
+                    android:textSize="14sp" />
+
+                <beauty.beautydemo.custview.sticknav.GridViewForScrollView
+                    android:id="@+id/gv_lib_color_board"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp"
+                    android:horizontalSpacing="1dp"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:verticalSpacing="1dp">
+
+                </beauty.beautydemo.custview.sticknav.GridViewForScrollView>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+        <!-- 涂一次涂两次-->
+        <android.support.v7.widget.CardView style="@style/cardViews">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="涂一次 , 涂两次"
+                    android:textSize="14sp" />
+
+                <beauty.beautydemo.custview.sticknav.GridViewForScrollView
+                    android:id="@+id/gv_lib_one_two_board"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp"
+                    android:horizontalSpacing="1dp"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:verticalSpacing="1dp">
+
+                </beauty.beautydemo.custview.sticknav.GridViewForScrollView>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+        <!-- 显色度 -->
+        <android.support.v7.widget.CardView style="@style/cardViews">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="显色度"
+                    android:textSize="14sp" />
+
+                <beauty.beautydemo.custview.sticknav.GridViewForScrollView
+                    android:id="@+id/gv_lib_show_color_board"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp"
+                    android:horizontalSpacing="1dp"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:verticalSpacing="1dp">
+
+                </beauty.beautydemo.custview.sticknav.GridViewForScrollView>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <!-- 持久度 -->
+        <android.support.v7.widget.CardView style="@style/cardViews">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="持久度"
+                    android:textSize="14sp" />
+
+                <beauty.beautydemo.custview.sticknav.GridViewForScrollView
+                    android:id="@+id/gv_lib_durable_board"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp"
+                    android:horizontalSpacing="1dp"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:verticalSpacing="1dp">
+
+                </beauty.beautydemo.custview.sticknav.GridViewForScrollView>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+        <!-- 滋润度 -->
+        <android.support.v7.widget.CardView style="@style/cardViews">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:text="滋润度"
+                    android:textSize="14sp" />
+
+                <beauty.beautydemo.custview.sticknav.GridViewForScrollView
+                    android:id="@+id/gv_lib_moisten_board"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:layout_marginTop="10dp"
+                    android:horizontalSpacing="1dp"
+                    android:numColumns="2"
+                    android:scrollbars="none"
+                    android:verticalSpacing="1dp">
+
+                </beauty.beautydemo.custview.sticknav.GridViewForScrollView>
+            </LinearLayout>
+
+        </android.support.v7.widget.CardView>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

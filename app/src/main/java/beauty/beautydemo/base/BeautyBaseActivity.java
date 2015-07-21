@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
  */
 public class BeautyBaseActivity extends AppCompatActivity {
 
+    public static final String TITLE = "title";
     public static final String ARG_REVEAL_START_LOCATION = "reveal_start_location";
     public static final String ACTION_SHOW_LOADING_ITEM = "action_show_loading_item";
     public static final String CROP_IMAGE_URI = "crop_image_url";//传递裁剪后的照片地址
@@ -94,5 +95,11 @@ public class BeautyBaseActivity extends AppCompatActivity {
                 startingActivity.overridePendingTransition(0, 0);
             }
         }, 450);
+    }
+
+
+    public void exitSuper() {
+        finish();
+        overridePendingTransition(R.anim.slide_in_from_left, R.anim.slide_out_to_right);
     }
 }

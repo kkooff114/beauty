@@ -1,4 +1,4 @@
-package beauty.beautydemo.test.getcolor;
+package beauty.beautydemo.getcolor;
 
 import android.content.Context;
 import android.graphics.PixelFormat;

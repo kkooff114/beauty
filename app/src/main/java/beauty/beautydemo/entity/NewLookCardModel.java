@@ -10,6 +10,7 @@ import com.andtinder.model.CardModel;
  */
 public class NewLookCardModel extends CardModel {
 
+    public String image;
 
     public NewLookCardModel() {
     }

@@ -35,7 +35,9 @@ import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.mikepenz.materialdrawer.model.interfaces.OnCheckedChangeListener;
+import com.orhanobut.logger.Logger;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -204,16 +206,16 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
                                 .withSelectedColor(getResources().getColor(R.color.theme_color))
                                 .withIcon(GoogleMaterial.Icon.gmd_camera)
                                 .withIdentifier(6).withCheckable(false),
-                        new PrimaryDrawerItem().withName(R.string.tab_peoper_nearby)
-                                .withIconColor(getResources().getColor(R.color.md_deep_purple_400))
-                                .withTextColor(getResources().getColor(R.color.drawlayout_item_text_color))
-                                .withSelectedIconColor(getResources().getColor(R.color.white)).withSelectedTextColor(getResources().getColor(R.color.white))
-                                .withSelectedColor(getResources().getColor(R.color.theme_color))
-                                .withIcon(GoogleMaterial.Icon.gmd_hdr_strong)
-                                .withIdentifier(7).withCheckable(false),
+//                        new PrimaryDrawerItem().withName(R.string.tab_peoper_nearby)
+//                                .withIconColor(getResources().getColor(R.color.md_deep_purple_400))
+//                                .withTextColor(getResources().getColor(R.color.drawlayout_item_text_color))
+//                                .withSelectedIconColor(getResources().getColor(R.color.white)).withSelectedTextColor(getResources().getColor(R.color.white))
+//                                .withSelectedColor(getResources().getColor(R.color.theme_color))
+//                                .withIcon(GoogleMaterial.Icon.gmd_hdr_strong)
+//                                .withIdentifier(7).withCheckable(false),
 
                         // 笔记
-                        new SectionDrawerItem().withName(R.string.tab_selection_note),
+//                        new SectionDrawerItem().withName(R.string.tab_selection_note),
                         new PrimaryDrawerItem().withName(R.string.tab_note)
                                 .withIconColor(getResources().getColor(R.color.md_light_blue_400))
                                 .withTextColor(getResources().getColor(R.color.drawlayout_item_text_color))
@@ -221,20 +223,20 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
                                 .withSelectedColor(getResources().getColor(R.color.theme_color))
                                 .withIcon(GoogleMaterial.Icon.gmd_border_color)
                                 .withIdentifier(8).withCheckable(false),
-                        new PrimaryDrawerItem().withName(R.string.tab_makeuplib)
-                                .withIconColor(getResources().getColor(R.color.md_orange_400))
-                                .withTextColor(getResources().getColor(R.color.drawlayout_item_text_color))
-                                .withSelectedIconColor(getResources().getColor(R.color.white)).withSelectedTextColor(getResources().getColor(R.color.white))
-                                .withSelectedColor(getResources().getColor(R.color.theme_color))
-                                .withIcon(GoogleMaterial.Icon.gmd_style)
-                                .withIdentifier(9).withCheckable(false),
-                        new PrimaryDrawerItem().withName(R.string.tab_property)
-                                .withIconColor(getResources().getColor(R.color.md_lime_400))
-                                .withTextColor(getResources().getColor(R.color.drawlayout_item_text_color))
-                                .withSelectedIconColor(getResources().getColor(R.color.white)).withSelectedTextColor(getResources().getColor(R.color.white))
-                                .withSelectedColor(getResources().getColor(R.color.theme_color))
-                                .withIcon(GoogleMaterial.Icon.gmd_grid_on)
-                                .withIdentifier(10).withCheckable(false),
+//                        new PrimaryDrawerItem().withName(R.string.tab_makeuplib)
+//                                .withIconColor(getResources().getColor(R.color.md_orange_400))
+//                                .withTextColor(getResources().getColor(R.color.drawlayout_item_text_color))
+//                                .withSelectedIconColor(getResources().getColor(R.color.white)).withSelectedTextColor(getResources().getColor(R.color.white))
+//                                .withSelectedColor(getResources().getColor(R.color.theme_color))
+//                                .withIcon(GoogleMaterial.Icon.gmd_style)
+//                                .withIdentifier(9).withCheckable(false),
+//                        new PrimaryDrawerItem().withName(R.string.tab_property)
+//                                .withIconColor(getResources().getColor(R.color.md_lime_400))
+//                                .withTextColor(getResources().getColor(R.color.drawlayout_item_text_color))
+//                                .withSelectedIconColor(getResources().getColor(R.color.white)).withSelectedTextColor(getResources().getColor(R.color.white))
+//                                .withSelectedColor(getResources().getColor(R.color.theme_color))
+//                                .withIcon(GoogleMaterial.Icon.gmd_grid_on)
+//                                .withIdentifier(10).withCheckable(false),
 
                         //设置
                         new SectionDrawerItem().withName(""),
@@ -412,7 +414,7 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
     }
 
     @OnClick(R.id.action_messagebox)
-    void messageBox(View v){
+    void messageBox(View v) {
         Intent intentm = new Intent(SimpleHeaderDrawerActivity.this, MessageActivity.class);
         startActivity(intentm);
         overridePendingTransition(R.anim.slide_in_bottom, R.anim.nothing);
@@ -497,6 +499,11 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
 
                 fragment.getArguments().putIntArray(BeautyBaseFragment.ARG_REVEAL_START_LOCATION, startingLocation);
 
+                if (getSupportFragmentManager().getFragments() != null) {
+                    preFragments.clear();
+                    preFragments.addAll(getSupportFragmentManager().getFragments());
+                }
+
                 getSupportFragmentManager().beginTransaction().add(R.id.frame_container, fragment, tag).commit();
             }
         }, 450);
@@ -504,21 +511,24 @@ public class SimpleHeaderDrawerActivity extends BeautyBaseActivity {
 
     }
 
+    private List<Fragment> preFragments = new ArrayList<Fragment>();//添加fragment之前, fragmentlist中
+
     /**
      * 从堆栈中删除前一个fragment
      */
     public void removePreFragement() {
 
-        Fragment pre = getSupportFragmentManager().findFragmentByTag(mPreContentTag);
-        if (pre != null) {
-            getSupportFragmentManager().beginTransaction().remove(pre).commit();
-        }
-//        List<Fragment> f = getSupportFragmentManager().getFragments();
-//        if (f != null && f.size() > 1) {
-//            for (int i = 0; i < f.size() - 1; i++) {
-//                getSupportFragmentManager().beginTransaction().remove(f.get(i)).commit();
-//            }
+//        Fragment pre = getSupportFragmentManager().findFragmentByTag(mPreContentTag);
+//        if (pre != null) {
+//            getSupportFragmentManager().beginTransaction().remove(pre).commit();
 //        }
+        if (preFragments != null && preFragments.size() > 0) {
+            for (int i = 0; i < preFragments.size(); i++) {
+                if (preFragments.get(i) != null) {
+                    getSupportFragmentManager().beginTransaction().remove(preFragments.get(i)).commit();
+                }
+            }
+        }
     }
 
 

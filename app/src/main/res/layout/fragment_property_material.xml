@@ -11,11 +11,12 @@
         android:layout_height="match_parent" />
 
     <!--<include-->
-        <!--android:id="@+id/head"-->
-        <!--layout="@layout/main_head_material" />-->
+    <!--android:id="@+id/head"-->
+    <!--layout="@layout/main_head_material" />-->
 
 
     <RelativeLayout
+        android:id="@+id/rl_root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
@@ -123,15 +124,13 @@
         </RelativeLayout>
 
 
-
-        <android.support.v4.view.ViewPager
+        <beauty.beautydemo.custview.NoScrollViewPager
             android:id="@+id/pager"
             android:layout_width="match_parent"
+            android:layout_height="fill_parent"
             android:layout_below="@+id/rv_property_tabhost"
-            android:layout_height="0dp"
             android:layout_weight="1"
-            android:background="@color/bg_fragment"
-            android:visibility="invisible"/>
+            android:background="@color/bg_fragment" />
 
     </RelativeLayout>
 

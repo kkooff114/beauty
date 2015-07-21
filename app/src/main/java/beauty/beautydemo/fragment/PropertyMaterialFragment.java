@@ -22,14 +22,19 @@ import java.util.ArrayList;
 import beauty.beautydemo.R;
 import beauty.beautydemo.adapter.ViewPagerAdapter;
 import beauty.beautydemo.base.BeautyBaseFragment;
+import beauty.beautydemo.custview.NoScrollViewPager;
 import beauty.beautydemo.custview.reveal.RevealBackgroundView;
 import beauty.beautydemo.screens.NoteMainActivity;
+import beauty.beautydemo.screens.PhotoFixCropActivity;
 import beauty.beautydemo.screens.TakePhotoActivity;
 import beauty.beautydemo.screens.materialmenu.SimpleHeaderDrawerActivity;
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 import de.hdodenhof.circleimageview.CircleImageView;
 import it.neokree.materialtabs.MaterialTab;
 import it.neokree.materialtabs.MaterialTabHost;
 import it.neokree.materialtabs.MaterialTabListener;
+import me.nereo.multi_image_selector.MultiImageSelectorActivity;
 
 
 /**
@@ -41,7 +46,7 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
     private String mTitle = "";
     private MaterialTabHost mTabHost;
     private ViewPagerAdapter adapter;
-    private ViewPager mPager;
+    private NoScrollViewPager mPager;
 
     private CircleImageView mHeadPropertyImage;
     private TextView mHeadPropertyName;
@@ -57,6 +62,9 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
 
     private ArrayList<Fragment> fragmentList = new ArrayList<Fragment>(4);
     private String[] titleTexts = {"", "", "", ""};
+
+    @InjectView(R.id.rl_root)
+    RelativeLayout mRoot;
 
     public static PropertyMaterialFragment getInstance(String title) {
 
@@ -79,10 +87,10 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_property_material, container, false);
-
+        ButterKnife.inject(this, view);
 
         mTabHost = (MaterialTabHost) view.findViewById(R.id.tabHost_profile);
-        mPager = (ViewPager) view.findViewById(R.id.pager);
+        mPager = (NoScrollViewPager) view.findViewById(R.id.pager);
         action_photo = (FloatingActionButton) view.findViewById(R.id.action_photo);
         action_photo.setOnClickListener(this);
         action_text = (FloatingActionButton) view.findViewById(R.id.action_text);
@@ -104,17 +112,36 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
         mHeadFollowing = (LinearLayout) view.findViewById(R.id.ll_head_following);
         mHeadStatus = (LinearLayout) view.findViewById(R.id.ll_head_status);
 
+        setupViewPager();
+
+
+        return view;
+    }
+
+    private void setupViewPager(){
         //TODO 在fragmentList中添加Fragment
-        fragmentList.add(PropertyMaterialTab1.newInstance("", ""));
-        fragmentList.add(PropertyMaterialTab1.newInstance("", ""));
-        fragmentList.add(PropertyMaterialTab1.newInstance("", ""));
-        fragmentList.add(PropertyMaterialTab1.newInstance("", ""));
+        ArrayList<String> titles1 = new ArrayList<>();
+        titles1.add("我的Icon");
+        titles1.add("我的风格");
+        ArrayList<String> titles2 = new ArrayList<>();
+        titles2.add("我的裸妆");
+        ArrayList<String> titles3 = new ArrayList<>();
+        titles3.add("我的肤质测试");
+        titles3.add("我的风格测试");
+        titles3.add("我的品味测试");
+        ArrayList<String> titles4 = new ArrayList<>();
+        titles4.add("彩妆收藏");
+        titles4.add("灵感收藏");
+        titles4.add("品牌收藏");
+        fragmentList.add(PropertyMaterialMyIcon.newInstance("", titles1));
+        fragmentList.add(PropertyMaterialMyIcon.newInstance("我的裸妆", titles2));
+        fragmentList.add(PropertyMaterialMyIcon.newInstance("我的妆库", titles3));
+        fragmentList.add(PropertyMaterialMyIcon.newInstance("我的收藏", titles4));
 
 
         adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), titleTexts, fragmentList);
 
 
-        mPager.setAdapter(adapter);
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
@@ -134,9 +161,6 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
             );
 
         }
-
-
-        return view;
     }
 
 
@@ -149,7 +173,7 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
             case 2:
                 return getActivity().getResources().getDrawable(R.drawable.ic_explore_white_18dp);
             case 3:
-                return getActivity().getResources().getDrawable(R.drawable.ic_settings_white_18dp);
+                return getActivity().getResources().getDrawable(R.drawable.ic_star_white_18dp);
         }
         return null;
     }
@@ -175,7 +199,7 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
         if (RevealBackgroundView.STATE_FINISHED == state) {
             mPropertyHead.setVisibility(View.VISIBLE);
             mPropertyTabhost.setVisibility(View.VISIBLE);
-
+            mRoot.setVisibility(View.VISIBLE);
             animateUserProfileHeader();
 
             mPropertyHead.animate()
@@ -184,14 +208,20 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
                     .setStartDelay(300)
                     .setDuration(ANIM_DURATION_FAB)
                     .start();
+
+            super.onStateChange(state);
+            // 在波纹动画加载完成后,等待adapterFragmentmanager清空之后, 再设置adapter; 因为pageradapter只能缓存3个fragment
+            mPager.setAdapter(adapter);
+
         } else {
             mPropertyHead.setVisibility(View.INVISIBLE);
             mPropertyTabhost.setVisibility(View.INVISIBLE);
-
+            mRoot.setVisibility(View.INVISIBLE);
             mFloatingActionMenu.setTranslationY(2 * getResources().getDimensionPixelOffset(R.dimen.btn_fab_size));
         }
 
-        super.onStateChange(state);
+
+
 
     }
 
@@ -219,7 +249,21 @@ public class PropertyMaterialFragment extends BeautyBaseFragment implements Mate
         switch (v.getId()) {
             case R.id.action_photo: //拍照
 
-                ((SimpleHeaderDrawerActivity) getActivity()).startActivityRelLocation(v, getActivity(), TakePhotoActivity.class);
+                Intent intent = new Intent(getActivity(), MultiImageSelectorActivity.class);
+                // 是否显示拍摄图片
+                intent.putExtra(MultiImageSelectorActivity.EXTRA_SHOW_CAMERA, true);
+                // 最大可选择图片数量
+                intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_COUNT, 1);
+                // 选择模式
+                intent.putExtra(MultiImageSelectorActivity.EXTRA_SELECT_MODE, MultiImageSelectorActivity.MODE_SINGLE);
+                // 默认选择
+//        if(mSelectPath != null && mSelectPath.size()>0){
+//            intent.putExtra(MultiImageSelectorActivity.EXTRA_DEFAULT_SELECTED_LIST, mSelectPath);
+//        }
+                //选择完启动的activity
+                intent.putExtra(MultiImageSelectorActivity.EXTRA_START_ACTIVITY, PhotoFixCropActivity.class);
+
+                startActivity(intent);
 
                 break;
 

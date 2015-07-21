@@ -8,6 +8,7 @@ import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Toast;
 
 import com.pnikosis.materialishprogress.ProgressWheel;
 
@@ -61,7 +62,7 @@ public class SubscribeContentDetailActivity extends BeautyBaseActivity {
         WebSettings webSettings = mWebView.getSettings();
         webSettings.setDomStorageEnabled(true);
         mWebView.getSettings().setJavaScriptEnabled(true);
-        mWebView.setWebViewClient(new WebViewClient(){
+        mWebView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
@@ -71,6 +72,13 @@ public class SubscribeContentDetailActivity extends BeautyBaseActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
+                showProgressWheel(false);
+            }
+
+            @Override
+            public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
+                super.onReceivedError(view, errorCode, description, failingUrl);
+                Toast.makeText(SubscribeContentDetailActivity.this, "加载失败", Toast.LENGTH_SHORT).show();
                 showProgressWheel(false);
             }
         });
@@ -95,8 +103,8 @@ public class SubscribeContentDetailActivity extends BeautyBaseActivity {
         }
     }
 
-    public int getColorPrimary(){
-        TypedValue typedValue = new  TypedValue();
+    public int getColorPrimary() {
+        TypedValue typedValue = new TypedValue();
         getTheme().resolveAttribute(R.attr.colorPrimary, typedValue, true);
         return typedValue.data;
     }

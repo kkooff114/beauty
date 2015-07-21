@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import beauty.beautydemo.R;
-import beauty.beautydemo.test.getcolor.CameraView;
-import beauty.beautydemo.test.getcolor.OnColorStatusChange;
-import beauty.beautydemo.test.jni.ImageUtilEngine;
+import beauty.beautydemo.getcolor.CameraView;
+import beauty.beautydemo.getcolor.OnColorStatusChange;
+import beauty.beautydemo.jni.ImageUtilEngine;
 
 /**
  * Created by chenqiming on 2/2/15.
@@ -55,6 +55,11 @@ public class GetColorFragment extends Fragment
                 int b = Color.blue(color);
                 Log.w("CameraEngineActivity", "R:" + r + " G:" + g + " B:" + b);
                 colorText.setBackgroundColor(color);
+            }
+
+            @Override
+            public void onSufaceViewDestrotyed() {
+
             }
         });
     }

@@ -64,7 +64,7 @@ public class TabFragment extends Fragment implements TabHost.OnTabChangeListener
     public void onTabChanged(String tabId) {
         if ("tab1".equals(tabId)) {
             updateTab(tabId, R.id.tab1);
-			currentTab = 1;
+            currentTab = 1;
         }
         if ("tab2".equals(tabId)) {
             updateTab(tabId, R.id.tab2);
@@ -79,7 +79,7 @@ public class TabFragment extends Fragment implements TabHost.OnTabChangeListener
 
     private void updateTab(String tabId, int placeholder) {
         FragmentManager fm = getFragmentManager();
-		if (fm.findFragmentById(R.id.tab1) == null && "tab1".equals(tabId)) {
+        if (fm.findFragmentById(R.id.tab1) == null && "tab1".equals(tabId)) {
             fm.beginTransaction().add(placeholder, new GetColorFragment()).commit();
         }
         if (fm.findFragmentById(R.id.tab2) == null && "tab2".equals(tabId)) {

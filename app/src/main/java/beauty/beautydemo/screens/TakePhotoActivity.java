@@ -18,6 +18,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.Window;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.DecelerateInterpolator;
 import android.view.animation.Interpolator;
@@ -79,6 +80,7 @@ public class TakePhotoActivity extends BeautyBaseActivity implements RevealBackg
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_take_photo);
         initView();
         updateStatusBarColor();

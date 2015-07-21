@@ -4,7 +4,7 @@
  * Description : TODO
  */
 
-package beauty.beautydemo.test.jni;
+package beauty.beautydemo.jni;
 
 
 /**

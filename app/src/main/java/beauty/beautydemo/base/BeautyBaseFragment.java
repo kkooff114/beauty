@@ -24,6 +24,8 @@ import butterknife.ButterKnife;
  */
 public class BeautyBaseFragment extends Fragment implements RevealBackgroundView.OnStateChangeListener {
 
+    public static final String TITLE = "title";
+    public static final String TITLEStrings = "titlestrings";
     public static final String ARG_REVEAL_START_LOCATION = "reveal_start_location";
     public static final String ACTION_SHOW_LOADING_ITEM = "action_show_loading_item";
 

@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import beauty.beautydemo.R;
 import beauty.beautydemo.base.BeautyBaseFragment;
 import beauty.beautydemo.custview.reveal.RevealBackgroundView;
+import beauty.beautydemo.screens.TestLibList2Activity;
 import beauty.beautydemo.screens.TestLibListActivity;
 
 /**
@@ -59,7 +60,7 @@ public class TestLibFragment extends BeautyBaseFragment implements View.OnClickL
         switch (view.getId()) {
             case R.id.ll_lipstick:
 
-                Intent intent = new Intent(getActivity(), TestLibListActivity.class);
+                Intent intent = new Intent(getActivity(), TestLibList2Activity.class);
                 startActivity(intent);
                 break;
 

@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import beauty.beautydemo.R;
 import beauty.beautydemo.base.BeautyBaseFragment;
+import beauty.beautydemo.custview.reveal.RevealBackgroundView;
 
 /**
  * Created by LJW on 15/6/27.
@@ -43,6 +44,8 @@ public class HomeFragment extends BeautyBaseFragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
+        vRevealBackground = (RevealBackgroundView) view.findViewById(R.id.vRevealBackground);
+        setupRevealBackground(savedInstanceState);
 
         return view;
     }

@@ -25,12 +25,7 @@ import beauty.beautydemo.custview.intamaterial.FeedContextMenuManager;
 import beauty.beautydemo.custview.reveal.RevealBackgroundView;
 import beauty.beautydemo.screens.CommentsActivity;
 import beauty.beautydemo.screens.NoteMainActivity;
-import beauty.beautydemo.screens.PhotoAddTagActivity;
-import beauty.beautydemo.screens.PhotoCropActivity;
-import beauty.beautydemo.screens.PhotoEditActivity;
 import beauty.beautydemo.screens.PhotoFixCropActivity;
-import beauty.beautydemo.screens.PublishActivity;
-import beauty.beautydemo.screens.TakePhotoActivity;
 import beauty.beautydemo.screens.materialmenu.SimpleHeaderDrawerActivity;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -107,14 +102,14 @@ public class MomentsFragment extends BeautyBaseFragment implements View.OnClickL
 //            feedAdapter.updateItems(false);
         }
 
-        setupViewPaper();
-
         action_photo = (FloatingActionButton) view.findViewById(R.id.action_photo);
         action_photo.setOnClickListener(this);
         action_text = (FloatingActionButton) view.findViewById(R.id.action_text);
         action_text.setOnClickListener(this);
 
         mFloatingActionMenu = (FloatingActionsMenu) view.findViewById(R.id.multiple_actions);
+
+        setupViewPaper();
 
         return view;
     }
@@ -131,7 +126,6 @@ public class MomentsFragment extends BeautyBaseFragment implements View.OnClickL
         adapter = new ViewPagerAdapter(getActivity().getSupportFragmentManager(), titleTexts, fragmentList);
 
 
-        mPager.setAdapter(adapter);
         mPager.setOnPageChangeListener(new ViewPager.SimpleOnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
@@ -178,8 +172,14 @@ public class MomentsFragment extends BeautyBaseFragment implements View.OnClickL
     @Override
     public void onStateChange(int state) {
         if (RevealBackgroundView.STATE_FINISHED == state) {
+            mTabHost.setVisibility(View.VISIBLE);
+            mPager.setVisibility(View.VISIBLE);
+            super.onStateChange(state);
 
             animateUserProfileHeader();
+
+            mPager.setAdapter(adapter);
+            followFragment.animateUserProfileHeader();
 
             if (isPublic) {
 //                showFeedLoadingItemDelayed();
@@ -187,16 +187,16 @@ public class MomentsFragment extends BeautyBaseFragment implements View.OnClickL
 
         } else {
 
+            mTabHost.setVisibility(View.INVISIBLE);
+            mPager.setVisibility(View.INVISIBLE);
             mFloatingActionMenu.setTranslationY(2 * getResources().getDimensionPixelOffset(R.dimen.btn_fab_size));
         }
 
-        super.onStateChange(state);
     }
 
     private void animateUserProfileHeader() {
         mFloatingActionMenu.animate().translationY(0).setDuration(300).setInterpolator(OVERSHOOT);
         //feedAdapter.updateItems(true);
-        followFragment.animateUserProfileHeader();
     }
 
 
@@ -345,7 +345,6 @@ public class MomentsFragment extends BeautyBaseFragment implements View.OnClickL
 
 
     public void takePhoto(View v) {
-//        ((SimpleHeaderDrawerActivity) getActivity()).startActivityRelLocation(v, getActivity(), TakePhotoActivity.class);
         Intent intent = new Intent(getActivity(), MultiImageSelectorActivity.class);
         // 是否显示拍摄图片
         intent.putExtra(MultiImageSelectorActivity.EXTRA_SHOW_CAMERA, true);

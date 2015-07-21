@@ -92,20 +92,20 @@ public class NewLookActivity extends Activity {
         setCardModelLinster(card12);
         setCardModelLinster(card13);
         setCardModelLinster(card14);
-        images.add(card1);
-        images.add(card2);
-        images.add(card3);
-        images.add(card4);
-        images.add(card5);
-        images.add(card6);
-        images.add(card7);
-        images.add(card8);
-        images.add(card9);
-        images.add(card10);
-        images.add(card11);
-        images.add(card12);
-        images.add(card13);
         images.add(card14);
+        images.add(card13);
+        images.add(card12);
+        images.add(card11);
+        images.add(card10);
+        images.add(card9);
+        images.add(card8);
+        images.add(card7);
+        images.add(card6);
+        images.add(card5);
+        images.add(card4);
+        images.add(card3);
+        images.add(card2);
+        images.add(card1);
 
         return images;
     }

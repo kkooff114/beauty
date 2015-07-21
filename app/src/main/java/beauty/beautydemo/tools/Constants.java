@@ -8,10 +8,9 @@ package beauty.beautydemo.tools;
 import android.content.Context;
 import android.graphics.Point;
 import android.graphics.PointF;
-import android.widget.Switch;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import beauty.beautydemo.R;
@@ -20,6 +19,7 @@ import beauty.beautydemo.bean.Comment;
 import beauty.beautydemo.bean.LibListItem;
 import beauty.beautydemo.bean.NewsEntity;
 import beauty.beautydemo.bean.ShopProduct;
+import beauty.beautydemo.bean.realm.NoteRealm;
 import beauty.beautydemo.custview.imageprocessing.filter.BasicFilter;
 import beauty.beautydemo.custview.imageprocessing.filter.colour.AdaptiveThresholdFilter;
 import beauty.beautydemo.custview.imageprocessing.filter.colour.AmatorkaFilter;
@@ -96,6 +96,8 @@ import beauty.beautydemo.custview.imageprocessing.filter.processing.TiltShiftFil
 import beauty.beautydemo.custview.imageprocessing.filter.processing.TransformFilter;
 import beauty.beautydemo.custview.imageprocessing.filter.processing.UnsharpMaskFilter;
 import beauty.beautydemo.custview.imageprocessing.filter.processing.ZoomBlurFilter;
+import beauty.beautydemo.entity.MyIcon;
+import beauty.beautydemo.entity.NoteEntity;
 import beauty.beautydemo.entity.SubcribeContentListItem;
 import beauty.beautydemo.entity.SubscribeListItem;
 import beauty.beautydemo.entity.Tag;
@@ -103,7 +105,6 @@ import beauty.beautydemo.entity.Tag;
 
 public class Constants {
 
-    private static ArrayList<BasicFilter> allFilter;
 
     /*
              * 获取新闻列表
@@ -390,6 +391,41 @@ public class Constants {
 
         list.add(String.valueOf(R.drawable.product4_c));
 
+        return list;
+    }
+
+    public static ArrayList<String> getLiboneTwoBoard() {
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add(String.valueOf(R.drawable.product4_onetwo10));
+        list.add(String.valueOf(R.drawable.product4_onetwo11));
+        list.add(String.valueOf(R.drawable.product4_onetwo20));
+        list.add(String.valueOf(R.drawable.product4_onetwo21));
+
+        return list;
+    }
+
+    public static ArrayList<String> getLibShowColorBoard() {
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add(String.valueOf(R.drawable.product4_showcolor));
+        return list;
+    }
+
+    public static ArrayList<String> getLibDurableBoard() {
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add(String.valueOf(R.drawable.product4_durable1));
+        list.add(String.valueOf(R.drawable.product4_durable2));
+        list.add(String.valueOf(R.drawable.product4_durable3));
+
+        return list;
+    }
+
+    public static ArrayList<String> getLibMoistenBoard() {
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add(String.valueOf(R.drawable.product4_moisten1));
         return list;
     }
 
@@ -959,6 +995,132 @@ public class Constants {
 
     private static void addFilter(BasicFilter filter) {
         filters.add(filter);
+    }
+
+    public static ArrayList<MyIcon> getMyIcon() {
+
+        ArrayList<MyIcon> myIcon = new ArrayList<MyIcon>();
+
+        MyIcon icon = new MyIcon();
+        icon.icon = "drawable://" + R.drawable.newlook1;
+        icon.desc = "变妆";
+        myIcon.add(icon);
+
+        MyIcon icon2 = new MyIcon();
+        icon2.icon = "drawable://" + R.drawable.newlook2;
+        icon2.desc = "20世纪30年代：憧憬影坛女星的妆容。这种妆容让人感觉到“坚强女性”，乍一看发型像海螺小姐。而漫画《海螺小姐》据说从1946年开始连载的。";
+        myIcon.add(icon2);
+
+        MyIcon icon3 = new MyIcon();
+        icon3.icon = "drawable://" + R.drawable.newlook3;
+        icon3.desc = "20世纪50年代：模仿美式造型和赫本，模仿奥黛丽·赫本等巨星。";
+        myIcon.add(icon3);
+
+        MyIcon icon4 = new MyIcon();
+        icon4.icon = "drawable://" + R.drawable.newlook4;
+        icon4.desc = "20世纪60年代：模仿西洋人脸型的妆容。这种妆容在2000年以后也以60年代复古风的形式出现在广告和杂志上。";
+        myIcon.add(icon4);
+
+        MyIcon icon5 = new MyIcon();
+        icon5.icon = "drawable://" + R.drawable.newlook5;
+        icon5.desc = "20世纪70年代前半期：民族嬉皮士风格。这种风格直到2015年的现在，也在部分人群中有一定的人气。唱作人及个性的艺术家喜欢这种妆容。";
+        myIcon.add(icon5);
+
+        MyIcon icon6 = new MyIcon();
+        icon6.icon = "drawable://" + R.drawable.newlook6;
+        icon6.desc = "20世纪70年代后半期：脱离欧美风重新认识日本美。";
+        myIcon.add(icon6);
+
+        MyIcon icon7 = new MyIcon();
+        icon7.icon = "drawable://" + R.drawable.newlook7;
+        icon7.desc = "20世纪80年代初期到中期：日本职业女性的形象。这种妆容类似女演员宫泽理惠的妆容。";
+        myIcon.add(icon7);
+
+        MyIcon icon8 = new MyIcon();
+        icon8.icon = "drawable://" + R.drawable.newlook8;
+        icon8.desc = "20世纪80年代后期到90年代初期：泡沫经济时期的齐发控。当时著名的女演员浅野温子和浅野优子的妆容就是这个感觉。";
+        myIcon.add(icon8);
+
+        MyIcon icon9 = new MyIcon();
+        icon9.icon = "drawable://" + R.drawable.newlook9;
+        icon9.desc = "20世纪90年代后期到21世纪初：跨世纪的冷艳之美。日本90年代著名歌星安室奈美惠等当时就是这种妆容。";
+        myIcon.add(icon9);
+
+        MyIcon icon10 = new MyIcon();
+        icon10.icon = "drawable://" + R.drawable.newlook10;
+        icon10.desc = "2011年以前：招桃花的盛装。类似人气模特蛯原友里的妆容。";
+        myIcon.add(icon10);
+
+        MyIcon icon11 = new MyIcon();
+        icon11.icon = "drawable://" + R.drawable.newlook11;
+        icon11.desc = "2011年3月11日以后：可爱治愈型美妆。";
+        myIcon.add(icon11);
+
+        MyIcon icon12 = new MyIcon();
+        icon12.icon = "drawable://" + R.drawable.newlook12;
+        icon12.desc = "21世纪10年代中期：景气恢复时期的泡沫经济复兴。最近在大街上经常看到化这种妆的女大学生。";
+        myIcon.add(icon12);
+
+        MyIcon icon13 = new MyIcon();
+        icon13.icon = "drawable://" + R.drawable.newlook13;
+        icon13.desc = "2020年时流行妆容预想一：日式色彩。以日本传统化妆的三种颜色“红”、“白”、“黑”为基调。白色使肌肤充满透明感、内眼角明亮，黑色突出眼眶，红色突出唇部。将日本传统和现代风格调和，表现出日本女性的凛然之美。";
+        myIcon.add(icon13);
+
+        MyIcon icon14 = new MyIcon();
+        icon14.icon = "drawable://" + R.drawable.newlook14;
+        icon14.desc = "2020年时流行妆容预想二：轻松休闲。用蓝色眼线画出双重眼影，整体轻松明快。在富有光泽的肌肤上配以橙色唇彩，轻快运动形象油然而生，表现出飒爽之美。";
+        myIcon.add(icon14);
+
+        return myIcon;
+    }
+
+    public static ArrayList<MyIcon> getMyLuozhuang() {
+
+        ArrayList<MyIcon> myIcon = new ArrayList<MyIcon>();
+
+        MyIcon icon1 = new MyIcon();
+        icon1.icon = "drawable://" + R.drawable.luozhuang1;
+        icon1.desc = "我的裸妆1";
+        myIcon.add(icon1);
+
+        MyIcon icon2 = new MyIcon();
+        icon2.icon = "drawable://" + R.drawable.luozhuang2;
+        icon2.desc = "我的裸妆2";
+        myIcon.add(icon2);
+
+        MyIcon icon3 = new MyIcon();
+        icon3.icon = "drawable://" + R.drawable.luozhuang3;
+        icon3.desc = "我的裸妆3";
+        myIcon.add(icon3);
+
+        MyIcon icon4 = new MyIcon();
+        icon4.icon = "drawable://" + R.drawable.luozhuang4;
+        icon4.desc = "我的裸妆4";
+        myIcon.add(icon4);
+
+        return myIcon;
+
+    }
+
+    public static List<NoteEntity> getNoteList() {
+        long now = new Date().getTime();
+        ArrayList<NoteEntity> list = new ArrayList<NoteEntity>();
+        NoteEntity note1 = new NoteEntity();
+        note1.setLastOprTime(now);
+        note1.setLabel("精致柔美妆");
+        note1.setContent("在这个换季的时候, 肌肤的问题接踵而来, 是不是应该要正规一下换季护肤的问题呢...");
+        note1.setImage("http://ww1.sinaimg.cn/bmiddle/005EBNw4gw1eu6yqrkto4j30dd6ubkjl.jpg");
+        list.add(note1);
+
+        NoteEntity note2 = new NoteEntity();
+        note2.setLastOprTime(now);
+        note2.setLabel("芭比大眼潮妆");
+        note2.setContent("芭比最迷人的, 波过于她一双扑闪扑闪的大眼睛, 看芭比的眼睛, 你会...");
+        note2.setImage("http://blog.sina.com.cn/s/blog_55cbb71a0102vwyb.html");
+        list.add(note2);
+
+
+        return list;
     }
 }
 

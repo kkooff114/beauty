@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/global_container"
+    android:layout_width="300dp"
+    android:layout_height="400dp"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_weight="1"
+        android:scaleType="fitCenter"
+        tools:src="@drawable/picture1" />
+
+    <View
+        android:id="@+id/divider_bottom"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/image"
+        android:background="@color/card_outline" />
+
+    <!--<View-->
+    <!--android:layout_width="fill_parent"-->
+    <!--android:layout_height="10dp"-->
+    <!--android:layout_alignBottom="@+id/image_1"-->
+    <!--android:layout_below="@+id/divider_bottom"-->
+    <!--android:background="@color/card_bg"-->
+    <!--/>-->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_below="@+id/image"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/description"
+            style="@android:style/TextAppearance.Inverse"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:fontFamily="sans-serif-condensed"
+            android:gravity="center_vertical"
+            android:lines="1"
+            android:padding="10dp"
+            android:textColor="@android:color/secondary_text_light"
+            tools:text="This is the description, it is a long description, as you can see" />
+
+        <View
+            android:id="@+id/btn_sep_1"
+            android:layout_width="1dp"
+            android:layout_height="25dp"
+            android:layout_marginRight="5dp"
+            android:background="#ccc" />
+
+        <ImageButton
+            android:id="@+id/image_1"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_blur_on_purple_500_36dp" />
+
+        <View
+            android:id="@+id/btn_sep_2"
+            android:layout_width="1dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#ccc" />
+
+        <ImageButton
+            android:id="@+id/image_2"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginRight="5dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:src="@drawable/ic_star_outline_red_500_36dp" />
+    </LinearLayout>
+
+</LinearLayout><!-- From: file:/Users/enriquelopezmanas/AndroidStudioProjects/Swipeable-Cards/AndTinder/src/main/res/layout/std_card_inner.xml -->

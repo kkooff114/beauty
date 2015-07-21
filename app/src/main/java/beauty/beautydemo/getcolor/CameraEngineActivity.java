@@ -1,7 +1,7 @@
-package beauty.beautydemo.test.getcolor;
+package beauty.beautydemo.getcolor;
 
 import beauty.beautydemo.R;
-import beauty.beautydemo.test.jni.ImageUtilEngine;
+import beauty.beautydemo.jni.ImageUtilEngine;
 
 import android.app.Activity;
 import android.graphics.Color;
@@ -34,6 +34,11 @@ public class CameraEngineActivity extends Activity {
 				int b = Color.blue(color);
 				Log.w("CameraEngineActivity", "R:" + r + " G:" + g + " B:" + b);
 				colorText.setBackgroundColor(color);
+			}
+
+			@Override
+			public void onSufaceViewDestrotyed() {
+
 			}
 		});
 	}

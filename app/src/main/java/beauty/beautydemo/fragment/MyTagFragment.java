@@ -56,7 +56,7 @@ public class MyTagFragment extends BeautyBaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_my_tag, container, false);
+        View view = inflater.inflate(R.layout.fragment_my_tag_fragment, container, false);
         ButterKnife.inject(this, view);
 
         setupRecycleView();

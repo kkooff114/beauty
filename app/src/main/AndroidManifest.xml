@@ -180,6 +180,26 @@
             android:name=".screens.AllTagActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".screens.TestLibList2Activity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".screens.NoteDetail"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".screens.ImagePagerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".screens.PickColorActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"></activity>
+        <activity
+            android:name=".screens.MyIconActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"></activity>
     </application>
 
 </manifest>

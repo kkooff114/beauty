@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.orhanobut.logger.Logger;
+
 import beauty.beautydemo.R;
 import beauty.beautydemo.adapter.FeedAdapter;
 import beauty.beautydemo.base.BeautyBaseFragment;
@@ -61,7 +63,6 @@ public class MomentsFollowFragment extends BeautyBaseFragment implements View.On
             mTitle = getArguments().getString(TITLE);
         }
     }
-
 
     @Nullable
     @Override

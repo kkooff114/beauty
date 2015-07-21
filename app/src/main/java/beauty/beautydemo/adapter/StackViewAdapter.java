@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.andtinder.model.CardModel;
 import com.andtinder.view.CardStackAdapter;
@@ -46,13 +47,26 @@ public class StackViewAdapter extends CardStackAdapter {
 
         if (view == null) {
             LayoutInflater inflater = LayoutInflater.from(getContext());
-            view = inflater.inflate(R.layout.std_card_inner, viewGroup, false);
+            view = inflater.inflate(R.layout.std_card_inner_cust, viewGroup, false);
             assert view != null;
         }
 
         ((ImageView) view.findViewById(R.id.image)).setImageDrawable(cardModel.getCardImageDrawable());
-        ((TextView) view.findViewById(R.id.title)).setText(cardModel.getTitle());
+//        ((TextView) view.findViewById(R.id.title)).setText(cardModel.getTitle());
         ((TextView) view.findViewById(R.id.description)).setText(cardModel.getDescription());
+
+        view.findViewById(R.id.image_1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "试妆", Toast.LENGTH_SHORT).show();
+            }
+        });
+        view.findViewById(R.id.image_2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(mContext, "收藏", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         return view;
     }
