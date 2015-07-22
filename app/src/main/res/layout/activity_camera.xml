@@ -18,15 +18,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:text="取色器启动中..."
         android:textSize="20sp"
-        android:visibility="gone"
-        android:text="取色器启动中..." />
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/btn_capture"
         android:layout_width="120dp"
         android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/surfaceView1"
+        android:layout_marginBottom="4dp"
         android:layout_marginRight="18dp"
         android:layout_marginTop="4dp"
         android:text="Capture" />
@@ -36,6 +38,8 @@
         android:layout_width="120dp"
         android:layout_height="60dp"
         android:layout_alignLeft="@+id/surfaceView1"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="4dp"
         android:layout_marginLeft="18dp"
         android:layout_marginTop="4dp"
         android:text="取色" />
