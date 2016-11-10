@@ -1,14 +1,12 @@
 apply plugin: 'android-library'
 apply plugin: 'maven'
 apply plugin: 'signing'
-
 version = "1.0.1"
 group = "com.edmodo"
-
 android {
 
     compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    buildToolsVersion '22.0.1'
 
     defaultConfig {
         minSdkVersion 7
@@ -23,23 +21,19 @@ android {
         }
     }
 }
-
 repositories {
     mavenCentral()
 }
-
 signing {
     required { has("release") && gradle.taskGraph.hasTask("uploadArchives") }
     sign configurations.archives
 }
-
 task publishLocal(type: Upload) {
     configuration = configurations.archives
     repositories.mavenDeployer {
         repository(url: "file://$buildDir/repo")
     }
 }
-
 uploadArchives {
     repositories.mavenDeployer {
         beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
@@ -83,4 +77,6 @@ uploadArchives {
             }
         }
     }
+}
+dependencies {
 }

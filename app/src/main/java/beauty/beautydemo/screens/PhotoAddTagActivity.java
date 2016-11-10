@@ -17,15 +17,11 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.View.OnTouchListener;
-import android.view.animation.BounceInterpolator;
-import android.view.animation.OvershootInterpolator;
-import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
@@ -41,13 +37,17 @@ import java.util.List;
 import java.util.Random;
 
 import beauty.beautydemo.R;
+import beauty.beautydemo.adapter.ImageFastFilterAdapter;
 import beauty.beautydemo.adapter.ImageFilterAdapter;
 import beauty.beautydemo.base.BeautyBaseActivity;
 import beauty.beautydemo.custview.RecyclerItemClickListener;
+import beauty.beautydemo.custview.imagefilter.filter.util.GPUImageFilterTools;
+import beauty.beautydemo.custview.imagefilter.lib.GPUImage;
+import beauty.beautydemo.custview.imagefilter.lib.GPUImageFilter;
+import beauty.beautydemo.custview.imagefilter.lib.GPUImageView;
 import beauty.beautydemo.custview.imageprocessing.FastImageProcessingPipeline;
 import beauty.beautydemo.custview.imageprocessing.FastImageProcessingView;
 import beauty.beautydemo.custview.imageprocessing.filter.BasicFilter;
-import beauty.beautydemo.custview.imageprocessing.input.GLTextureOutputRenderer;
 import beauty.beautydemo.custview.imageprocessing.input.ImageResourceInput;
 import beauty.beautydemo.custview.imageprocessing.output.ScreenEndpoint;
 import beauty.beautydemo.custview.phototagview.TagInfo;
@@ -58,6 +58,7 @@ import beauty.beautydemo.custview.phototagview.TagView.TagViewListener;
 import beauty.beautydemo.custview.phototagview.TagViewLeft;
 import beauty.beautydemo.custview.phototagview.TagViewRight;
 import beauty.beautydemo.custview.phototagview.TouchImageView;
+import beauty.beautydemo.entity.FilterEntity;
 import beauty.beautydemo.tools.Constants;
 import beauty.beautydemo.tools.NormalUtils;
 import beauty.beautydemo.tools.ScreenTools;
@@ -81,7 +82,7 @@ public class PhotoAddTagActivity extends BeautyBaseActivity implements View.OnCl
     private ImageView mTagUser;
 
     @InjectView(R.id.at_image)
-    FastImageProcessingView mImageView;
+    GPUImageView mImageView;
 
     @InjectView(R.id.wm_layout_2)
     LinearLayout mTabWaterMake;
@@ -165,11 +166,14 @@ public class PhotoAddTagActivity extends BeautyBaseActivity implements View.OnCl
 
     private ImageFilterAdapter filterAdapter;
 
-    private ArrayList<BasicFilter> filters;
+    private ArrayList<FilterEntity> filters;
 
-    private FastImageProcessingPipeline pipeline;
-    private ImageResourceInput input;
-    private ScreenEndpoint screen;
+//    private FastImageProcessingPipeline pipeline;
+//    private ImageResourceInput input;
+//    private ScreenEndpoint screen;
+
+    private GPUImageFilter mFilter;
+    private GPUImageFilterTools.FilterAdjuster mFilterAdjuster;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -225,24 +229,23 @@ public class PhotoAddTagActivity extends BeautyBaseActivity implements View.OnCl
 
         //设置图片内容
 
-        pipeline = new FastImageProcessingPipeline();
-        mImageView.setPipeline(pipeline);
-
-        input = new ImageResourceInput(mImageView, mImagePath);
-        screen = new ScreenEndpoint(pipeline);
-
-        input.addTarget(screen);
-
-        filters = Constants.getAllFilter(PhotoAddTagActivity.this);
-        for (BasicFilter filter : filters) {
-            filter.addTarget(screen);
-        }
-
-        pipeline.addRootRenderer(input);
-        pipeline.startRendering();
-//        if (mImageUri != null) {
-//            mImageView.setImageURI(mImageUri);
+//        pipeline = new FastImageProcessingPipeline();
+//        mImageView.setPipeline(pipeline);
+//
+//        input = new ImageResourceInput(mImageView, mImagePath);
+//        screen = new ScreenEndpoint(pipeline);
+//
+//        input.addTarget(screen);
+//
+//        filters = Constants.getAllFilter(PhotoAddTagActivity.this);
+//        for (BasicFilter filter : filters) {
+//            filter.addTarget(screen);
 //        }
+//
+//        pipeline.addRootRenderer(input);
+//        pipeline.startRendering();
+        Bitmap photo = BitmapFactory.decodeFile(mImagePath);
+        mImageView.setImage(photo);
 
 
         mTagLinearLayout = (LinearLayout) findViewById(R.id.at_tag_layout);
@@ -342,6 +345,8 @@ public class PhotoAddTagActivity extends BeautyBaseActivity implements View.OnCl
         mImageFilterRecyclerView.setHasFixedSize(true);
         mImageFilterRecyclerView.setOverScrollMode(View.OVER_SCROLL_NEVER);
 
+//        filterAdapter = new ImageFastFilterAdapter(PhotoAddTagActivity.this, filters);
+        filters = Constants.getFilter(PhotoAddTagActivity.this);
         filterAdapter = new ImageFilterAdapter(PhotoAddTagActivity.this, filters);
         mImageFilterRecyclerView.setAdapter(filterAdapter);
 
@@ -443,8 +448,8 @@ public class PhotoAddTagActivity extends BeautyBaseActivity implements View.OnCl
         Bitmap photo = BitmapFactory.decodeFile(mImagePath);
         Bitmap point = BitmapFactory.decodeResource(this.getResources(), R.drawable.brand_tag_point_white_bg);
         Bitmap a = createBitmap(photo, point, x, y);
-//        mImageView.setImageBitmap(a);
-        input.setImage(a);
+        mImageView.setImage(a);
+//        input.setImage(a);
         //TODO
         photo.recycle();
         point.recycle();
@@ -747,8 +752,9 @@ public class PhotoAddTagActivity extends BeautyBaseActivity implements View.OnCl
      */
     private void showTagLinearLayout(float x, float y) {
         if (isTagLayShow) {
-//            mImageView.setImageURI(mImageUri);
-            input.setImage(mImagePath);
+            Bitmap photo = BitmapFactory.decodeFile(mImagePath);
+            mImageView.setImage(photo);
+//            input.setImage(mImagePath);
             //TODO
 //            mTagLinearLayout.setVisibility(View.GONE);
             ObjectAnimator tago1 = ObjectAnimator.ofFloat(mTagNormal, "translationY", -(ScreenTools.getScreenWidth(PhotoAddTagActivity.this) / 3) * 2);
@@ -907,19 +913,29 @@ public class PhotoAddTagActivity extends BeautyBaseActivity implements View.OnCl
 
     @Override
     public void onItemClick(View view, int position) {
-        pipeline.pauseRendering();
-
-        if (curFilter != -1) {
-            input.removeTarget(filters.get(curFilter));
-            pipeline.addFilterToDestroy(filters.get(curFilter));
-        }
-
-        curFilter = position;
-
-        input.addTarget(filters.get(curFilter));
-
-        pipeline.startRendering();
+//        pipeline.pauseRendering();
+//
+//        if (curFilter != -1) {
+//            input.removeTarget(filters.get(curFilter));
+//            pipeline.addFilterToDestroy(filters.get(curFilter));
+//        }
+//
+//        curFilter = position;
+//
+//        input.addTarget(filters.get(curFilter));
+//
+//        pipeline.startRendering();
+        switchFilterTo(filters.get(position).getFilter(PhotoAddTagActivity.this));
         mImageView.requestRender();
+    }
+
+    private void switchFilterTo(final GPUImageFilter filter) {
+        if (mFilter == null
+                || (filter != null && !mFilter.getClass().equals(filter.getClass()))) {
+            mFilter = filter;
+            mImageView.setFilter(mFilter);
+            mFilterAdjuster = new GPUImageFilterTools.FilterAdjuster(mFilter);
+        }
     }
 
     // 滤镜相关end

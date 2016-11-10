@@ -8,30 +8,29 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import beauty.beautydemo.R;
 import beauty.beautydemo.base.BeautyBaseRecyclerAdapter;
-import beauty.beautydemo.custview.imageprocessing.filter.BasicFilter;
+import beauty.beautydemo.custview.imagefilter.lib.GPUImageFilter;
+import beauty.beautydemo.entity.FilterEntity;
 import butterknife.ButterKnife;
 import butterknife.InjectView;
 
 /**
- * Created by LJW on 15/7/16.
+ * Created by LJW on 15/7/22.
  */
 public class ImageFilterAdapter extends BeautyBaseRecyclerAdapter<ImageFilterAdapter.ViewHolder> {
 
-
-    private List<BasicFilter> filters;
-    private LayoutInflater inflater;
     private Context mContext;
+    private ArrayList<FilterEntity> mData;
+    private LayoutInflater inflater;
 
-
-    public ImageFilterAdapter(Context context, ArrayList<BasicFilter> list) {
-        mContext = context;
+    public ImageFilterAdapter(Context context, ArrayList<FilterEntity> list) {
+        this.mContext = context;
         inflater = LayoutInflater.from(context);
-        filters = list;
+        mData = list;
     }
+
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -41,12 +40,12 @@ public class ImageFilterAdapter extends BeautyBaseRecyclerAdapter<ImageFilterAda
     @Override
     public void onBindViewHolderExtend(ViewHolder holder, int position) {
 
-        holder.mFilterDesc.setText("滤镜" + position + "\n" + filters.get(position).getClass().getSimpleName());
+        holder.mFilterDesc.setText(mData.get(position).getName());
     }
 
     @Override
     public int getItemCount() {
-        return filters.size();
+        return mData.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {
@@ -57,7 +56,7 @@ public class ImageFilterAdapter extends BeautyBaseRecyclerAdapter<ImageFilterAda
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.inject(this, itemView);
+
         }
     }
-
 }

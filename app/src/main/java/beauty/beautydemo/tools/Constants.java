@@ -8,6 +8,7 @@ package beauty.beautydemo.tools;
 import android.content.Context;
 import android.graphics.Point;
 import android.graphics.PointF;
+import android.widget.Filter;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,6 +21,7 @@ import beauty.beautydemo.bean.LibListItem;
 import beauty.beautydemo.bean.NewsEntity;
 import beauty.beautydemo.bean.ShopProduct;
 import beauty.beautydemo.bean.realm.NoteRealm;
+import beauty.beautydemo.custview.imagefilter.filter.util.GPUImageFilterTools;
 import beauty.beautydemo.custview.imageprocessing.filter.BasicFilter;
 import beauty.beautydemo.custview.imageprocessing.filter.colour.AdaptiveThresholdFilter;
 import beauty.beautydemo.custview.imageprocessing.filter.colour.AmatorkaFilter;
@@ -96,6 +98,7 @@ import beauty.beautydemo.custview.imageprocessing.filter.processing.TiltShiftFil
 import beauty.beautydemo.custview.imageprocessing.filter.processing.TransformFilter;
 import beauty.beautydemo.custview.imageprocessing.filter.processing.UnsharpMaskFilter;
 import beauty.beautydemo.custview.imageprocessing.filter.processing.ZoomBlurFilter;
+import beauty.beautydemo.entity.FilterEntity;
 import beauty.beautydemo.entity.MyIcon;
 import beauty.beautydemo.entity.NoteEntity;
 import beauty.beautydemo.entity.SubcribeContentListItem;
@@ -884,7 +887,7 @@ public class Constants {
         return tagList;
     }
 
-    public static ArrayList<BasicFilter> getAllFilter(Context context) {
+    public static ArrayList<BasicFilter> getFastFilter(Context context) {
 
         filters = new ArrayList<BasicFilter>();
 
@@ -989,6 +992,90 @@ public class Constants {
         addFilter(new GammaFilter(1.75f));
         addFilter(new LevelsFilter(0.2f, 0.8f, 1f, 0f, 1f));
         return filters;
+    }
+
+
+    /**
+     * GPUImage Filter
+     * @param context
+     * @return
+     */
+    public static ArrayList<FilterEntity> getFilter(Context context) {
+        ArrayList<FilterEntity> list = new ArrayList<>();
+
+        list.add(new FilterEntity("1977", GPUImageFilterTools.FilterType.I_1977));
+        list.add(new FilterEntity("Amaro", GPUImageFilterTools.FilterType.I_AMARO));
+        list.add(new FilterEntity("Brannan", GPUImageFilterTools.FilterType.I_BRANNAN));
+        list.add(new FilterEntity("Earlybird", GPUImageFilterTools.FilterType.I_EARLYBIRD));
+        list.add(new FilterEntity("Hefe", GPUImageFilterTools.FilterType.I_HEFE));
+        list.add(new FilterEntity("Hudson", GPUImageFilterTools.FilterType.I_HUDSON));
+
+        list.add(new FilterEntity("Inkwell", GPUImageFilterTools.FilterType.I_INKWELL));
+        list.add(new FilterEntity("Lomo", GPUImageFilterTools.FilterType.I_LOMO));
+        list.add(new FilterEntity("LordKelvin", GPUImageFilterTools.FilterType.I_LORDKELVIN));
+        list.add(new FilterEntity("Nashville", GPUImageFilterTools.FilterType.I_NASHVILLE));
+        list.add(new FilterEntity("Rise", GPUImageFilterTools.FilterType.I_NASHVILLE));
+
+        list.add(new FilterEntity("Sierra", GPUImageFilterTools.FilterType.I_SIERRA));
+        list.add(new FilterEntity("sutro", GPUImageFilterTools.FilterType.I_SUTRO));
+        list.add(new FilterEntity("Toaster", GPUImageFilterTools.FilterType.I_TOASTER));
+        list.add(new FilterEntity("Valencia", GPUImageFilterTools.FilterType.I_VALENCIA));
+
+        list.add(new FilterEntity("Walden", GPUImageFilterTools.FilterType.I_WALDEN));
+        list.add(new FilterEntity("Xproll", GPUImageFilterTools.FilterType.I_XPROII));
+
+        list.add(new FilterEntity("Contrast", GPUImageFilterTools.FilterType.CONTRAST));
+//        filters.addFilter("Invert", FilterType.INVERT);
+//        filters.addFilter("Pixelation", FilterType.PIXELATION);
+//        filters.addFilter("Hue", FilterType.HUE);
+//        filters.addFilter("Gamma", FilterType.GAMMA);
+        list.add(new FilterEntity("Brightness", GPUImageFilterTools.FilterType.BRIGHTNESS));
+        list.add(new FilterEntity("Sepia", GPUImageFilterTools.FilterType.SEPIA));
+//        filters.addFilter("Grayscale", FilterType.GRAYSCALE);
+//        filters.addFilter("Sharpness", FilterType.SHARPEN);
+//        filters.addFilter("Sobel Edge Detection", FilterType.SOBEL_EDGE_DETECTION);
+//        filters.addFilter("3x3 Convolution", FilterType.THREE_X_THREE_CONVOLUTION);
+//        filters.addFilter("Emboss", FilterType.EMBOSS);
+//        filters.addFilter("Posterize", FilterType.POSTERIZE);
+//        filters.addFilter("Grouped filters", FilterType.FILTER_GROUP);
+//        filters.addFilter("Saturation", FilterType.SATURATION);
+//        filters.addFilter("Exposure", FilterType.EXPOSURE);
+//        filters.addFilter("Highlight Shadow", FilterType.HIGHLIGHT_SHADOW);
+//        filters.addFilter("Monochrome", FilterType.MONOCHROME);
+//        filters.addFilter("Opacity", FilterType.OPACITY);
+//        filters.addFilter("RGB", FilterType.RGB);
+//        filters.addFilter("White Balance", FilterType.WHITE_BALANCE);
+        list.add(new FilterEntity("Vignette", GPUImageFilterTools.FilterType.VIGNETTE));
+        list.add(new FilterEntity("ToneCurve", GPUImageFilterTools.FilterType.TONE_CURVE));
+//
+//        filters.addFilter("Blend (Difference)", FilterType.BLEND_DIFFERENCE);
+//        filters.addFilter("Blend (Source Over)", FilterType.BLEND_SOURCE_OVER);
+//        filters.addFilter("Blend (Color Burn)", FilterType.BLEND_COLOR_BURN);
+//        filters.addFilter("Blend (Color Dodge)", FilterType.BLEND_COLOR_DODGE);
+//        filters.addFilter("Blend (Darken)", FilterType.BLEND_DARKEN);
+//        filters.addFilter("Blend (Dissolve)", FilterType.BLEND_DISSOLVE);
+//        filters.addFilter("Blend (Exclusion)", FilterType.BLEND_EXCLUSION);
+//        filters.addFilter("Blend (Hard Light)", FilterType.BLEND_HARD_LIGHT);
+//        filters.addFilter("Blend (Lighten)", FilterType.BLEND_LIGHTEN);
+//        filters.addFilter("Blend (Add)", FilterType.BLEND_ADD);
+//        filters.addFilter("Blend (Divide)", FilterType.BLEND_DIVIDE);
+//        filters.addFilter("Blend (Multiply)", FilterType.BLEND_MULTIPLY);
+//        filters.addFilter("Blend (Overlay)", FilterType.BLEND_OVERLAY);
+//        filters.addFilter("Blend (Screen)", FilterType.BLEND_SCREEN);
+//        filters.addFilter("Blend (Alpha)", FilterType.BLEND_ALPHA);
+//        filters.addFilter("Blend (Color)", FilterType.BLEND_COLOR);
+//        filters.addFilter("Blend (Hue)", FilterType.BLEND_HUE);
+//        filters.addFilter("Blend (Saturation)", FilterType.BLEND_SATURATION);
+//        filters.addFilter("Blend (Luminosity)", FilterType.BLEND_LUMINOSITY);
+//        filters.addFilter("Blend (Linear Burn)", FilterType.BLEND_LINEAR_BURN);
+//        filters.addFilter("Blend (Soft Light)", FilterType.BLEND_SOFT_LIGHT);
+//        filters.addFilter("Blend (Subtract)", FilterType.BLEND_SUBTRACT);
+//        filters.addFilter("Blend (Chroma Key)", FilterType.BLEND_CHROMA_KEY);
+//        filters.addFilter("Blend (Normal)", FilterType.BLEND_NORMAL);
+//
+        list.add(new FilterEntity("Lookup (Amatorka)", GPUImageFilterTools.FilterType.LOOKUP_AMATORKA));
+
+        return list;
     }
 
     private static ArrayList<BasicFilter> filters;
