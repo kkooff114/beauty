@@ -32,10 +32,39 @@
 
 ## Screenshots
 
-<a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-31-58.png" width="30%"/></a>
+<a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-31-58.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-32-04.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-32-27.png" width="30%"/></a>
 
-<a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-31-58.png" width="30%"/></a>
+<a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-33-03.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-33-12.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-33-22.png" width="30%"/></a>
 
-<a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-31-58.png" width="30%"/></a>
+<a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-33-29.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-34-18.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-34-34.png" width="30%"/></a>
 
-<a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-31-58.png" width="30%"/></a>
+<a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-35-04.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-35-51.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-35-59.png" width="30%"/></a>
+
+<a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-36-39.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-36-45.png" width="30%"/></a>
+
+
+
+## TODO
+
+- 人脸识别框架的引入
+  
+- 项目比较早了, 需要跟新
+  
+  ​
+
+## Statement
+
+该项目仅供交流学习使用.
+
+
+
+## Thanks
+
+由于项目比较早了, 好多参考的开源项目不记得引用的哪里了, 如有问题, 麻烦联系我哈~
+
+
+
+## About me
+
+[kkooff114 blog​]: http://blog.loujiwei.cn	"kkooff114`blog"
+
