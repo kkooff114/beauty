@@ -31,3 +31,6 @@ Thumbs.db
 .gradle
 build/
 myapplication/
+.idea/
+.gradle/
+*.iml
