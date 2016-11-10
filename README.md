@@ -32,7 +32,7 @@
 
 ## Screenshots
 
-<a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-31-58.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-32-04.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-32-27.png" width="30%"/></a>
+<a href="art/00.png" style="padding: 10px;"><img src="Screenshots/Screenshot_2016-11-10-15-31-58.png" width="30%"/></a><a href="art/00.png" style="padding: 10px;"><img src="Screenshots/Screenshot_2016-11-10-15-32-04.png" width="30%"/></a><a href="art/00.png" style="padding: 10px;"><img src="Screenshots/Screenshot_2016-11-10-15-32-27.png" width="30%"/></a>
 
 <a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-33-03.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-33-12.png" width="30%"/></a><a href="art/00.png"><img src="Screenshots/Screenshot_2016-11-10-15-33-22.png" width="30%"/></a>
 
@@ -67,4 +67,3 @@
 ## About me
 
 [kkooff114 blog​]: http://blog.loujiwei.cn	"kkooff114`blog"
-
