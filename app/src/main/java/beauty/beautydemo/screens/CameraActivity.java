@@ -130,7 +130,7 @@ public class CameraActivity extends Activity {
             }
         }
 
-        ;
+
     };
 
     public void scanFileToPhotoAlbum(String path) {
